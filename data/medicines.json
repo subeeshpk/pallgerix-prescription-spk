@@ -1,0 +1,555 @@
+[
+  {
+    "name": "Amitriptyline",
+    "strength": "25 mg tablets",
+    "dose": "0-0-1/2",
+    "frequency": "10 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Amoxicillin",
+    "strength": "500 mg capsules",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take with food; finish the full course"
+  },
+  {
+    "name": "Amoxicillin-clavulanate (Augmentin)",
+    "strength": "625 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take with food; finish the full course"
+  },
+  {
+    "name": "Atropine eye drops",
+    "strength": "1%",
+    "dose": "2 drops",
+    "frequency": "5 days",
+    "notes": "2 drops every 2 to 4 hours as needed for secretions"
+  },
+  {
+    "name": "Azithromycin",
+    "strength": "500 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "6 days",
+    "notes": "Take 2 hours after a meal"
+  },
+  {
+    "name": "Baclofen",
+    "strength": "10 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take with meals; do not discontinue abruptly"
+  },
+  {
+    "name": "Benzydamine",
+    "strength": "0.15% w/v oral rinse",
+    "dose": "As needed",
+    "frequency": "7 days",
+    "notes": "Rinse or gargle with 15 mL every 2 to 3 hours; do not swallow"
+  },
+  {
+    "name": "Bisacodyl",
+    "strength": "5 mg tablets",
+    "dose": "0-0-2",
+    "frequency": "7 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Buprenorphine",
+    "strength": "10 mcg/hr transdermal patch",
+    "dose": "1",
+    "frequency": "7 days",
+    "notes": "Apply to clean, dry, non-hairy skin on upper arm or chest"
+  },
+  {
+    "name": "Buprenorphine",
+    "strength": "0.2 mg tablets",
+    "dose": "1",
+    "frequency": "10 days",
+    "notes": "Put a tablet under the tongue when there is severe pain"
+  },
+  {
+    "name": "Celecoxib",
+    "strength": "100 mg capsules",
+    "dose": "1-0-1",
+    "frequency": "15 days",
+    "notes": "Take with a meal or snack"
+  },
+  {
+    "name": "Ciprofloxacin",
+    "strength": "500 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Do not take with dairy products or antacids; drink plenty of water"
+  },
+  {
+    "name": "Clarithromycin",
+    "strength": "500 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "10 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Clonazepam",
+    "strength": "0.5 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Clotrimazole",
+    "strength": "1% W/W",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Topical: Apply to fungal lesions"
+  },
+  {
+    "name": "Dexamethasone",
+    "strength": "4 mg tablets",
+    "dose": "2-0-0",
+    "frequency": "5 days",
+    "notes": "Take in the morning with food to prevent insomnia and stomach upset"
+  },
+  {
+    "name": "Diazepam",
+    "strength": "2 mg tablets",
+    "dose": "0-0-1",
+    "frequency": "5 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Diclofenac",
+    "strength": "50 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take with or immediately after food to protect the stomach"
+  },
+  {
+    "name": "Docusate sodium",
+    "strength": "100 mg capsules",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with a full glass of water; swallow whole"
+  },
+  {
+    "name": "Domperidone",
+    "strength": "10 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take 15–30 minutes before meals"
+  },
+  {
+    "name": "Donepezil",
+    "strength": "5 mg tablets",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime; can be taken with or without food"
+  },
+  {
+    "name": "Doxycycline",
+    "strength": "100 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take with a full glass of water; sit upright for 30 mins after to prevent reflux"
+  },
+  {
+    "name": "Duloxetine",
+    "strength": "60 mg capsules",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take at the same time each day; do not open or chew capsules"
+  },
+  {
+    "name": "Escitalopram",
+    "strength": "10 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take once daily in the morning or evening; with or without food"
+  },
+  {
+    "name": "Esomeprazole",
+    "strength": "20 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "10 days",
+    "notes": "Take at least 1 hour before breakfast; swallow whole"
+  },
+  {
+    "name": "Famotidine",
+    "strength": "20 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take 30 minutes before food"
+  },
+  {
+    "name": "Fentanyl transdermal patch",
+    "strength": "12 mcg/hr patch",
+    "dose": "1 patch every 3 days",
+    "frequency": "Change every 3 days",
+    "notes": "Apply to clean, flat skin; avoid exposing patch area to direct heat sources"
+  },
+  {
+    "name": "Fluconazole",
+    "strength": "100 mg",
+    "dose": "1-0-0",
+    "frequency": "14 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Fluoxetine",
+    "strength": "20 mg capsules",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with or without food"
+  },
+  {
+    "name": "Fosfomycin",
+    "strength": "3 g oral sachet",
+    "dose": "Single dose",
+    "frequency": "1 day",
+    "notes": "Dissolve powder in cold water and drink immediately on an empty stomach"
+  },
+  {
+    "name": "Furosemide",
+    "strength": "40 mg tablets",
+    "dose": "1-1-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning to avoid waking up at night to urinate"
+  },
+  {
+    "name": "Gabapentin",
+    "strength": "100 mg capsules",
+    "dose": "0-0-1",
+    "frequency": "14 days",
+    "notes": "Can cause drowsiness initially"
+  },
+  {
+    "name": "Glycopyrronium bromide",
+    "strength": "1 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Look for urinary output"
+  },
+  {
+    "name": "Granisetron",
+    "strength": "1 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Haloperidol",
+    "strength": "1.5 mg tablets",
+    "dose": "0-0-1",
+    "frequency": "5 days",
+    "notes": "For agitation, delirium or vomiting"
+  },
+  {
+    "name": "Haloperidol Syrup",
+    "strength": "2 mg/mL syrup",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "For agitation, delirium or vomiting"
+  },
+  {
+    "name": "Ibuprofen",
+    "strength": "400 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take with food"
+  },
+  {
+    "name": "Itraconazole",
+    "strength": "100 mg capsules",
+    "dose": "1-0-0",
+    "frequency": "15 days",
+    "notes": "Take immediately after a full meal for optimal absorption"
+  },
+  {
+    "name": "Lactulose",
+    "strength": "10 mL",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take with water or juice; may take 24–48 hours to see results"
+  },
+  {
+    "name": "Levofloxacin",
+    "strength": "500 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "10 days",
+    "notes": "Take with a full glass of water"
+  },
+  {
+    "name": "Levocetirizine",
+    "strength": "10 mg",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Liquid Paraffin + Milk of Magnesia + Sodium Picosulfate",
+    "strength": "15 mL",
+    "dose": "0-0-1",
+    "frequency": "15 days",
+    "notes": "Can increase if there is no stools and decrease if stool frequency increases more than 4 per day"
+  },
+  {
+    "name": "Loperamide",
+    "strength": "2 mg tablets",
+    "dose": "As needed",
+    "frequency": "3 days",
+    "notes": "Take 2 tablets initially, then 1 tablet after each loose bowel movement; maximum 8 tablets/day"
+  },
+  {
+    "name": "Lorazepam",
+    "strength": "0.5 mg tablets",
+    "dose": "As needed",
+    "frequency": "10 days",
+    "notes": "Can be taken sublingually or orally for rapid relief of anxiety or breathlessness"
+  },
+  {
+    "name": "Metoclopramide Syrup",
+    "strength": "1 mg/mL (5 mL) syrup",
+    "dose": "1-1-1",
+    "frequency": "Max 5 days",
+    "notes": "Take 5 to 10 mL for vomiting 30 minutes before food"
+  },
+  {
+    "name": "Metoclopramide",
+    "strength": "10 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "Max 5 days",
+    "notes": "Take 30 minutes before meals; maintain at least 6 hours between doses"
+  },
+  {
+    "name": "Metronidazole",
+    "strength": "2% gel",
+    "dose": "1-0-0",
+    "frequency": "15 days",
+    "notes": "Topical: Apply to wound"
+  },
+  {
+    "name": "Midazolam",
+    "strength": "1.25 mg/spray",
+    "dose": "1 puff each nostril",
+    "frequency": "PRN",
+    "notes": "Administered nasally for dyspnoea or seizures"
+  },
+  {
+    "name": "Mirtazapine",
+    "strength": "7.5 mg tablets",
+    "dose": "0-0-1",
+    "frequency": "15 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Montelukast + Levocetirizine",
+    "strength": "(10 mg) + (5 mg)",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Morphine",
+    "strength": "10 mg",
+    "dose": "1-1-1-1-2",
+    "frequency": "7 days",
+    "notes": "Take every 4 hours: 6 am, 10 am, 2 pm, 6 pm and double dose at 10 pm"
+  },
+  {
+    "name": "Nebulisation Budecort",
+    "strength": "0.5 Respules",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Nebulisation for 20 minutes or until respule content is over"
+  },
+  {
+    "name": "Nebulisation Levosalbutamol + Ipratropium",
+    "strength": "(1.25 mg) + (500 mcg) Respules",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Nebulisation for 20 minutes or until respule content is over"
+  },
+  {
+    "name": "Nefopam",
+    "strength": "30 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "10 days",
+    "notes": "Take with or without food; may color urine pink"
+  },
+  {
+    "name": "Nitrofurantoin",
+    "strength": "100 mg SR tablets",
+    "dose": "1-0-1",
+    "frequency": "3 to 7 days",
+    "notes": "Take with food or milk to enhance absorption and reduce nausea"
+  },
+  {
+    "name": "Olanzapine",
+    "strength": "2.5 mg tablets",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Omeprazole",
+    "strength": "20 mg capsules",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning 30–60 minutes before breakfast; swallow whole"
+  },
+  {
+    "name": "Ondansetron",
+    "strength": "4 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Oxybutynin",
+    "strength": "2.5 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "10 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Papain + Urea",
+    "strength": "Ointment",
+    "dose": "1-0-0",
+    "frequency": "15 days",
+    "notes": "Topical: Apply to wound on yellowish slough"
+  },
+  {
+    "name": "Pantoprazole",
+    "strength": "40 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Take in the morning 1 hour before food; swallow whole"
+  },
+  {
+    "name": "Paracetamol",
+    "strength": "650 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take every 8 or 6 hours as needed; do not exceed 4g in 24 hours"
+  },
+  {
+    "name": "Pramipexole",
+    "strength": "0.125 mg tablets",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take with or without food; may cause sudden sleep onset"
+  },
+  {
+    "name": "Prednisolone",
+    "strength": "20 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Take in the morning with breakfast to reduce insomnia/stomach upset"
+  },
+  {
+    "name": "Pregabalin",
+    "strength": "75 mg capsules",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Take at the same times each day; can cause dizziness/drowsiness initially"
+  },
+  {
+    "name": "Quetiapine",
+    "strength": "25 mg tablets",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Watch out for excessive daytime sleepiness"
+  },
+  {
+    "name": "Risperidone",
+    "strength": "500 mcg tablets",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Take at bedtime; monitor for extrapyramidal side effects"
+  },
+  {
+    "name": "Sertraline",
+    "strength": "50 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "10 days",
+    "notes": "Take once daily in morning with or without food"
+  },
+  {
+    "name": "Sodium valproate",
+    "strength": "200 mg tablets",
+    "dose": "1-0-1",
+    "frequency": "15 days",
+    "notes": "Take with or immediately after food"
+  },
+  {
+    "name": "Spironolactone",
+    "strength": "25 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "15 days",
+    "notes": "Take in the morning with food"
+  },
+  {
+    "name": "Sulfamethoxazole-trimethoprim (Co-trimoxazole)",
+    "strength": "960 mg DS tablets",
+    "dose": "1-0-1",
+    "frequency": "10 days",
+    "notes": "Take with a full glass of water; can be with or without food"
+  },
+  {
+    "name": "Tapentadol Nasal Spray",
+    "strength": "22.5 mg/puff",
+    "dose": "1 puff each nostril",
+    "frequency": "10 days",
+    "notes": "Can be taken 6 hourly or as needed for severe breakthrough pain"
+  },
+  {
+    "name": "Tolvaptan",
+    "strength": "15 mg",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Review with serum sodium values after 4 days"
+  },
+  {
+    "name": "Tramadol + Paracetamol",
+    "strength": "(37.5 mg) + (325 mg)",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take every 8 hourly or 6 hourly as needed for pain"
+  },
+  {
+    "name": "Tramadol",
+    "strength": "50 mg capsules",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take every 8 hourly or 6 hourly as needed for pain"
+  },
+  {
+    "name": "Tranexamic acid",
+    "strength": "500 mg tablets",
+    "dose": "2-2-2",
+    "frequency": "7 days",
+    "notes": "Take three times daily for bleeding management; swallow whole"
+  },
+  {
+    "name": "Trazodone",
+    "strength": "50 mg capsules",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Zoledronic acid",
+    "strength": "4 mg infusion vial",
+    "dose": "Once every month",
+    "frequency": "30 days",
+    "notes": "Administered as an intravenous/subcutaneous infusion over no less than 15 minutes"
+  },
+  {
+    "name": "Zolpidem",
+    "strength": "5 mg tablets",
+    "dose": "0-0-1",
+    "frequency": "5 days",
+    "notes": "Take at bedtime"
+  }
+]

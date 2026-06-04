@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 70" width="200" height="70">
+  <rect width="200" height="70" fill="none"/>
+  <!-- Decorative cursive signature for Dr. Aneesh Kumar (replace with real signature image) -->
+  <path d="M 10 50 C 15 20, 30 18, 38 35 C 42 45, 40 52, 35 50 C 28 47, 28 38, 35 36 C 45 33, 55 45, 60 40"
+        fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 60 40 C 65 35, 68 30, 72 38 C 76 46, 75 50, 78 48 C 82 45, 85 35, 88 42 C 91 49, 89 54, 92 50"
+        fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 92 50 C 98 42, 104 30, 108 38 C 112 46, 108 55, 112 52 C 117 48, 120 38, 126 44 C 130 49, 128 55, 132 52"
+        fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 132 52 C 138 46, 144 34, 150 42 C 154 48, 152 56, 156 50 C 160 44, 165 38, 170 44 C 174 49, 172 56, 178 52"
+        fill="none" stroke="#1a3a5c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 10 58 L 185 58" stroke="#1a3a5c" stroke-width="0.75" stroke-dasharray="4,2"/>
+</svg>

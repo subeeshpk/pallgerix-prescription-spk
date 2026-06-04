@@ -1,0 +1,328 @@
+<!-- ====================================================
+Copyright (c) 2026 Subeesh Kumar P K
+All rights reserved.
+Unauthorized copying, distribution, or use of this file or any portion of it is prohibited without prior written permission from Subeesh Kumar P K (subeeshpkin@gmail.com).
+     ==================================================== -->
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prescription Generator — Pallgerix</title>
+  <meta name="description" content="Doctor prescription generator — create and print professional medical prescriptions." />
+  <link rel="icon" href="assets/pallgerix_whitebg.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ====================================================
+     CONFIRMATION MODAL (shown before printing)
+     ==================================================== -->
+<div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <h2 id="modal-title">Generate Prescription</h2>
+    <p>Review the prescription preview before printing. Your browser will open the print dialog. Choose <strong>Save as PDF</strong> to save a digital copy.</p>
+    <div class="modal-tip">
+      <strong>Tip:</strong> In the print dialog, select <em>Save as PDF</em> as the destination to download a PDF file instead of printing on paper.
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="executePrint()">Print / Save as PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====================================================
+     MAIN APP CONTAINER
+     ==================================================== -->
+<div id="app-container" class="app-container">
+
+  <!-- ---- TOP BAR ---- -->
+  <header class="top-bar">
+    <div class="top-bar-brand">
+      <img src="assets/pallgerix_darkbg.svg" alt="Clinic Logo" class="top-bar-logo" />
+      <span class="top-bar-title">Pallgerix Prescription by Dr. Aneesh V G</span>
+    </div>
+    <div class="top-bar-actions">
+      <button class="btn btn-outline" onclick="resetForm()" title="Clear all form inputs">Reset Form</button>
+      <button class="btn btn-primary" onclick="showConfirmModal()">&#x2399; Download PDF</button>
+    </div>
+  </header>
+
+  <!-- MOBILE TAB BAR — hidden on desktop via CSS -->
+  <div class="mobile-tabs" role="tablist" aria-label="Switch between form and preview">
+    <button class="mobile-tab tab-active" id="tab-form" role="tab"
+            aria-selected="true" aria-controls="form-panel"
+            onclick="switchTab('form')">&#x270F;&#xFE0E; Form</button>
+    <button class="mobile-tab" id="tab-preview" role="tab"
+            aria-selected="false" aria-controls="preview-panel"
+            onclick="switchTab('preview')">&#x25A1; Preview</button>
+  </div>
+
+  <div class="main-layout">
+
+    <!-- ================================================
+         LEFT PANEL — FORM
+         ================================================ -->
+    <section class="form-panel" id="form-panel" aria-label="Prescription Form">
+
+      <!-- DOCTOR SELECTOR -->
+      <fieldset class="form-section doctor-selector-section">
+        <legend class="section-title">Doctor</legend>
+        <div class="form-group">
+          <label for="doctor-select">Select Doctor <span class="required">*</span></label>
+          <select id="doctor-select" onchange="handleDoctorSelect(this.value)">
+            <option value="-1">— Select a doctor —</option>
+          </select>
+        </div>
+        <div id="doctor-card" class="doctor-card hidden"></div>
+      </fieldset>
+
+      <!-- PATIENT DETAILS -->
+      <fieldset class="form-section">
+        <legend class="section-title">Patient Details</legend>
+
+        <!-- ── Personal Info ── -->
+        <div class="pt-subsection">
+          <div class="pt-sub-label">Personal Info</div>
+
+          <div class="form-group">
+            <label for="pt-name">Full Name <span class="required">*</span></label>
+            <input type="text" id="pt-name" name="name" placeholder="Patient full name"
+              oninput="handlePatientInput(event)" autocomplete="off" />
+          </div>
+
+          <div class="age-dob-row">
+            <div class="form-group">
+              <label for="pt-dob">Date of Birth</label>
+              <input type="date" id="pt-dob" name="dob"
+                oninput="handleDobInput(event)"
+                title="Enter DOB to auto-calculate age" />
+            </div>
+            <div class="age-dob-or" aria-hidden="true">or</div>
+            <div class="form-group">
+              <label for="pt-age">Age <span class="required">*</span>
+                <span class="age-auto-label" id="age-auto-label" style="display:none;">(auto)</span>
+              </label>
+              <input type="number" id="pt-age" name="age" placeholder="Years" min="0" max="150"
+                oninput="handleAgeInput(event)" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Sex <span class="required">*</span></label>
+            <div class="tile-group" id="sex-tiles" role="group" aria-label="Select sex">
+              <button type="button" class="tile" data-value="Male" onclick="selectSex(this)">Male</button>
+              <button type="button" class="tile" data-value="Female" onclick="selectSex(this)">Female</button>
+              <button type="button" class="tile" data-value="Other" onclick="selectSex(this)">Other</button>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pt-height">Height</label>
+              <input type="text" id="pt-height" name="height" placeholder="e.g. 170 cm"
+                oninput="handlePatientInput(event)" />
+            </div>
+            <div class="form-group">
+              <label for="pt-weight">Weight</label>
+              <input type="text" id="pt-weight" name="weight" placeholder="e.g. 70 kg"
+                oninput="handlePatientInput(event)" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Vitals ── -->
+        <div class="pt-subsection">
+          <div class="pt-sub-label">Vitals</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pt-pulse">Pulse Rate</label>
+              <input type="text" id="pt-pulse" name="pulseRate" placeholder="e.g. 72 bpm"
+                oninput="handlePatientInput(event)" />
+            </div>
+            <div class="form-group">
+              <label for="pt-rr">Respiratory Rate</label>
+              <input type="text" id="pt-rr" name="respiratoryRate" placeholder="e.g. 16 /min"
+                oninput="handlePatientInput(event)" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pt-spo2">SPO2</label>
+              <input type="text" id="pt-spo2" name="spo2" placeholder="e.g. 98%"
+                oninput="handlePatientInput(event)" />
+            </div>
+            <div class="form-group">
+              <label for="pt-bp">Blood Pressure</label>
+              <input type="text" id="pt-bp" name="bp" placeholder="e.g. 120/80 mmHg"
+                oninput="handlePatientInput(event)" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pt-temp">Temperature</label>
+              <input type="text" id="pt-temp" name="temperature" placeholder="e.g. 98.6°F"
+                oninput="handlePatientInput(event)" />
+            </div>
+            <div class="form-group pt-group-spacer"></div>
+          </div>
+        </div>
+
+        <!-- ── Contact ── -->
+        <div class="pt-subsection">
+          <div class="pt-sub-label">Contact</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pt-mobile">Mobile Number</label>
+              <input type="tel" id="pt-mobile" name="mobile" placeholder="e.g. +91 98765 43210"
+                oninput="handlePatientInput(event)" />
+            </div>
+            <div class="form-group">
+              <label for="pt-email">Patient Email</label>
+              <input type="email" id="pt-email" name="patientEmail" placeholder="patient@email.com"
+                oninput="handlePatientInput(event)" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pt-address">Address</label>
+            <input type="text" id="pt-address" name="address" placeholder="Street, City, PIN"
+              oninput="handlePatientInput(event)" />
+          </div>
+
+          <div class="form-group">
+            <label for="pt-notes">Additional Notes</label>
+            <textarea id="pt-notes" name="notes" rows="3" placeholder="Allergies, history, etc."
+              oninput="handlePatientInput(event)"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- DIAGNOSIS -->
+      <fieldset class="form-section">
+        <legend class="section-title">Diagnosis</legend>
+        <div class="add-row">
+          <input type="text" id="diagnosis-input" placeholder="Enter diagnosis..."
+            onkeydown="if(event.key==='Enter'){event.preventDefault();addDiagnosis();}" />
+          <button class="btn btn-secondary" id="diagnosis-cancel-btn" onclick="cancelDiagnosisEdit()" style="display:none;">Cancel</button>
+          <button class="btn btn-add" id="diagnosis-add-btn" onclick="addDiagnosis()">+ Add</button>
+        </div>
+        <ul id="diagnosis-list" class="item-list" aria-label="Diagnosis list"></ul>
+      </fieldset>
+
+      <!-- TESTS ORDERED -->
+      <fieldset class="form-section">
+        <legend class="section-title">Tests Ordered</legend>
+        <div id="test-tiles" class="tile-group multi-select" role="group" aria-label="Select tests">
+          <span class="loading-text">Loading tests…</span>
+        </div>
+        <div class="add-row" style="margin-top:0.5rem;">
+          <input type="text" id="custom-test-input" placeholder="Custom test..."
+            onkeydown="if(event.key==='Enter'){event.preventDefault();addCustomTest();}" />
+          <button class="btn btn-add" onclick="addCustomTest()">+ Add</button>
+        </div>
+      </fieldset>
+
+      <!-- MEDICINES -->
+      <fieldset class="form-section">
+        <legend class="section-title">Medicines</legend>
+
+        <!-- Medicine template search -->
+        <div class="med-search-section">
+          <label class="med-search-label" for="med-search">Search medicine template</label>
+          <div class="med-search-input-wrap">
+            <input type="text" id="med-search" class="med-search-input"
+              placeholder="Type to search… e.g. Paracetamol"
+              autocomplete="off" spellcheck="false" />
+            <button type="button" id="med-search-clear" class="med-search-clear" aria-label="Clear search" style="display:none">✕</button>
+          </div>
+          <div id="med-search-results" class="med-search-results" role="listbox" aria-label="Medicine search results"></div>
+        </div>
+
+        <div class="medicine-form" id="medicine-form">
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="med-name">Medicine Name</label>
+              <input type="text" id="med-name" placeholder="e.g. Paracetamol" />
+            </div>
+            <div class="form-group">
+              <label for="med-strength">Strength</label>
+              <input type="text" id="med-strength" placeholder="e.g. 500 mg" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="med-dose">Dose</label>
+              <input type="text" id="med-dose" placeholder="e.g. 1-0-1" />
+            </div>
+            <div class="form-group">
+              <label for="med-frequency">Frequency / Duration</label>
+              <input type="text" id="med-frequency" placeholder="e.g. After meals / 5 days" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+              <label for="med-notes">Instructions / Notes</label>
+              <input type="text" id="med-notes" placeholder="e.g. Take with water" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-secondary" id="med-cancel-btn" onclick="cancelMedicineEdit()" style="display:none;">Cancel</button>
+            <button class="btn btn-add" id="med-save-btn" onclick="saveMedicine()">+ Add Medicine</button>
+          </div>
+        </div>
+
+        <ul id="medicine-list" class="item-list medicine-item-list" aria-label="Medicine list"></ul>
+      </fieldset>
+
+      <!-- CARE PLANS -->
+      <fieldset class="form-section">
+        <legend class="section-title">Care Plans</legend>
+        <div id="careplan-tiles" class="tile-group multi-select" role="group" aria-label="Select care plans">
+          <span class="loading-text">Loading care plans…</span>
+        </div>
+        <div class="add-row" style="margin-top:0.5rem;">
+          <input type="text" id="custom-careplan-input" placeholder="Custom care plan..."
+            onkeydown="if(event.key==='Enter'){event.preventDefault();addCustomCareplan();}" />
+          <button class="btn btn-add" onclick="addCustomCareplan()">+ Add</button>
+        </div>
+      </fieldset>
+
+      <!-- VALIDATION ERRORS -->
+      <div id="validation-msg" class="validation-msg hidden" role="alert"></div>
+
+    </section><!-- /form-panel -->
+
+    <!-- ================================================
+         RIGHT PANEL — LIVE PREVIEW
+         ================================================ -->
+    <section class="preview-panel" id="preview-panel" aria-label="Prescription Preview">
+      <div class="preview-header">
+        <h2 class="preview-title">Live Preview</h2>
+        <span class="preview-hint">Updates as you type</span>
+      </div>
+      <div id="preview-content" class="prescription-paper">
+        <div class="empty-preview">
+          <p>Fill in patient details to see the prescription preview.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /main-layout -->
+</div><!-- /app-container -->
+
+<!-- ====================================================
+     PRINT AREA — only visible during printing
+     ==================================================== -->
+<div id="print-area" class="print-area">
+  <!-- Populated by JS before window.print() -->
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
