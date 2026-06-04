@@ -549,7 +549,7 @@ function updatePreview() {
 
   const hasContent = state.patient.name || state.diagnosisList.length ||
                      state.selectedTests.length || state.medicineList.length ||
-                     state.selectedCarePlans.length;
+                     state.selectedCarePlans.length || state.patient.notes;
 
   if (!hasContent) {
     container.innerHTML = '<div class="empty-preview"><p>Fill in patient details to see the prescription preview.</p></div>';
@@ -587,14 +587,15 @@ function updatePreview() {
       <div class="rx-footer">
         <div class="rx-footer-left">
           <div>${escapeHTML(doc?.clinicName || '')}</div>
-          <div>${escapeHTML(doc?.clinicPhone || '')} ${escapeHTML(doc?.email ? '· ' + doc.email : '')}</div>
+          <div>${escapeHTML([doc?.clinicPhone, doc?.email].filter(Boolean).join(' · '))}</div>
           ${doc?.website ? `<div>${escapeHTML(doc.website)}</div>` : ''}
-          <div style="margin-top:4px;font-size:0.72rem;color:#999;">
+          <div class="rx-footer-disclaimer">
             This prescription is computer generated and valid without a physical stamp unless required.
           </div>
         </div>
         <div class="rx-signature-block">
-          <img src="${escapeHTML(sigFile)}" class="rx-signature-img" alt="Doctor Signature" />
+          <img src="${escapeHTML(sigFile)}" class="rx-signature-img" alt="Doctor Signature"
+               onerror="this.style.display='none';" />
           <div class="rx-signature-name">${escapeHTML(doc?.name || '')}</div>
           <div class="rx-signature-sub">${escapeHTML(doc?.qualifications || '')}</div>
           <div class="rx-signature-sub">Reg: ${escapeHTML(doc?.registration || '')}</div>
@@ -656,9 +657,9 @@ function updatePreview() {
   if (state.diagnosisList.length) {
     html += `<div class="rx-section">
       <div class="rx-section-heading">Diagnosis</div>
-      <ol class="rx-diagnosis-list">
+      <ul class="rx-diagnosis-list">
         ${state.diagnosisList.map(d => `<li>${escapeHTML(d)}</li>`).join('')}
-      </ol>
+      </ul>
     </div>`;
   }
 

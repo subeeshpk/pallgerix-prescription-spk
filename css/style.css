@@ -813,7 +813,6 @@ textarea {
 .rx-logo {
   height: 52px;
   width: auto;
-  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -927,6 +926,8 @@ textarea {
   gap: 0.5rem;
   font-size: 0.85rem;
   padding: 0.1rem 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .rx-diagnosis-list li::before {
@@ -955,6 +956,8 @@ textarea {
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .rx-tests-list li::before {
@@ -1003,6 +1006,8 @@ textarea {
 
 .rx-med-table td {
   font-size: 0.8rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .rx-med-table tr:nth-child(even) td {
@@ -1057,6 +1062,15 @@ textarea {
   font-size: 0.75rem;
   color: var(--color-text-muted);
   flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.rx-footer-disclaimer {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: #999;
 }
 
 .rx-signature-block {
