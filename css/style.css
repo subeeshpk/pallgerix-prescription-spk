@@ -1546,10 +1546,20 @@ textarea {
 
   .print-field-value {
     font-size: 9.5pt;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-section {
     margin-bottom: 8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Medicine table section must be allowed to span pages */
+  .print-section-table {
+    page-break-inside: auto;
+    break-inside: auto;
   }
 
   .print-section-heading {
@@ -1574,6 +1584,8 @@ textarea {
     padding: 1.5pt 0;
     display: flex;
     gap: 5pt;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-diag-num {
@@ -1593,6 +1605,8 @@ textarea {
 
   .print-tests-list li {
     font-size: 9.5pt;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-tests-list li::before {
@@ -1644,11 +1658,6 @@ textarea {
     background-color: #f8fbfe !important;
   }
 
-  .print-med-table td.col-instructions {
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
   .print-careplan-list {
     list-style: none;
     padding: 0;
@@ -1660,6 +1669,8 @@ textarea {
 
   .print-careplan-list li {
     font-size: 9.5pt;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-careplan-list li::before {
@@ -1694,6 +1705,8 @@ textarea {
     color: #666;
     flex: 1;
     min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-footer-disclaimer {
@@ -1726,9 +1739,4 @@ textarea {
     color: #555;
   }
 
-  /* Avoid page breaks inside sections */
-  .print-section {
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
 }

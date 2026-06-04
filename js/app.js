@@ -1175,7 +1175,7 @@ function buildPrintHTML() {
 
   /* Medicines */
   if (state.medicineList.length) {
-    html += `<div class="print-section">
+    html += `<div class="print-section print-section-table">
       <div class="print-section-heading">Rx — Medicines</div>
       <table class="print-med-table">
         <thead>
