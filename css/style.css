@@ -1066,21 +1066,26 @@ textarea {
 }
 
 .rx-signature-img {
-  height: 56px;
-  max-width: 150px;
   display: block;
+  max-height: 56px;
+  max-width: 150px;
+  width: auto;
+  height: auto;
   margin: 0 0 0.2rem auto;
-  object-fit: contain;
 }
 
 .rx-signature-name {
   font-weight: 700;
   font-size: 0.82rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .rx-signature-sub {
   font-size: 0.72rem;
   color: var(--color-text-muted);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* ---- Modal ---- */
@@ -1722,21 +1727,26 @@ textarea {
   }
 
   .print-sig-img {
-    height: 48pt;
-    max-width: 120pt;
     display: block;
+    max-height: 48pt;
+    max-width: 120pt;
+    width: auto;
+    height: auto;
     margin: 0 0 3pt auto;
-    object-fit: contain;
   }
 
   .print-sig-name {
     font-weight: bold;
     font-size: 9.5pt;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-sig-sub {
     font-size: 7.5pt;
     color: #555;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
 }

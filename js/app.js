@@ -1234,7 +1234,8 @@ function buildPrintHTML() {
         </div>
       </div>
       <div class="print-signature-block">
-        <img src="${escapeHTML(sig)}" class="print-sig-img" alt="Doctor Signature" />
+        <img src="${escapeHTML(sig)}" class="print-sig-img" alt="Doctor Signature"
+             onerror="this.style.display='none';" />
         <div class="print-sig-name">${escapeHTML(doc?.name || '')}</div>
         <div class="print-sig-sub">${escapeHTML(doc?.qualifications || '')}</div>
         <div class="print-sig-sub">Reg: ${escapeHTML(doc?.registration || '')}</div>
