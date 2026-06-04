@@ -189,6 +189,12 @@ body {
   margin-bottom: 0.6rem;
 }
 
+/* Inside pt-subsection the parent gap handles all spacing — own margins would double it */
+.pt-subsection .form-row,
+.pt-subsection .age-dob-row {
+  margin-bottom: 0;
+}
+
 .age-dob-row .form-group {
   flex: 1;
 }
@@ -207,6 +213,17 @@ body {
   font-weight: 500;
   font-size: 0.72rem;
   margin-left: 0.25rem;
+}
+
+/* Hide spin buttons on number inputs (e.g. Age field) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /* Age field when auto-calculated from DOB */
