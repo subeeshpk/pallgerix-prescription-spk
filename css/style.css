@@ -28,8 +28,6 @@ html {
   --color-section-title: #1a3a5c;
 
   --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
-  --font-mono: 'Courier New', monospace;
 
   --radius-sm: 4px;
   --radius: 8px;
@@ -293,6 +291,8 @@ select:focus {
 input[type="text"],
 input[type="number"],
 input[type="date"],
+input[type="tel"],
+input[type="email"],
 textarea {
   width: 100%;
   padding: 0.42rem 0.6rem;
@@ -379,7 +379,6 @@ textarea {
   width: 100%;
   text-align: left;
 }
-
 
 .tile:hover {
   border-color: var(--color-primary);
@@ -639,9 +638,6 @@ textarea {
   gap: 0.3rem 0.8rem;
 }
 
-.med-details span::before {
-  content: '';
-}
 
 /* ---- Buttons ---- */
 .btn {
@@ -960,7 +956,6 @@ textarea {
 /* Medicines table — wrapped for horizontal scroll on narrow preview panels */
 .rx-med-table-wrap {
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .rx-med-table {
@@ -1198,10 +1193,6 @@ textarea {
     min-height: 44px;
   }
 
-  /* Smaller patient grid columns so preview doesn't overflow at tablet */
-  .rx-patient-box {
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  }
 }
 
 /* =============================================================
