@@ -356,6 +356,20 @@ textarea {
   justify-content: flex-start;
 }
 
+/* Tests Ordered & Care Plans — wider columns and slightly larger tiles for prominence */
+#test-tiles,
+#careplan-tiles {
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+}
+
+#test-tiles .tile,
+#careplan-tiles .tile {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.92rem;
+  border-radius: var(--radius-sm);
+  min-height: 42px;
+}
+
 /* Inner text span — constrained to tile width, no wrapping */
 .tile-text {
   display: block;
@@ -1173,6 +1187,17 @@ textarea {
     padding: 0.4rem 0.8rem;
   }
 
+  /* Tests & Care Plans tiles keep their larger column width at tablet */
+  #test-tiles,
+  #careplan-tiles {
+    grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  }
+
+  #test-tiles .tile,
+  #careplan-tiles .tile {
+    min-height: 44px;
+  }
+
   /* Smaller patient grid columns so preview doesn't overflow at tablet */
   .rx-patient-box {
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -1261,6 +1286,18 @@ textarea {
     min-height: 44px;
     padding: 0.5rem 0.9rem;
     font-size: 0.88rem;
+  }
+
+  /* Tests & Care Plans tiles on mobile: full-width single column */
+  #test-tiles,
+  #careplan-tiles {
+    grid-template-columns: 1fr;
+  }
+
+  #test-tiles .tile,
+  #careplan-tiles .tile {
+    min-height: 52px;
+    font-size: 0.95rem;
   }
 
   /* Touch-friendly buttons */
