@@ -1085,25 +1085,6 @@ function buildPrintHTML() {
   const p   = state.patient;
   const sig = doc?.signatureFile || 'assets/signature.svg';
 
-  /* Patient grid fields */
-  const patFields = [
-    { label: 'Patient Name', value: p.name },
-    { label: 'Age',          value: p.age ? `${p.age} yrs` : '' },
-    { label: 'Sex',          value: p.sex },
-    { label: 'Date of Birth',value: formatDateDisplay(p.dob) },
-    { label: 'Height',           value: p.height },
-    { label: 'Weight',           value: p.weight },
-    { label: 'Pulse Rate',       value: p.pulseRate },
-    { label: 'Respiratory Rate', value: p.respiratoryRate },
-    { label: 'SPO2',             value: p.spo2 },
-    { label: 'Blood Pressure',   value: p.bp },
-    { label: 'Temperature',      value: p.temperature },
-    { label: 'Mobile',       value: p.mobile },
-    { label: 'Email',        value: p.patientEmail },
-    { label: 'Address',      value: p.address },
-    { label: 'Date of Visit', value: formatDateTime() }
-  ].filter(f => f.value);
-
   let html = `<div class="print-prescription">`;
 
   /* Header */
@@ -1175,10 +1156,10 @@ function buildPrintHTML() {
   if (state.diagnosisList.length) {
     html += `<div class="print-section">
       <div class="print-section-heading">Diagnosis</div>
-      <ol class="print-diag-list">
+      <ul class="print-diag-list">
         ${state.diagnosisList.map((d, i) => `
           <li><span class="print-diag-num">${i + 1}.</span>${escapeHTML(d)}</li>`).join('')}
-      </ol>
+      </ul>
     </div>`;
   }
 
@@ -1248,7 +1229,7 @@ function buildPrintHTML() {
         <div>${escapeHTML(doc?.clinicAddress || '')}</div>
         <div>${escapeHTML([doc?.clinicPhone, doc?.email].filter(Boolean).join(' · '))}</div>
         ${doc?.website ? `<div>${escapeHTML(doc.website)}</div>` : ''}
-        <div style="margin-top:4pt;font-size:7.5pt;color:#888;">
+        <div class="print-footer-disclaimer">
           Computer-generated prescription. Valid subject to applicable regulations.
         </div>
       </div>

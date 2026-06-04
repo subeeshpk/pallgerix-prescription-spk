@@ -1446,12 +1446,17 @@ textarea {
     border-bottom: 2pt solid #1a6fa8;
     padding-bottom: 8pt;
     margin-bottom: 8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .print-clinic-block {
     display: flex;
     align-items: flex-start;
     gap: 8pt;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-logo {
@@ -1476,6 +1481,9 @@ textarea {
   .print-doctor-info {
     text-align: right;
     font-size: 9.5pt;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-doctor-name {
@@ -1496,6 +1504,8 @@ textarea {
     display: flex;
     flex-direction: column;
     gap: 3pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .print-pt-group {
@@ -1626,6 +1636,8 @@ textarea {
 
   .print-med-table td {
     font-size: 9pt;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-med-table tr:nth-child(even) td {
@@ -1662,15 +1674,19 @@ textarea {
     font-style: italic;
     border-left: 2pt solid #b8d9f0;
     padding-left: 6pt;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .print-footer {
     margin-top: 16pt;
     padding-top: 8pt;
     border-top: 0.5pt solid #d1d5db;
-    display: flex !important;
-    justify-content: space-between !important;
+    display: flex;
+    justify-content: space-between;
     align-items: flex-end;
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .print-footer-left {
@@ -1678,6 +1694,12 @@ textarea {
     color: #666;
     flex: 1;
     min-width: 0;
+  }
+
+  .print-footer-disclaimer {
+    margin-top: 4pt;
+    font-size: 7.5pt;
+    color: #888;
   }
 
   .print-signature-block {
@@ -1707,5 +1729,6 @@ textarea {
   /* Avoid page breaks inside sections */
   .print-section {
     page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
