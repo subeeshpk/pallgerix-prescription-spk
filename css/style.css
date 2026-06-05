@@ -919,6 +919,7 @@ textarea {
 .rx-diagnosis-list {
   list-style: none;
   padding: 0;
+  counter-reset: diag-counter;
 }
 
 .rx-diagnosis-list li {
@@ -936,10 +937,7 @@ textarea {
   font-weight: 600;
   color: var(--color-primary);
   min-width: 1.2rem;
-}
-
-.rx-diagnosis-list {
-  counter-reset: diag-counter;
+  flex-shrink: 0;
 }
 
 /* Tests list */
@@ -1012,12 +1010,6 @@ textarea {
 
 .rx-med-table tr:nth-child(even) td {
   background-color: rgba(26,111,168,0.03);
-}
-
-/* Instructions column: wrap long text gracefully */
-.rx-med-table td.col-instructions {
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 /* Care plans */

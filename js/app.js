@@ -581,6 +581,7 @@ function updatePreview() {
           <div class="rx-doctor-name">${escapeHTML(doc?.name || '')}</div>
           <div class="rx-doctor-qual">${escapeHTML(doc?.qualifications || '')}</div>
           <div class="rx-doctor-reg">Reg: ${escapeHTML(doc?.registration || '')}</div>
+          ${doc?.contact ? `<div class="rx-doctor-reg">${escapeHTML(doc.contact)}</div>` : ''}
         </div>
       </div>
       <div id="rx-dynamic"></div>
@@ -607,7 +608,7 @@ function updatePreview() {
   const dynEl = document.getElementById('rx-dynamic');
   if (!dynEl) return;
 
-  let html = `<div class="rx-datetime">Date: ${formatDateTime()}</div>`;
+  let html = `<div class="rx-datetime">Date &amp; Time: ${formatDateTime()}</div>`;
 
   /* Patient box — grouped by Personal Info / Vitals / Contact */
   const ptPersonal = [
