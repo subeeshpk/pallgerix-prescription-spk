@@ -1098,8 +1098,8 @@ function buildPrintHTML() {
              alt="Clinic Logo" class="print-logo" />
         <div>
           <div class="print-clinic-name">${escapeHTML(doc?.clinicName || '')}</div>
-          <div class="print-clinic-sub">${escapeHTML(doc?.clinicAddress || '')}</div>
-          <div class="print-clinic-sub">${escapeHTML([doc?.clinicPhone, doc?.email].filter(Boolean).join(' · '))}</div>
+          ${doc?.clinicAddress ? `<div class="print-clinic-sub">${escapeHTML(doc.clinicAddress)}</div>` : ''}
+          ${[doc?.clinicPhone, doc?.email].filter(Boolean).length ? `<div class="print-clinic-sub">${escapeHTML([doc?.clinicPhone, doc?.email].filter(Boolean).join(' · '))}</div>` : ''}
           ${doc?.website ? `<div class="print-clinic-sub">${escapeHTML(doc.website)}</div>` : ''}
         </div>
       </div>
@@ -1107,7 +1107,7 @@ function buildPrintHTML() {
         <div class="print-doctor-name">${escapeHTML(doc?.name || '')}</div>
         <div class="print-doctor-sub">${escapeHTML(doc?.qualifications || '')}</div>
         <div class="print-doctor-sub">Reg. No: ${escapeHTML(doc?.registration || '')}</div>
-        <div class="print-doctor-sub">${escapeHTML(doc?.contact || '')}</div>
+        ${doc?.contact ? `<div class="print-doctor-sub">${escapeHTML(doc.contact)}</div>` : ''}
       </div>
     </div>
     <div class="print-datetime">Date &amp; Time: ${formatDateTime()}</div>`;

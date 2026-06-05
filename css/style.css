@@ -1470,6 +1470,10 @@ textarea {
     word-break: break-word;
   }
 
+  .print-clinic-block > div {
+    min-width: 0;
+  }
+
   .print-logo {
     height: 48pt;
     width: auto;
@@ -1610,6 +1614,7 @@ textarea {
     font-weight: bold;
     color: #1a6fa8;
     min-width: 14pt;
+    flex-shrink: 0;
   }
 
   .print-tests-list {
@@ -1636,11 +1641,6 @@ textarea {
   /* Repeat table header on multi-page tables */
   thead {
     display: table-header-group;
-  }
-
-  .col-nowrap {
-    white-space: nowrap;
-    width: 1%;
   }
 
   .print-med-table {
