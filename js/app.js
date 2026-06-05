@@ -1104,9 +1104,9 @@ function buildPrintHTML() {
       </div>
       <div class="print-doctor-info">
         <div class="print-doctor-name">${escapeHTML(doc?.name || '')}</div>
-        <div>${escapeHTML(doc?.qualifications || '')}</div>
-        <div>Reg. No: ${escapeHTML(doc?.registration || '')}</div>
-        <div>${escapeHTML(doc?.contact || '')}</div>
+        <div class="print-doctor-sub">${escapeHTML(doc?.qualifications || '')}</div>
+        <div class="print-doctor-sub">Reg. No: ${escapeHTML(doc?.registration || '')}</div>
+        <div class="print-doctor-sub">${escapeHTML(doc?.contact || '')}</div>
       </div>
     </div>
     <div class="print-datetime">Date &amp; Time: ${formatDateTime()}</div>`;

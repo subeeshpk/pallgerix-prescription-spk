@@ -1481,7 +1481,6 @@ textarea {
   .print-logo {
     height: 48pt;
     width: auto;
-    object-fit: contain;
     flex-shrink: 0;
   }
 
@@ -1509,6 +1508,12 @@ textarea {
     font-weight: bold;
     font-size: 11pt;
     color: #1a3a5c;
+  }
+
+  .print-doctor-sub {
+    font-size: 8.5pt;
+    color: #555;
+    margin-top: 1pt;
   }
 
   .print-datetime {
@@ -1590,6 +1595,8 @@ textarea {
     border-bottom: 0.75pt solid #b8d9f0;
     padding-bottom: 2pt;
     margin-bottom: 4pt;
+    page-break-after: avoid;
+    break-after: avoid;
   }
 
   .print-diag-list {
@@ -1675,6 +1682,11 @@ textarea {
 
   .print-med-table tr:nth-child(even) td {
     background-color: #f8fbfe !important;
+  }
+
+  .print-med-table tbody tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
   .print-careplan-list {
