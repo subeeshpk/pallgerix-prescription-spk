@@ -1,5 +1,68 @@
 [
   {
+    "name": "Aceclofenac",
+    "strength": "Tablet: 100 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Strictly after food to protect gastric mucosa"
+  },
+  {
+    "name": "Aceclofenac + Paracetamol",
+    "strength": "Tablet: 100 mg + 325 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Strictly after food"
+  },
+  {
+    "name": "Aceclofenac + Paracetamol",
+    "strength": "Tablet: 100 mg + 500 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Strictly after food"
+  },
+  {
+    "name": "Aceclofenac + Paracetamol + Thiocolchicoside",
+    "strength": "Tablet: 100 mg + 325 mg + 4 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Strictly after food"
+  },
+  {
+    "name": "Aceclofenac + Paracetamol + Thiocolchicoside",
+    "strength": "Tablet: 100 mg + 325 mg + 8 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Strictly after food"
+  },
+  {
+    "name": "Alprazolam",
+    "strength": "Tablet: 0.25 mg",
+    "dose": "1-0-1",
+    "frequency": "7 days",
+    "notes": "Use for short-term only"
+  },
+  {
+    "name": "Alprazolam",
+    "strength": "Tablet: 0.5 mg",
+    "dose": "1-0-1",
+    "frequency": "7 days",
+    "notes": "Use for short-term only"
+  },
+  {
+    "name": "Ambroxol",
+    "strength": "Tablet: 30 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Ambroxol + Levosalbutamol + Guaifenesin",
+    "strength": "Syrup: (30mg+1mg+50mg) / 5mL",
+    "dose": "2-2-2",
+    "frequency": "5 days",
+    "notes": "Take after food"
+  },
+  {
     "name": "Amitriptyline",
     "strength": "25 mg tablets",
     "dose": "0-0-1/2",
@@ -7,46 +70,172 @@
     "notes": "Take at bedtime"
   },
   {
+    "name": "Amlodipine",
+    "strength": "Tablet: 2.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Can be taken with or without food"
+  },
+  {
+    "name": "Amlodipine",
+    "strength": "Tablet: 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Can be taken with or without food. Watch for ankle edema"
+  },
+  {
+    "name": "Amlodipine",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Can be taken with or without food. Watch for ankle edema"
+  },
+  {
     "name": "Amoxicillin",
     "strength": "500 mg capsules",
     "dose": "1-1-1",
     "frequency": "5 days",
-    "notes": "Take with food; finish the full course"
+    "notes": "Take with food; finish the full course; Take with or without food"
+  },
+  {
+    "name": "Amoxicillin + Clavulanic Acid",
+    "strength": "Tablet: 500 mg + 125 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take at start of a meal to mitigate diarrhea risk profiles"
+  },
+  {
+    "name": "Amoxicillin + Clavulanic Acid",
+    "strength": "Tablet: 875 mg + 125 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take at start of a meal to mitigate diarrhea risk profiles"
   },
   {
     "name": "Amoxicillin-clavulanate (Augmentin)",
     "strength": "625 mg tablets",
     "dose": "1-1-1",
     "frequency": "5 days",
-    "notes": "Take with food; finish the full course"
+    "notes": "Take with food; finish the full course; Take with food or immediately after a meal"
+  },
+  {
+    "name": "Aspirin",
+    "strength": "EC Tablet: 75 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or after food"
+  },
+  {
+    "name": "Aspirin",
+    "strength": "EC Tablet: 150 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or after food"
+  },
+  {
+    "name": "Atenolol",
+    "strength": "Tablet: 25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food, preferably at the same time"
+  },
+  {
+    "name": "Atenolol",
+    "strength": "Tablet: 50 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food, preferably at the same time"
+  },
+  {
+    "name": "Atenolol",
+    "strength": "Tablet: 100 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food, preferably at the same time"
+  },
+  {
+    "name": "Atorvastatin",
+    "strength": "Tablet: 10 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime. Lipid management standard"
+  },
+  {
+    "name": "Atorvastatin",
+    "strength": "Tablet: 20 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime. Lipid management standard"
+  },
+  {
+    "name": "Atorvastatin",
+    "strength": "Tablet: 40 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime. High-intensity lipid therapy"
+  },
+  {
+    "name": "Atorvastatin",
+    "strength": "Tablet: 80 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime. High-intensity lipid therapy"
+  },
+  {
+    "name": "Atorvastatin + Aspirin",
+    "strength": "Capsule: 10 mg + 75 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime strictly after food"
+  },
+  {
+    "name": "Atorvastatin + Aspirin",
+    "strength": "Capsule: 20 mg + 150 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime strictly after food"
+  },
+  {
+    "name": "Atorvastatin + Clopidogrel",
+    "strength": "Capsule: 10 mg + 75 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime after food. Dual cardiovascular protection"
+  },
+  {
+    "name": "Atorvastatin + Clopidogrel",
+    "strength": "Capsule: 20 mg + 75 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime after food. Dual cardiovascular protection"
   },
   {
     "name": "Atropine eye drops",
-    "strength": "1%",
+    "strength": "0.01",
     "dose": "2 drops",
     "frequency": "5 days",
-    "notes": "2 drops every 2 to 4 hours as needed for secretions"
+    "notes": "2 drops every 2 to 4 hours as needed for secretions; Take on an empty stomach (1 hour before or 2 hours after meals)"
   },
   {
     "name": "Azithromycin",
     "strength": "500 mg tablets",
     "dose": "1-0-0",
     "frequency": "6 days",
-    "notes": "Take 2 hours after a meal"
+    "notes": "Take 2 hours after a meal; Take 30 minutes before meals"
   },
   {
     "name": "Baclofen",
     "strength": "10 mg tablets",
     "dose": "1-1-1",
     "frequency": "30 days",
-    "notes": "Take with meals; do not discontinue abruptly"
+    "notes": "Take with meals; do not discontinue abruptly; Take at bedtime"
   },
   {
     "name": "Benzydamine",
     "strength": "0.15% w/v oral rinse",
     "dose": "As needed",
     "frequency": "7 days",
-    "notes": "Rinse or gargle with 15 mL every 2 to 3 hours; do not swallow"
+    "notes": "Rinse or gargle with 15 mL every 2 to 3 hours; do not swallow; Take in the morning"
   },
   {
     "name": "Bisacodyl",
@@ -56,53 +245,277 @@
     "notes": "Take at bedtime"
   },
   {
+    "name": "Bromhexine",
+    "strength": "Tablet: 8 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take after food. Productive cough mucolytic agent"
+  },
+  {
+    "name": "Budesonide + Formoterol",
+    "strength": "Inhaler: 100 mcg + 6 mcg",
+    "dose": "2-0-2",
+    "frequency": "30 days",
+    "notes": "Rinse mouth with water after use to prevent oral thrush"
+  },
+  {
+    "name": "Budesonide + Formoterol",
+    "strength": "Inhaler: 200 mcg + 6 mcg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Rinse mouth with water after use to prevent oral thrush"
+  },
+  {
+    "name": "Budesonide + Formoterol",
+    "strength": "Inhaler: 400 mcg + 6 mcg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Rinse mouth with water after use to prevent oral thrush"
+  },
+  {
     "name": "Buprenorphine",
+    "strength": "0.2mg tablets",
+    "dose": "1",
+    "frequency": "10 days",
+    "notes": "Put a tablet under the tongue when there is severe pain"
+  },
+  {
+    "name": "Buprenorphine Patch",
     "strength": "10 mcg/hr transdermal patch",
     "dose": "1",
     "frequency": "7 days",
     "notes": "Apply to clean, dry, non-hairy skin on upper arm or chest"
   },
   {
-    "name": "Buprenorphine",
-    "strength": "0.2 mg tablets",
-    "dose": "1",
-    "frequency": "10 days",
-    "notes": "Put a tablet under the tongue when there is severe pain"
+    "name": "Carvedilol",
+    "strength": "Tablet: 3.125 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with food to slow absorption and reduce hypotension"
+  },
+  {
+    "name": "Carvedilol",
+    "strength": "Tablet: 6.25 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with food to slow absorption and reduce hypotension"
+  },
+  {
+    "name": "Carvedilol",
+    "strength": "Tablet: 12.5 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with food to slow absorption and reduce hypotension"
+  },
+  {
+    "name": "Carvedilol",
+    "strength": "Tablet: 25 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with food to slow absorption and reduce hypotension"
+  },
+  {
+    "name": "Cefixime",
+    "strength": "Tablet: 200 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Can be taken independent of food"
+  },
+  {
+    "name": "Cefixime",
+    "strength": "Tablet: 400 mg",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Can be taken independent of food"
+  },
+  {
+    "name": "Cefuroxime Axetil",
+    "strength": "Tablet: 250 mg",
+    "dose": "1-0-1",
+    "frequency": "7 days",
+    "notes": "Take after food to optimize systemic bioavailability"
+  },
+  {
+    "name": "Cefuroxime Axetil",
+    "strength": "Tablet: 500 mg",
+    "dose": "1-0-1",
+    "frequency": "7 days",
+    "notes": "Take after food to optimize systemic bioavailability"
   },
   {
     "name": "Celecoxib",
     "strength": "100 mg capsules",
     "dose": "1-0-1",
     "frequency": "15 days",
-    "notes": "Take with a meal or snack"
+    "notes": "Take with a meal or snack; Swallow whole; do not crush or chew"
+  },
+  {
+    "name": "Cephalexin",
+    "strength": "Capsule: 250 mg",
+    "dose": "1-1-1-1",
+    "frequency": "7 days",
+    "notes": "Take independent of food"
+  },
+  {
+    "name": "Cephalexin",
+    "strength": "Capsule: 500 mg",
+    "dose": "1-0-1-1",
+    "frequency": "7 days",
+    "notes": "Take independent of food"
+  },
+  {
+    "name": "Cetirizine",
+    "strength": "Tablet: 10 mg",
+    "dose": "0-0-1",
+    "frequency": "5 days",
+    "notes": "Take at bedtime due to potential drowsiness side effects"
+  },
+  {
+    "name": "Chlorthalidone",
+    "strength": "Tablet: 6.25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with food. Long-acting diuretic"
+  },
+  {
+    "name": "Chlorthalidone",
+    "strength": "Tablet: 12.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with food. Long-acting diuretic"
+  },
+  {
+    "name": "Chlorthalidone",
+    "strength": "Tablet: 25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with food. Long-acting diuretic"
+  },
+  {
+    "name": "Chlorzoxazone",
+    "strength": "Tablet: 250 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take with food. May cause mild drowsiness"
+  },
+  {
+    "name": "Chlorzoxazone",
+    "strength": "Tablet: 500 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Take with food. May cause mild drowsiness"
+  },
+  {
+    "name": "Cilnidipine",
+    "strength": "Tablet: 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Cilnidipine",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Cilnidipine",
+    "strength": "Tablet: 20 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or without food"
   },
   {
     "name": "Ciprofloxacin",
     "strength": "500 mg tablets",
     "dose": "1-0-1",
     "frequency": "5 days",
-    "notes": "Do not take with dairy products or antacids; drink plenty of water"
+    "notes": "Do not take with dairy products or antacids; drink plenty of water; Take with a full glass of water"
   },
   {
     "name": "Clarithromycin",
     "strength": "500 mg tablets",
     "dose": "1-0-1",
     "frequency": "10 days",
-    "notes": "Take with or without food"
+    "notes": "Take with or without food; Finish the full course"
+  },
+  {
+    "name": "Clobetasol + Neomycin + Miconazole",
+    "strength": "Topical Cream: FDC",
+    "dose": "Apply 1-0-1",
+    "frequency": "7 days",
+    "notes": "Areas as instructed by doctor"
+  },
+  {
+    "name": "Clobetasol Propionate",
+    "strength": "Topical Cream: 0.05%",
+    "dose": "Apply 1-0-1",
+    "frequency": "14 days",
+    "notes": "Apply a thin layer to affected skin areas"
   },
   {
     "name": "Clonazepam",
     "strength": "0.5 mg",
     "dose": "0-0-1",
     "frequency": "30 days",
-    "notes": "Take at bedtime"
+    "notes": "Take at bedtime; Dissolve in water and drink immediately"
+  },
+  {
+    "name": "Clopidogrel",
+    "strength": "Tablet: 75 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or without food. Core antiplatelet agent"
+  },
+  {
+    "name": "Clotrimazol",
+    "strength": "1%W/W",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Topical Application as instructed by Doctor"
   },
   {
     "name": "Clotrimazole",
-    "strength": "1% W/W",
+    "strength": "Topical Cream: 1%",
+    "dose": "Apply 1-0-1",
+    "frequency": "14 days",
+    "notes": "Continue application till full course"
+  },
+  {
+    "name": "Codeine Phosphate",
+    "strength": "Tablet/Syrup: 15 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Central antitussive. Can cause sedation or constipation"
+  },
+  {
+    "name": "Codeine Phosphate",
+    "strength": "Tablet: 30 mg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Central antitussive. Can cause sedation or constipation"
+  },
+  {
+    "name": "Dapagliflozin",
+    "strength": "Tablet: 5 mg",
     "dose": "1-0-0",
     "frequency": "30 days",
-    "notes": "Topical: Apply to fungal lesions"
+    "notes": "Take in the morning with or without food"
+  },
+  {
+    "name": "Dapagliflozin",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with or without food"
+  },
+  {
+    "name": "Dapagliflozin + Sitagliptin",
+    "strength": "Tablet: 10 mg + 100 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning independent of meals"
   },
   {
     "name": "Dexamethasone",
@@ -110,6 +523,13 @@
     "dose": "2-0-0",
     "frequency": "5 days",
     "notes": "Take in the morning with food to prevent insomnia and stomach upset"
+  },
+  {
+    "name": "Dextromethorphan",
+    "strength": "Syrup: 15 mg / 5 mL",
+    "dose": "2-2-2",
+    "frequency": "5 days",
+    "notes": "Take independent of food. Used for dry cough relief"
   },
   {
     "name": "Diazepam",
@@ -126,32 +546,88 @@
     "notes": "Take with or immediately after food to protect the stomach"
   },
   {
+    "name": "Dicyclomine",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-1-1-1",
+    "frequency": "3 days",
+    "notes": "Take before or after meals for GI muscle spasm"
+  },
+  {
+    "name": "Dicyclomine",
+    "strength": "Tablet: 20 mg",
+    "dose": "1-1-1-1",
+    "frequency": "3 days",
+    "notes": "Take before or after meals for GI muscle spasm"
+  },
+  {
+    "name": "Diltiazem",
+    "strength": "Tablet: 30 mg",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take before meals"
+  },
+  {
+    "name": "Diltiazem",
+    "strength": "Tablet: 60 mg",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take before meals"
+  },
+  {
+    "name": "Diltiazem",
+    "strength": "SR Tablet: 90 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food. Do not split or crush"
+  },
+  {
+    "name": "Diltiazem",
+    "strength": "SR Tablet: 120 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food. Do not split or crush"
+  },
+  {
     "name": "Docusate sodium",
     "strength": "100 mg capsules",
     "dose": "1-0-1",
     "frequency": "30 days",
-    "notes": "Take with a full glass of water; swallow whole"
+    "notes": "Take with a full glass of water; swallow whole; May cause drowsiness"
   },
   {
     "name": "Domperidone",
     "strength": "10 mg tablets",
     "dose": "1-1-1",
     "frequency": "5 days",
-    "notes": "Take 15–30 minutes before meals"
+    "notes": "Take 15-30 minutes before meals; Avoid alcohol"
   },
   {
     "name": "Donepezil",
     "strength": "5 mg tablets",
     "dose": "0-0-1",
     "frequency": "30 days",
-    "notes": "Take at bedtime; can be taken with or without food"
+    "notes": "Take at bedtime; can be taken with or without food; Do not take with dairy, antacids, or iron"
   },
   {
     "name": "Doxycycline",
     "strength": "100 mg tablets",
     "dose": "1-0-1",
     "frequency": "5 days",
-    "notes": "Take with a full glass of water; sit upright for 30 mins after to prevent reflux"
+    "notes": "Take with a full glass of water; sit upright for 30 mins after to prevent reflux; Do not exceed recommended dose"
+  },
+  {
+    "name": "Drotaverine",
+    "strength": "Tablet: 40 mg",
+    "dose": "1-1-1",
+    "frequency": "3 days",
+    "notes": "Take independent of food"
+  },
+  {
+    "name": "Drotaverine",
+    "strength": "Tablet: 80 mg",
+    "dose": "1-1-1",
+    "frequency": "3 days",
+    "notes": "Take independent of food"
   },
   {
     "name": "Duloxetine",
@@ -159,6 +635,55 @@
     "dose": "1-0-0",
     "frequency": "30 days",
     "notes": "Take at the same time each day; do not open or chew capsules"
+  },
+  {
+    "name": "Empagliflozin",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with or without food"
+  },
+  {
+    "name": "Empagliflozin",
+    "strength": "Tablet: 25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with or without food"
+  },
+  {
+    "name": "Enalapril",
+    "strength": "Tablet: 2.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily. Can cause dry cough"
+  },
+  {
+    "name": "Enalapril",
+    "strength": "Tablet: 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily. Can cause dry cough"
+  },
+  {
+    "name": "Enalapril",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily. Can cause dry cough"
+  },
+  {
+    "name": "Erythromycin",
+    "strength": "Tablet: 250 mg",
+    "dose": "1-1-1-1",
+    "frequency": "7 days",
+    "notes": "Take 1 hour before meals on an empty stomach"
+  },
+  {
+    "name": "Erythromycin",
+    "strength": "Tablet: 500 mg",
+    "dose": "1-0-1",
+    "frequency": "7 days",
+    "notes": "Take 1 hour before meals on an empty stomach"
   },
   {
     "name": "Escitalopram",
@@ -175,6 +700,27 @@
     "notes": "Take at least 1 hour before breakfast; swallow whole"
   },
   {
+    "name": "Etoricoxib",
+    "strength": "Tablet: 60 mg",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Can be taken with or without food"
+  },
+  {
+    "name": "Etoricoxib",
+    "strength": "Tablet: 90 mg",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Can be taken with or without food"
+  },
+  {
+    "name": "Etoricoxib",
+    "strength": "Tablet: 120 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Taken once daily for pain"
+  },
+  {
     "name": "Famotidine",
     "strength": "20 mg tablets",
     "dose": "1-0-1",
@@ -182,11 +728,25 @@
     "notes": "Take 30 minutes before food"
   },
   {
-    "name": "Fentanyl transdermal patch",
+    "name": "Fentanyl transdermal Patch",
     "strength": "12 mcg/hr patch",
     "dose": "1 patch every 3 days",
     "frequency": "Change every 3 days",
     "notes": "Apply to clean, flat skin; avoid exposing patch area to direct heat sources"
+  },
+  {
+    "name": "Fexofenadine",
+    "strength": "Tablet: 120 mg",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Take with water. Avoid fruit juices 1 hour before/after"
+  },
+  {
+    "name": "Fexofenadine",
+    "strength": "Tablet: 180 mg",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Take with water. Avoid fruit juices 1 hour before/after"
   },
   {
     "name": "Fluconazole",
@@ -196,6 +756,20 @@
     "notes": "Take with or without food"
   },
   {
+    "name": "Flunarizine",
+    "strength": "Tablet: 5 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Flunarizine",
+    "strength": "Tablet: 10 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime"
+  },
+  {
     "name": "Fluoxetine",
     "strength": "20 mg capsules",
     "dose": "1-0-0",
@@ -203,11 +777,39 @@
     "notes": "Take in the morning with or without food"
   },
   {
+    "name": "Fluticasone + Salmeterol",
+    "strength": "Inhaler: 100 mcg + 50 mcg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Rinse mouth with water after use to prevent oral thrush"
+  },
+  {
+    "name": "Fluticasone + Salmeterol",
+    "strength": "Inhaler: 250 mcg + 50 mcg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Rinse mouth with water after use to prevent oral thrush"
+  },
+  {
+    "name": "Fluticasone + Salmeterol",
+    "strength": "Inhaler: 500 mcg + 50 mcg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Rinse mouth with water after use to prevent oral thrush"
+  },
+  {
     "name": "Fosfomycin",
     "strength": "3 g oral sachet",
     "dose": "Single dose",
-    "frequency": "1 day",
+    "frequency": "1 days",
     "notes": "Dissolve powder in cold water and drink immediately on an empty stomach"
+  },
+  {
+    "name": "Framycetin",
+    "strength": "Topical Ointment: 1%",
+    "dose": "Apply 1-1-1",
+    "frequency": "7 days",
+    "notes": "Local application for minor cuts, grazes, or clean burns"
   },
   {
     "name": "Furosemide",
@@ -217,6 +819,13 @@
     "notes": "Take in the morning to avoid waking up at night to urinate"
   },
   {
+    "name": "Fusidic Acid",
+    "strength": "Topical Cream: 2%",
+    "dose": "Apply 1-1-1-1",
+    "frequency": "7 days",
+    "notes": "Topical Application as instructed by Doctor"
+  },
+  {
     "name": "Gabapentin",
     "strength": "100 mg capsules",
     "dose": "0-0-1",
@@ -224,11 +833,74 @@
     "notes": "Can cause drowsiness initially"
   },
   {
+    "name": "Gliclazide",
+    "strength": "MR Tablet: 30 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with breakfast"
+  },
+  {
+    "name": "Gliclazide",
+    "strength": "MR Tablet: 60 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with breakfast"
+  },
+  {
+    "name": "Gliclazide",
+    "strength": "IR Tablet: 80 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take 30 minutes before major meals"
+  },
+  {
+    "name": "Glimepiride",
+    "strength": "Tablet: 1 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take immediately before breakfast. Avoid skipping meals"
+  },
+  {
+    "name": "Glimepiride",
+    "strength": "Tablet: 2 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take immediately before breakfast. Avoid skipping meals"
+  },
+  {
+    "name": "Glimepiride",
+    "strength": "Tablet: 3 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take immediately before breakfast. Avoid skipping meals"
+  },
+  {
+    "name": "Glimepiride",
+    "strength": "Tablet: 4 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take immediately before breakfast. Avoid skipping meals"
+  },
+  {
+    "name": "Glipizide",
+    "strength": "Tablet: 2.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take 30 minutes before breakfast"
+  },
+  {
+    "name": "Glipizide",
+    "strength": "Tablet: 5 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take 30 minutes before breakfast and dinner"
+  },
+  {
     "name": "Glycopyrronium bromide",
     "strength": "1 mg",
     "dose": "1-1-1",
     "frequency": "5 days",
-    "notes": "Look for urinary output"
+    "notes": "Look for Urinary output"
   },
   {
     "name": "Granisetron",
@@ -238,18 +910,53 @@
     "notes": "Take with or without food"
   },
   {
-    "name": "Haloperidol",
-    "strength": "1.5 mg tablets",
-    "dose": "0-0-1",
+    "name": "Guaifenesin",
+    "strength": "Tablet: 200 mg",
+    "dose": "1-1-1-1",
     "frequency": "5 days",
-    "notes": "For agitation, delirium or vomiting"
+    "notes": "Take with a full glass of water to maximize mucolytic action"
   },
   {
-    "name": "Haloperidol Syrup",
-    "strength": "2 mg/mL syrup",
+    "name": "Guaifenesin",
+    "strength": "Tablet: 400 mg",
+    "dose": "1-1-1-1",
+    "frequency": "5 days",
+    "notes": "Take with a full glass of water to maximize mucolytic action"
+  },
+  {
+    "name": "Haloperidol",
+    "strength": "1.5mg tablets",
+    "dose": "0-0-1",
+    "frequency": "5 days",
+    "notes": "For Agitation, Delirium or Vomiting"
+  },
+  {
+    "name": "Haloperidol Syp",
+    "strength": "2mg / ml Syp",
     "dose": "1-0-1",
     "frequency": "5 days",
-    "notes": "For agitation, delirium or vomiting"
+    "notes": "For Agitation, Delirium or Vomiting"
+  },
+  {
+    "name": "Hydrochlorothiazide",
+    "strength": "Tablet: 12.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning to prevent nocturnal diuresis"
+  },
+  {
+    "name": "Hydrochlorothiazide",
+    "strength": "Tablet: 25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning to prevent nocturnal diuresis"
+  },
+  {
+    "name": "Hydrocortisone",
+    "strength": "Topical Cream: 1%",
+    "dose": "Apply 1-1-1",
+    "frequency": "7 days",
+    "notes": "Low-potency steroid safe for sensitive skin or facial use"
   },
   {
     "name": "Ibuprofen",
@@ -259,6 +966,20 @@
     "notes": "Take with food"
   },
   {
+    "name": "Ibuprofen + Paracetamol",
+    "strength": "Tablet: 400 mg + 325 mg",
+    "dose": "1-1-1",
+    "frequency": "3 days",
+    "notes": "Strictly after food"
+  },
+  {
+    "name": "Itopride",
+    "strength": "Tablet: 50 mg",
+    "dose": "1-1-1",
+    "frequency": "14 days",
+    "notes": "Take 30 minutes before meals for prokinetic effect"
+  },
+  {
     "name": "Itraconazole",
     "strength": "100 mg capsules",
     "dose": "1-0-0",
@@ -266,18 +987,39 @@
     "notes": "Take immediately after a full meal for optimal absorption"
   },
   {
-    "name": "Lactulose",
-    "strength": "10 mL",
-    "dose": "1-1-1",
-    "frequency": "30 days",
-    "notes": "Take with water or juice; may take 24–48 hours to see results"
+    "name": "Ketoconazole",
+    "strength": "Topical Cream: 2%",
+    "dose": "Apply 1-0-1",
+    "frequency": "14 days",
+    "notes": "Standard application for cutaneous candidiasis/tinea"
   },
   {
-    "name": "Levofloxacin",
-    "strength": "500 mg tablets",
-    "dose": "1-0-0",
-    "frequency": "10 days",
-    "notes": "Take with a full glass of water"
+    "name": "Ketoconazole",
+    "strength": "Topical Shampoo: 2%",
+    "dose": "Use twice weekly",
+    "frequency": "30 days",
+    "notes": "Leave shampoo on scalp for 5 minutes before washing off"
+  },
+  {
+    "name": "Lactulose",
+    "strength": "10 ml",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take with water or juice; may take 24-48 hours to see results"
+  },
+  {
+    "name": "Levetiracetam",
+    "strength": "Tablet: 250 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily independent of food timing"
+  },
+  {
+    "name": "Levetiracetam",
+    "strength": "Tablet: 500 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily independent of food timing"
   },
   {
     "name": "Levocetirizine",
@@ -287,18 +1029,46 @@
     "notes": "Take at bedtime"
   },
   {
-    "name": "Liquid Paraffin + Milk of Magnesia + Sodium Picosulfate",
-    "strength": "15 mL",
+    "name": "Levofloxacin",
+    "strength": "500 mg tablets",
+    "dose": "1-0-0",
+    "frequency": "10 days",
+    "notes": "Take with a full glass of water"
+  },
+  {
+    "name": "Levosalbutamol + Ipratropium",
+    "strength": "Respule: 1.25 mg + 500 mcg",
+    "dose": "1-1-1",
+    "frequency": "5 days",
+    "notes": "Use via nebulizer machine"
+  },
+  {
+    "name": "Linagliptin",
+    "strength": "Tablet: 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Independent of food. Safe in renal impairment profiles"
+  },
+  {
+    "name": "Liquid Paraffin + MoM + Picosulfate",
+    "strength": "15 ml",
     "dose": "0-0-1",
     "frequency": "15 days",
-    "notes": "Can increase if there is no stools and decrease if stool frequency increases more than 4 per day"
+    "notes": "Can increase if there are no stools and Decrease if stool frequency increases more than 4 per day"
   },
   {
     "name": "Loperamide",
     "strength": "2 mg tablets",
     "dose": "As needed",
     "frequency": "3 days",
-    "notes": "Take 2 tablets initially, then 1 tablet after each loose bowel movement; maximum 8 tablets/day"
+    "notes": "Take 2 tablets initially, then 1 tablet after each loose bowel movement maximum 8 tablets/day"
+  },
+  {
+    "name": "Loratadine",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-0-0",
+    "frequency": "5 days",
+    "notes": "Can be taken with or without food. True non-sedating profile"
   },
   {
     "name": "Lorazepam",
@@ -308,11 +1078,151 @@
     "notes": "Can be taken sublingually or orally for rapid relief of anxiety or breathlessness"
   },
   {
-    "name": "Metoclopramide Syrup",
-    "strength": "1 mg/mL (5 mL) syrup",
+    "name": "Losartan",
+    "strength": "Tablet: 25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food. Standard chronic maintenance"
+  },
+  {
+    "name": "Losartan",
+    "strength": "Tablet: 50 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food. Standard chronic maintenance"
+  },
+  {
+    "name": "Luliconazole",
+    "strength": "Topical Cream: 1%",
+    "dose": "Apply 1-0-0",
+    "frequency": "7 days",
+    "notes": "High-affinity topical antifungal. Apply once daily"
+  },
+  {
+    "name": "Magaldrate + Simethicone",
+    "strength": "Gel: (480 mg + 20 mg) / 5 mL",
+    "dose": "2-2-2",
+    "frequency": "7 days",
+    "notes": "Take 1 hour after meals and at bedtime"
+  },
+  {
+    "name": "Magaldrate + Simethicone",
+    "strength": "Gel: (540 mg + 50 mg) / 5 mL",
+    "dose": "2-2-2",
+    "frequency": "7 days",
+    "notes": "Take 1 hour after meals and at bedtime"
+  },
+  {
+    "name": "Mefenamic Acid",
+    "strength": "Tablet: 250 mg",
     "dose": "1-1-1",
-    "frequency": "Max 5 days",
-    "notes": "Take 5 to 10 mL for vomiting 30 minutes before food"
+    "frequency": "3 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Mefenamic Acid",
+    "strength": "Tablet: 500 mg",
+    "dose": "1-1-1",
+    "frequency": "3 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Mefenamic Acid + Dicyclomine",
+    "strength": "Tablet: 250 mg + 10 mg",
+    "dose": "1-1-1",
+    "frequency": "3 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Mefenamic Acid + Dicyclomine",
+    "strength": "Tablet: 500 mg + 20 mg",
+    "dose": "1-1-1",
+    "frequency": "3 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Metformin",
+    "strength": "Tablet: 500 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with or immediately after meals to prevent GI distress"
+  },
+  {
+    "name": "Metformin",
+    "strength": "Tablet: 850 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with or immediately after meals to prevent GI distress"
+  },
+  {
+    "name": "Metformin",
+    "strength": "XR Tablet: 1000 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take with evening meal. Do not crush or chew"
+  },
+  {
+    "name": "Metformin + Glimepiride",
+    "strength": "Tablet: 500 mg + 1 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with or immediately before meals"
+  },
+  {
+    "name": "Metformin + Glimepiride",
+    "strength": "Tablet: 500 mg + 2 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with or immediately before meals"
+  },
+  {
+    "name": "Metformin + Glimepiride",
+    "strength": "XR Tablet: 1000 mg + 2 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take with evening meal"
+  },
+  {
+    "name": "Metformin + Glimepiride + Pioglitazone",
+    "strength": "Tablet: 500 mg + 2 mg + 15 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with breakfast"
+  },
+  {
+    "name": "Metformin + Sitagliptin",
+    "strength": "Tablet: 500 mg + 50 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with meals"
+  },
+  {
+    "name": "Metformin + Sitagliptin",
+    "strength": "Tablet: 1000 mg + 50 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with meals"
+  },
+  {
+    "name": "Metformin + Vildagliptin",
+    "strength": "Tablet: 500 mg + 50 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with meals to reduce initial Metformin GI impact"
+  },
+  {
+    "name": "Metformin + Vildagliptin",
+    "strength": "Tablet: 850 mg + 50 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with meals to reduce initial Metformin GI impact"
+  },
+  {
+    "name": "Metformin + Vildagliptin",
+    "strength": "Tablet: 1000 mg + 50 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take with meals to reduce initial Metformin GI impact"
   },
   {
     "name": "Metoclopramide",
@@ -320,6 +1230,34 @@
     "dose": "1-1-1",
     "frequency": "Max 5 days",
     "notes": "Take 30 minutes before meals; maintain at least 6 hours between doses"
+  },
+  {
+    "name": "Metoclopramide syp",
+    "strength": "1 mg / 1 ml (5 ml) Syrup",
+    "dose": "1-1-1",
+    "frequency": "Max 5 days",
+    "notes": "Take 5 to 10 ml for vomiting 30 minutes before food"
+  },
+  {
+    "name": "Metoprolol",
+    "strength": "ER Tablet: 25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or immediately after a meal"
+  },
+  {
+    "name": "Metoprolol",
+    "strength": "ER Tablet: 50 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or immediately after a meal"
+  },
+  {
+    "name": "Metoprolol",
+    "strength": "ER Tablet: 100 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or immediately after a meal"
   },
   {
     "name": "Metronidazole",
@@ -330,10 +1268,10 @@
   },
   {
     "name": "Midazolam",
-    "strength": "1.25 mg/spray",
-    "dose": "1 puff each nostril",
+    "strength": "1.25 mg / Spray",
+    "dose": "1 Puff each nostril",
     "frequency": "PRN",
-    "notes": "Administered nasally for dyspnoea or seizures"
+    "notes": "Administered nasally for dyspnea or seizures"
   },
   {
     "name": "Mirtazapine",
@@ -341,6 +1279,13 @@
     "dose": "0-0-1",
     "frequency": "15 days",
     "notes": "Take at bedtime"
+  },
+  {
+    "name": "Montelukast",
+    "strength": "Tablet: 10 mg",
+    "dose": "0-0-1",
+    "frequency": "10 days",
+    "notes": "Take at bedtime for optimal control"
   },
   {
     "name": "Montelukast + Levocetirizine",
@@ -357,18 +1302,53 @@
     "notes": "Take every 4 hours: 6 am, 10 am, 2 pm, 6 pm and double dose at 10 pm"
   },
   {
+    "name": "Mupirocin",
+    "strength": "Topical Ointment: 2%",
+    "dose": "Apply 1-1-1",
+    "frequency": "7 days",
+    "notes": "Clean the wound zone before local topical application"
+  },
+  {
+    "name": "Naproxen",
+    "strength": "Tablet: 250 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Naproxen",
+    "strength": "Tablet: 500 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Nebivolol",
+    "strength": "Tablet: 2.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food"
+  },
+  {
+    "name": "Nebivolol",
+    "strength": "Tablet: 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food"
+  },
+  {
     "name": "Nebulisation Budecort",
     "strength": "0.5 Respules",
     "dose": "1-0-1",
     "frequency": "5 days",
-    "notes": "Nebulisation for 20 minutes or until respule content is over"
+    "notes": "Nebulisation for 20 minutes or respule content over"
   },
   {
-    "name": "Nebulisation Levosalbutamol + Ipratropium",
+    "name": "Nebulisation Levosalbutamol (1.25mg) + Ipratropium (500mcg)",
     "strength": "(1.25 mg) + (500 mcg) Respules",
     "dose": "1-0-1",
     "frequency": "5 days",
-    "notes": "Nebulisation for 20 minutes or until respule content is over"
+    "notes": "Nebulisation for 20 minutes or respule content over"
   },
   {
     "name": "Nefopam",
@@ -381,7 +1361,7 @@
     "name": "Nitrofurantoin",
     "strength": "100 mg SR tablets",
     "dose": "1-0-1",
-    "frequency": "3 to 7 days",
+    "frequency": "7 days",
     "notes": "Take with food or milk to enhance absorption and reduce nausea"
   },
   {
@@ -392,11 +1372,25 @@
     "notes": "Take at bedtime"
   },
   {
+    "name": "Olmesartan",
+    "strength": "Tablet: 20 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food. Monitor blood pressure"
+  },
+  {
+    "name": "Olmesartan",
+    "strength": "Tablet: 40 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food. Monitor blood pressure"
+  },
+  {
     "name": "Omeprazole",
     "strength": "20 mg capsules",
     "dose": "1-0-0",
     "frequency": "30 days",
-    "notes": "Take in the morning 30–60 minutes before breakfast; swallow whole"
+    "notes": "Take in the morning 30-60 minutes before breakfast; swallow whole"
   },
   {
     "name": "Ondansetron",
@@ -413,13 +1407,6 @@
     "notes": "Take with or without food"
   },
   {
-    "name": "Papain + Urea",
-    "strength": "Ointment",
-    "dose": "1-0-0",
-    "frequency": "15 days",
-    "notes": "Topical: Apply to wound on yellowish slough"
-  },
-  {
     "name": "Pantoprazole",
     "strength": "40 mg tablets",
     "dose": "1-0-0",
@@ -427,11 +1414,67 @@
     "notes": "Take in the morning 1 hour before food; swallow whole"
   },
   {
+    "name": "Pantoprazole + Domperidone",
+    "strength": "SR Capsule: 40 mg + 30 mg",
+    "dose": "1-0-0",
+    "frequency": "14 days",
+    "notes": "Take 30 minutes before breakfast on an empty stomach"
+  },
+  {
+    "name": "Papain + Urea",
+    "strength": "Ointment",
+    "dose": "1-0-0",
+    "frequency": "15 days",
+    "notes": "Topical: Apply to wound on yellowish slough"
+  },
+  {
     "name": "Paracetamol",
     "strength": "650 mg tablets",
     "dose": "1-1-1",
     "frequency": "5 days",
     "notes": "Take every 8 or 6 hours as needed; do not exceed 4g in 24 hours"
+  },
+  {
+    "name": "Perindopril",
+    "strength": "Tablet: 2 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning before food"
+  },
+  {
+    "name": "Perindopril",
+    "strength": "Tablet: 4 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning before food"
+  },
+  {
+    "name": "Perindopril",
+    "strength": "Tablet: 8 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning before food"
+  },
+  {
+    "name": "Pioglitazone",
+    "strength": "Tablet: 15 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Pioglitazone",
+    "strength": "Tablet: 30 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take with or without food"
+  },
+  {
+    "name": "Polyethylene Glycol",
+    "strength": "Powder: 17 g",
+    "dose": "1-0-0",
+    "frequency": "7 days",
+    "notes": "Dissolve completely in 1 glass of water/juice daily"
   },
   {
     "name": "Pramipexole",
@@ -455,18 +1498,109 @@
     "notes": "Take at the same times each day; can cause dizziness/drowsiness initially"
   },
   {
+    "name": "Propranolol",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take before meals"
+  },
+  {
+    "name": "Propranolol",
+    "strength": "Tablet: 40 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Take before meals"
+  },
+  {
     "name": "Quetiapine",
     "strength": "25 mg tablets",
     "dose": "0-0-1",
     "frequency": "10 days",
-    "notes": "Watch out for excessive daytime sleepiness"
+    "notes": "Watch out excessive daytime sleepiness"
+  },
+  {
+    "name": "Rabeprazole",
+    "strength": "Tablet: 20 mg",
+    "dose": "1-0-0",
+    "frequency": "14 days",
+    "notes": "Take 30 minutes before breakfast on an empty stomach"
+  },
+  {
+    "name": "Rabeprazole + Levosulpiride",
+    "strength": "SR Capsule: 20 mg + 75 mg",
+    "dose": "1-0-0",
+    "frequency": "14 days",
+    "notes": "Take 30 minutes before breakfast on an empty stomach"
+  },
+  {
+    "name": "Racecadotril",
+    "strength": "Capsule: 100 mg",
+    "dose": "1-1-1",
+    "frequency": "30 days",
+    "notes": "Take before meals. Antisecretory agent for diarrhea"
+  },
+  {
+    "name": "Ramipril",
+    "strength": "Tablet: 1.25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food, preferably in the evening"
+  },
+  {
+    "name": "Ramipril",
+    "strength": "Tablet: 2.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food, preferably in the evening"
+  },
+  {
+    "name": "Ramipril",
+    "strength": "Tablet: 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food, preferably in the evening"
+  },
+  {
+    "name": "Ramipril",
+    "strength": "Tablet: 10 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food, preferably in the evening"
   },
   {
     "name": "Risperidone",
     "strength": "500 mcg tablets",
     "dose": "0-0-1",
     "frequency": "10 days",
-    "notes": "Take at bedtime; monitor for extrapyramidal side effects"
+    "notes": "Take at bedtime"
+  },
+  {
+    "name": "Rosuvastatin",
+    "strength": "Tablet: 5 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime. Can be taken independent of food"
+  },
+  {
+    "name": "Rosuvastatin",
+    "strength": "Tablet: 10 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime. Can be taken independent of food"
+  },
+  {
+    "name": "Rosuvastatin",
+    "strength": "Tablet: 20 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime. Can be taken independent of food"
+  },
+  {
+    "name": "Rosuvastatin",
+    "strength": "Tablet: 40 mg",
+    "dose": "0-0-1",
+    "frequency": "30 days",
+    "notes": "Take at bedtime"
   },
   {
     "name": "Sertraline",
@@ -474,6 +1608,27 @@
     "dose": "1-0-0",
     "frequency": "10 days",
     "notes": "Take once daily in morning with or without food"
+  },
+  {
+    "name": "Sitagliptin",
+    "strength": "Tablet: 25 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food at the same time daily"
+  },
+  {
+    "name": "Sitagliptin",
+    "strength": "Tablet: 50 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food at the same time daily"
+  },
+  {
+    "name": "Sitagliptin",
+    "strength": "Tablet: 100 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take independent of food at the same time daily"
   },
   {
     "name": "Sodium valproate",
@@ -497,29 +1652,134 @@
     "notes": "Take with a full glass of water; can be with or without food"
   },
   {
+    "name": "Sumatriptan",
+    "strength": "Tablet: 25 mg",
+    "dose": "1 stat",
+    "frequency": "1 days",
+    "notes": "Take immediately at onset of migraine aura/attack phase"
+  },
+  {
+    "name": "Sumatriptan",
+    "strength": "Tablet: 50 mg",
+    "dose": "1 stat",
+    "frequency": "1 days",
+    "notes": "Take immediately at onset of migraine aura/attack phase"
+  },
+  {
+    "name": "Sumatriptan",
+    "strength": "Tablet: 100 mg",
+    "dose": "1 stat",
+    "frequency": "1 days",
+    "notes": "Take immediately at onset of migraine aura/attack phase"
+  },
+  {
     "name": "Tapentadol Nasal Spray",
-    "strength": "22.5 mg/puff",
-    "dose": "1 puff each nostril",
+    "strength": "22.5 mg / puff",
+    "dose": "1 Puff each nostril",
     "frequency": "10 days",
     "notes": "Can be taken 6 hourly or as needed for severe breakthrough pain"
+  },
+  {
+    "name": "Telmisartan",
+    "strength": "Tablet: 20 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily, with or without food"
+  },
+  {
+    "name": "Telmisartan",
+    "strength": "Tablet: 40 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily, with or without food"
+  },
+  {
+    "name": "Telmisartan",
+    "strength": "Tablet: 80 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take at the same time daily, with or without food"
+  },
+  {
+    "name": "Telmisartan + Amlodipine",
+    "strength": "Tablet: 40 mg + 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning independent of food"
+  },
+  {
+    "name": "Telmisartan + Amlodipine",
+    "strength": "Tablet: 80 mg + 5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning independent of food"
+  },
+  {
+    "name": "Telmisartan + Amlodipine + HCTZ",
+    "strength": "Tablet: 40 mg + 5 mg + 12.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning. Triple drug combo for resistant HTN"
+  },
+  {
+    "name": "Telmisartan + Amlodipine + HCTZ",
+    "strength": "Tablet: 80 mg + 5 mg + 12.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning. Triple drug combo for resistant HTN"
+  },
+  {
+    "name": "Telmisartan + Hydrochlorothiazide",
+    "strength": "Tablet: 40 mg + 12.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with or without food"
+  },
+  {
+    "name": "Telmisartan + Hydrochlorothiazide",
+    "strength": "Tablet: 80 mg + 12.5 mg",
+    "dose": "1-0-0",
+    "frequency": "30 days",
+    "notes": "Take in the morning with or without food"
+  },
+  {
+    "name": "Terbinafine",
+    "strength": "Topical Cream: 1%",
+    "dose": "Apply 1-0-1",
+    "frequency": "7 days",
+    "notes": "Excellent fungicidal clearance"
+  },
+  {
+    "name": "Thiocolchicoside",
+    "strength": "Capsule: 4 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take after food"
+  },
+  {
+    "name": "Thiocolchicoside",
+    "strength": "Capsule: 8 mg",
+    "dose": "1-0-1",
+    "frequency": "5 days",
+    "notes": "Take after food"
   },
   {
     "name": "Tolvaptan",
     "strength": "15 mg",
     "dose": "1-0-0",
     "frequency": "5 days",
-    "notes": "Review with serum sodium values after 4 days"
+    "notes": "Review with S Na values after 4 days"
   },
   {
-    "name": "Tramadol + Paracetamol",
-    "strength": "(37.5 mg) + (325 mg)",
+    "name": "Tramadol",
+    "strength": "50 mg capsules",
     "dose": "1-1-1",
     "frequency": "5 days",
     "notes": "Take every 8 hourly or 6 hourly as needed for pain"
   },
   {
-    "name": "Tramadol",
-    "strength": "50 mg capsules",
+    "name": "Tramadol + Paracetamol",
+    "strength": "(37.5 mg) + (325 mg)",
     "dose": "1-1-1",
     "frequency": "5 days",
     "notes": "Take every 8 hourly or 6 hourly as needed for pain"
@@ -539,11 +1799,18 @@
     "notes": "Take at bedtime"
   },
   {
+    "name": "Vildagliptin",
+    "strength": "Tablet: 50 mg",
+    "dose": "1-0-1",
+    "frequency": "30 days",
+    "notes": "Can be taken with or without food. DPP-4 inhibitor"
+  },
+  {
     "name": "Zoledronic acid",
     "strength": "4 mg infusion vial",
     "dose": "Once every month",
     "frequency": "30 days",
-    "notes": "Administered as an intravenous/subcutaneous infusion over no less than 15 minutes"
+    "notes": "Administered as an intravenous / Subcutaneous infusion over no less than 15 minutes"
   },
   {
     "name": "Zolpidem",
