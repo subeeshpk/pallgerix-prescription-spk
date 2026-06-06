@@ -741,7 +741,7 @@ function updatePreview() {
   /* Patient notes */
   if (p.notes) {
     html += `<div class="rx-section">
-      <div class="rx-section-heading">Notes</div>
+      <div class="rx-section-heading">Medical Notes</div>
       <div class="rx-notes">${escapeHTML(p.notes)}</div>
     </div>`;
   }
