@@ -70,8 +70,11 @@ const state = {
   medicineList: [],         // Array of medicine objects
   editingMedicineIndex: -1, // -1 = not editing
 
-  selectedCarePlans: [],   // Array of strings (preset + custom)
-  customCarePlans: []      // Extra care plans typed by user
+  selectedCarePlans: [],          // Array of strings (preset + custom)
+  customCarePlans: [],            // Extra care plans typed by user
+  vitalsAssessmentInPrescription: false, // Whether chips appear in preview & PDF
+
+  vitalsStandards: null           // Loaded from data/vitals-standards.json
 };
 
 const STORAGE_KEY = 'rx_draft_v2';
@@ -91,7 +94,8 @@ function saveToStorage() {
       customTests: [...state.customTests],
       medicineList: state.medicineList.map(m => ({ ...m })),
       selectedCarePlans: [...state.selectedCarePlans],
-      customCarePlans: [...state.customCarePlans]
+      customCarePlans: [...state.customCarePlans],
+      vitalsAssessmentInPrescription: state.vitalsAssessmentInPrescription
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot));
   } catch (e) {
@@ -118,6 +122,7 @@ function loadFromStorage() {
     if (saved.medicineList)   state.medicineList   = saved.medicineList;
     if (saved.selectedCarePlans) state.selectedCarePlans = saved.selectedCarePlans;
     if (saved.customCarePlans)   state.customCarePlans   = saved.customCarePlans;
+    if (saved.vitalsAssessmentInPrescription !== undefined) state.vitalsAssessmentInPrescription = saved.vitalsAssessmentInPrescription;
     return true;
   } catch (e) {
     console.warn('Could not load from localStorage:', e);
@@ -140,6 +145,7 @@ function resetForm() {
   state.editingMedicineIndex = -1;
   state.selectedCarePlans   = [];
   state.customCarePlans     = [];
+  state.vitalsAssessmentInPrescription = false;
 
   localStorage.removeItem(STORAGE_KEY);
 
@@ -193,6 +199,12 @@ function restorePatientForm() {
     btn.classList.toggle('selected', btn.dataset.value === p.sex);
     btn.setAttribute('aria-pressed', btn.dataset.value === p.sex ? 'true' : 'false');
   });
+
+  // Vitals assessment toggle
+  const vaToggle = document.getElementById('va-toggle-input');
+  if (vaToggle) vaToggle.checked = state.vitalsAssessmentInPrescription;
+
+  renderVitalsAssessment();
 }
 
 /* ============================================================
@@ -214,7 +226,8 @@ async function loadData() {
     toJSON('data/doctor.json'),
     toJSON('data/tests.json'),
     toJSON('data/careplans.json'),
-    toJSON('data/medicines.json')
+    toJSON('data/medicines.json'),
+    toJSON('data/vitals-standards.json')
   ]);
 
   if (results[0].status === 'fulfilled') {
@@ -230,6 +243,8 @@ async function loadData() {
   state.tests             = results[1].status === 'fulfilled' ? results[1].value : [];
   state.carePlans         = results[2].status === 'fulfilled' ? results[2].value : [];
   state.medicineTemplates = results[3].status === 'fulfilled' ? results[3].value : [];
+  state.vitalsStandards   = results[4].status === 'fulfilled' ? results[4].value : null;
+  if (!state.vitalsStandards) console.warn('Failed to load vitals-standards.json:', results[4].reason);
 }
 
 /* ============================================================
@@ -620,12 +635,22 @@ function updatePreview() {
     { label: 'Weight',   value: p.weight },
   ].filter(f => f.value);
 
+  /* Assessment chips — keyed map for inline use in vitals group */
+  const rxAss = {};
+  computeVitalsAssessment().forEach(a => { rxAss[a.key] = a; });
+  const rxChip = (key) => {
+    if (!state.vitalsAssessmentInPrescription) return '';
+    const a = rxAss[key];
+    return a ? `<span class="rx-vital-chip" style="color:${escapeHTML(a.category.color)}">&#9679;&nbsp;${escapeHTML(a.category.label)}</span>` : '';
+  };
+
   const ptVitals = [
-    { label: 'Pulse Rate',       value: p.pulseRate },
-    { label: 'Respiratory Rate', value: p.respiratoryRate },
-    { label: 'SPO2',             value: p.spo2 },
-    { label: 'Blood Pressure',   value: p.bp },
-    { label: 'Temperature',      value: p.temperature },
+    ...(state.vitalsAssessmentInPrescription && rxAss.bmi ? [{ label: 'BMI', value: rxAss.bmi.displayValue, chip: rxChip('bmi') }] : []),
+    { label: 'Pulse Rate',       value: p.pulseRate,       chip: rxChip('pulse') },
+    { label: 'Respiratory Rate', value: p.respiratoryRate, chip: rxChip('rr') },
+    { label: 'SPO2',             value: p.spo2,            chip: rxChip('spo2') },
+    { label: 'Blood Pressure',   value: p.bp,              chip: rxChip('bp') },
+    { label: 'Temperature',      value: p.temperature,     chip: rxChip('temp') },
   ].filter(f => f.value);
 
   const ptContact = [
@@ -642,6 +667,7 @@ function updatePreview() {
           <div class="rx-patient-field">
             <div class="rx-field-label">${f.label}</div>
             <div class="rx-field-value">${escapeHTML(f.value)}</div>
+            ${f.chip || ''}
           </div>`).join('')}
       </div>
     </div>`;
@@ -734,6 +760,7 @@ function handlePatientInput(event) {
     state.patient[name] = value;
     saveToStorage();
     debouncedUpdatePreview();
+    renderVitalsAssessment();
   }
 }
 
@@ -1122,12 +1149,22 @@ function buildPrintHTML() {
     { label: 'Weight',        value: p.weight },
   ].filter(f => f.value);
 
+  /* Assessment chips for print vitals group */
+  const pxAss = {};
+  computeVitalsAssessment().forEach(a => { pxAss[a.key] = a; });
+  const pxChip = (key) => {
+    if (!state.vitalsAssessmentInPrescription) return '';
+    const a = pxAss[key];
+    return a ? `<span class="print-vital-chip" style="color:${escapeHTML(a.category.color)}">&#9679;&nbsp;${escapeHTML(a.category.label)}</span>` : '';
+  };
+
   const printVitals = [
-    { label: 'Pulse Rate',       value: p.pulseRate },
-    { label: 'Respiratory Rate', value: p.respiratoryRate },
-    { label: 'SPO2',             value: p.spo2 },
-    { label: 'Blood Pressure',   value: p.bp },
-    { label: 'Temperature',      value: p.temperature },
+    ...(state.vitalsAssessmentInPrescription && pxAss.bmi ? [{ label: 'BMI', value: pxAss.bmi.displayValue, chip: pxChip('bmi') }] : []),
+    { label: 'Pulse Rate',       value: p.pulseRate,       chip: pxChip('pulse') },
+    { label: 'Respiratory Rate', value: p.respiratoryRate, chip: pxChip('rr') },
+    { label: 'SPO2',             value: p.spo2,            chip: pxChip('spo2') },
+    { label: 'Blood Pressure',   value: p.bp,              chip: pxChip('bp') },
+    { label: 'Temperature',      value: p.temperature,     chip: pxChip('temp') },
   ].filter(f => f.value);
 
   const printContact = [
@@ -1144,6 +1181,7 @@ function buildPrintHTML() {
           <div class="print-pt-field">
             <span class="print-field-label">${escapeHTML(f.label)}</span>
             <span class="print-field-value">${escapeHTML(f.value)}</span>
+            ${f.chip || ''}
           </div>`).join('')}
       </div>
     </div>`;
@@ -1391,7 +1429,158 @@ function switchTab(tab) {
 }
 
 /* ============================================================
-   11. INIT — entry point
+   11. VITALS ASSESSMENT
+   ============================================================ */
+
+/** Extract the first decimal/integer from a string, e.g. "72 bpm" → 72 */
+function parseNumeric(str) {
+  if (!str) return null;
+  const m = String(str).match(/\d+(?:\.\d+)?/);
+  if (!m) return null;
+  const n = parseFloat(m[0]);
+  return isNaN(n) ? null : n;
+}
+
+/** Parse "120/80 mmHg" → {systolic:120, diastolic:80} or null */
+function parseBPValue(str) {
+  if (!str) return null;
+  const m = String(str).match(/(\d+)\s*\/\s*(\d+)/);
+  if (!m) return null;
+  return { systolic: parseInt(m[1], 10), diastolic: parseInt(m[2], 10) };
+}
+
+/**
+ * Compute BMI from height and weight strings (cm and kg only).
+ * Returns BMI rounded to 1 decimal, or null if inputs are ambiguous.
+ */
+function computeBMI(heightStr, weightStr) {
+  if (!heightStr || !weightStr) return null;
+  if (/ft|'|inch|in\b/i.test(heightStr)) return null;
+  if (/lb/i.test(weightStr)) return null;
+  const h = parseNumeric(heightStr);
+  const w = parseNumeric(weightStr);
+  if (!h || !w || h < 50 || h > 280 || w < 2 || w > 500) return null;
+  const hm = h / 100;
+  return Math.round((w / (hm * hm)) * 10) / 10;
+}
+
+/** Classify a value against a min/max ranges array from vitals-standards.json */
+function classifyByRanges(value, ranges) {
+  for (const r of ranges) {
+    if (value >= r.min && value <= r.max) return r;
+  }
+  return null;
+}
+
+/**
+ * Classify blood pressure using ACC/AHA 2017 logic (most severe category wins).
+ * category order in JSON: [0] Hypotension, [1] Normal, [2] Elevated,
+ *                         [3] Stage 1, [4] Stage 2, [5] Crisis
+ */
+function classifyBPValue(systolic, diastolic, categories) {
+  if (!categories || categories.length < 6) return null;
+  if (systolic >= 181 && diastolic >= 121) return categories[5]; // Hypertensive Crisis
+  if (systolic >= 140 || diastolic >= 90)  return categories[4]; // High BP — Stage 2
+  if ((systolic >= 130 && systolic <= 139) ||
+      (diastolic >= 80 && diastolic <= 89))  return categories[3]; // High BP — Stage 1
+  if (systolic >= 120 && systolic <= 129 && diastolic < 80) return categories[2]; // Elevated
+  if (systolic <= 89 || diastolic <= 59)   return categories[0]; // Hypotension
+  return categories[1]; // Normal
+}
+
+/**
+ * Compute assessment for all vitals currently entered.
+ * Returns an array of {name, displayValue, category} objects, one per
+ * vital that has a parseable value with a matching classification.
+ */
+function computeVitalsAssessment() {
+  if (!state.vitalsStandards) return [];
+  const p  = state.patient;
+  const vs = state.vitalsStandards;
+  const results = [];
+
+  // BMI (height in cm, weight in kg)
+  const bmi = computeBMI(p.height, p.weight);
+  if (bmi !== null) {
+    const cat = classifyByRanges(bmi, vs.bmi.categories);
+    if (cat) results.push({ key: 'bmi', name: 'BMI', displayValue: `${bmi} kg/m²`, category: cat });
+  }
+
+  // Blood Pressure
+  const bp = parseBPValue(p.bp);
+  if (bp) {
+    const cat = classifyBPValue(bp.systolic, bp.diastolic, vs.bloodPressure.categories);
+    if (cat) results.push({ key: 'bp', name: 'Blood Pressure', displayValue: `${bp.systolic}/${bp.diastolic} mmHg`, category: cat });
+  }
+
+  // Pulse Rate
+  const pulse = parseNumeric(p.pulseRate);
+  if (pulse !== null) {
+    const cat = classifyByRanges(pulse, vs.pulseRate.ranges);
+    if (cat) results.push({ key: 'pulse', name: 'Pulse Rate', displayValue: `${pulse} bpm`, category: cat });
+  }
+
+  // Respiratory Rate
+  const rr = parseNumeric(p.respiratoryRate);
+  if (rr !== null) {
+    const cat = classifyByRanges(rr, vs.respiratoryRate.ranges);
+    if (cat) results.push({ key: 'rr', name: 'Resp. Rate', displayValue: `${rr} /min`, category: cat });
+  }
+
+  // SpO2
+  const spo2 = parseNumeric(p.spo2);
+  if (spo2 !== null) {
+    const cat = classifyByRanges(spo2, vs.spo2.ranges);
+    if (cat) results.push({ key: 'spo2', name: 'SpO2', displayValue: `${spo2}%`, category: cat });
+  }
+
+  // Temperature — only classify if value >= 50 (clearly °F, not °C; 50°F = 10°C is well below any body temp)
+  const temp = parseNumeric(p.temperature);
+  if (temp !== null && temp >= 50) {
+    const cat = classifyByRanges(temp, vs.temperature.ranges);
+    if (cat) results.push({ key: 'temp', name: 'Temperature', displayValue: `${temp}°F`, category: cat });
+  }
+
+  return results;
+}
+
+/** Toggle whether assessment chips appear in the live preview and PDF */
+function toggleVitalsInPrescription(checked) {
+  state.vitalsAssessmentInPrescription = checked;
+  saveToStorage();
+  updatePreview();
+}
+
+/** Render the Vitals Assessment badges in the form panel */
+function renderVitalsAssessment() {
+  const panel = document.getElementById('vitals-assessment');
+  const grid  = document.getElementById('vitals-assessment-grid');
+  if (!panel || !grid) return;
+
+  const assessments = computeVitalsAssessment();
+
+  if (!assessments.length) {
+    panel.classList.add('hidden');
+    return;
+  }
+
+  grid.innerHTML = '';
+  assessments.forEach(({ name, displayValue, category }) => {
+    const badge = document.createElement('div');
+    badge.className = 'vitals-badge';
+    badge.style.borderLeftColor = category.color;
+    badge.innerHTML = `
+      <div class="vitals-badge-name">${escapeHTML(name)}</div>
+      <div class="vitals-badge-value">${escapeHTML(displayValue)}</div>
+      <div class="vitals-badge-label" style="color:${escapeHTML(category.color)}">${escapeHTML(category.label)}</div>`;
+    grid.appendChild(badge);
+  });
+
+  panel.classList.remove('hidden');
+}
+
+/* ============================================================
+   12. INIT — entry point
    ============================================================ */
 
 /**

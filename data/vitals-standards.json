@@ -1,0 +1,60 @@
+{
+  "bmi": {
+    "standard": "Indian Medical Association (IMA) — Asian BMI Thresholds",
+    "categories": [
+      { "label": "Underweight",           "min": 0,    "max": 18.49, "severity": "WARNING",  "color": "#3B82F6" },
+      { "label": "Normal Weight",         "min": 18.5, "max": 22.99, "severity": "NORMAL",   "color": "#22C55E" },
+      { "label": "Overweight (At Risk)",  "min": 23.0, "max": 24.99, "severity": "WARNING",  "color": "#F59E0B" },
+      { "label": "Obese Class I",         "min": 25.0, "max": 29.99, "severity": "DANGER",   "color": "#F97316" },
+      { "label": "Obese Class II",        "min": 30.0, "max": 34.99, "severity": "CRITICAL", "color": "#EF4444" },
+      { "label": "Obese Class III",       "min": 35.0, "max": 999,   "severity": "CRITICAL", "color": "#7F1D1D" }
+    ]
+  },
+  "bloodPressure": {
+    "standard": "ACC/AHA 2017 — adopted by IMA",
+    "categories": [
+      { "label": "Hypotension",          "systolicMax": 89,  "diastolicMax": 59,  "severity": "WARNING",  "color": "#3B82F6" },
+      { "label": "Normal",               "systolicMax": 119, "diastolicMax": 79,  "severity": "NORMAL",   "color": "#22C55E" },
+      { "label": "Elevated",             "systolicMin": 120, "systolicMax": 129, "diastolicMax": 79,      "severity": "CAUTION", "color": "#A3E635" },
+      { "label": "High BP — Stage 1",    "systolicMin": 130, "systolicMax": 139, "diastolicMin": 80, "diastolicMax": 89, "severity": "WARNING", "color": "#F59E0B" },
+      { "label": "High BP — Stage 2",    "systolicMin": 140, "diastolicMin": 90, "severity": "DANGER",   "color": "#EF4444" },
+      { "label": "Hypertensive Crisis",  "systolicMin": 181, "diastolicMin": 121, "severity": "CRITICAL", "color": "#7F1D1D" }
+    ]
+  },
+  "pulseRate": {
+    "unit": "bpm",
+    "ranges": [
+      { "label": "Bradycardia (Low)",  "min": 0,   "max": 59,  "severity": "WARNING", "color": "#3B82F6" },
+      { "label": "Normal",             "min": 60,  "max": 100, "severity": "NORMAL",  "color": "#22C55E" },
+      { "label": "Tachycardia (High)", "min": 101, "max": 999, "severity": "DANGER",  "color": "#EF4444" }
+    ]
+  },
+  "respiratoryRate": {
+    "unit": "breaths/min",
+    "ranges": [
+      { "label": "Bradypnoea (Low)",  "min": 0,  "max": 11, "severity": "WARNING", "color": "#3B82F6" },
+      { "label": "Normal",            "min": 12, "max": 20, "severity": "NORMAL",  "color": "#22C55E" },
+      { "label": "Tachypnoea (High)", "min": 21, "max": 999, "severity": "DANGER", "color": "#EF4444" }
+    ]
+  },
+  "spo2": {
+    "unit": "%",
+    "ranges": [
+      { "label": "Critical Hypoxia",  "min": 0,    "max": 89.9, "severity": "CRITICAL", "color": "#7F1D1D" },
+      { "label": "Low (Hypoxia)",     "min": 90,   "max": 94.9, "severity": "DANGER",   "color": "#EF4444" },
+      { "label": "Acceptable",        "min": 95,   "max": 96.9, "severity": "CAUTION",  "color": "#F59E0B" },
+      { "label": "Normal",            "min": 97,   "max": 100,  "severity": "NORMAL",   "color": "#22C55E" }
+    ]
+  },
+  "temperature": {
+    "unit": "°F",
+    "ranges": [
+      { "label": "Hypothermia",       "min": 0,     "max": 96.7,  "severity": "CRITICAL", "color": "#3B82F6" },
+      { "label": "Low Normal",        "min": 96.8,  "max": 97.7,  "severity": "CAUTION",  "color": "#A3E635" },
+      { "label": "Normal",            "min": 97.8,  "max": 99.1,  "severity": "NORMAL",   "color": "#22C55E" },
+      { "label": "Low-Grade Fever",   "min": 99.2,  "max": 100.3, "severity": "WARNING",  "color": "#F59E0B" },
+      { "label": "Fever",             "min": 100.4, "max": 103.9, "severity": "DANGER",   "color": "#EF4444" },
+      { "label": "High Fever",        "min": 104.0, "max": 999,   "severity": "CRITICAL", "color": "#7F1D1D" }
+    ]
+  }
+}

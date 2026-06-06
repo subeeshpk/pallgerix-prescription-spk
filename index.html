@@ -172,6 +172,19 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
           </div>
         </div>
 
+        <!-- ── Vitals Assessment ── -->
+        <div class="pt-subsection hidden" id="vitals-assessment">
+          <div class="pt-sub-label-row">
+            <span class="pt-sub-label">Vitals Assessment</span>
+            <label class="va-toggle" title="Include assessment classifications in the live preview and PDF">
+              <span class="va-toggle-label">Include in Rx</span>
+              <input type="checkbox" id="va-toggle-input" onchange="toggleVitalsInPrescription(this.checked)" />
+              <span class="va-toggle-track"><span class="va-toggle-thumb"></span></span>
+            </label>
+          </div>
+          <div id="vitals-assessment-grid" class="vitals-assessment-grid"></div>
+        </div>
+
         <!-- ── Contact ── -->
         <div class="pt-subsection">
           <div class="pt-sub-label">Contact</div>

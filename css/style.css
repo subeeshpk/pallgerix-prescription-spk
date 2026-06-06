@@ -1386,6 +1386,129 @@ textarea {
   }
 }
 
+/* ---- Vital classification chip (shown inside each vitals field) ---- */
+.rx-vital-chip {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0.1rem;
+}
+
+/* ---- Vitals Assessment — toggle row ---- */
+.pt-sub-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.1rem;
+}
+
+.va-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.va-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.va-toggle-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.va-toggle-track {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+  background: #d1d5db;
+  border-radius: 999px;
+  transition: background var(--transition);
+  flex-shrink: 0;
+}
+
+.va-toggle input[type="checkbox"]:checked + .va-toggle-track {
+  background: var(--color-primary);
+}
+
+.va-toggle input[type="checkbox"]:focus-visible + .va-toggle-track {
+  box-shadow: 0 0 0 3px rgba(26, 111, 168, 0.3);
+}
+
+.va-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform var(--transition);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.va-toggle input[type="checkbox"]:checked + .va-toggle-track .va-toggle-thumb {
+  transform: translateX(14px);
+}
+
+/* ---- Vitals Assessment Panel ---- */
+.vitals-assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.35rem;
+}
+
+.vitals-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  border: 1px solid var(--color-border);
+  border-left: 3.5px solid #ccc;
+  border-radius: var(--radius-sm);
+  padding: 0.32rem 0.55rem;
+  background: #fff;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.vitals-badge-name {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}
+
+.vitals-badge-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vitals-badge-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* =============================================================
    PRINT STYLES
    Only .print-area is shown when printing.
@@ -1700,6 +1823,14 @@ textarea {
     content: "• ";
     color: #1a6fa8;
     font-weight: bold;
+  }
+
+  .print-vital-chip {
+    display: block;
+    font-size: 6.5pt;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-top: 1.5pt;
   }
 
   .print-notes {
