@@ -1256,7 +1256,7 @@ function buildPrintHTML() {
   /* Notes */
   if (p.notes) {
     html += `<div class="print-section">
-      <div class="print-section-heading">Notes</div>
+      <div class="print-section-heading">Medical Notes</div>
       <div class="print-notes">${escapeHTML(p.notes)}</div>
     </div>`;
   }
