@@ -24,7 +24,7 @@ A single-page, dependency-free web application for doctors to create, preview, a
 - **Include in Rx toggle** — off by default; when switched on, coloured classification chips and computed BMI appear in the live preview and generated PDF; when off, badges remain visible in the form panel for doctor reference only
 
 ### Prescribing Tools
-- **Diagnosis ICD-11 search** — type any code (e.g. `BA00`) or keyword (e.g. `hypertension`) to search a bundled 165-entry ICD-11 library; selecting a result instantly adds `CODE: Label` to the diagnosis list
+- **Diagnosis ICD-11 search** — type any code (e.g. `BA00`) or keyword (e.g. `hypertension`) to search a bundled 292-entry ICD-11 library; selecting a result instantly adds `CODE: Label` to the diagnosis list
 - Diagnosis list with add, inline edit, and remove — free-text custom entry is still available alongside the ICD-11 search
 - Test selection from a predefined tile list plus free-text custom entry
 - Medicine entry — Name, Strength, Dose, Frequency / Duration, Instructions / Notes — with add, edit, and remove

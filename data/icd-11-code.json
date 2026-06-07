@@ -1,167 +1,1170 @@
 [
-  { "code": "BA00", "label": "Essential hypertension" },
-  { "code": "BA01", "label": "Hypertensive heart disease" },
-  { "code": "BA04", "label": "Hypertensive chronic kidney disease" },
-  { "code": "BA21", "label": "Orthostatic hypotension" },
-  { "code": "BA40", "label": "Angina pectoris" },
-  { "code": "BA41", "label": "Acute myocardial infarction" },
-  { "code": "BA42", "label": "Subsequent myocardial infarction" },
-  { "code": "BA80", "label": "Atherosclerosis" },
-  { "code": "BA83", "label": "Peripheral arterial disease" },
-  { "code": "BC81", "label": "Atrial fibrillation" },
-  { "code": "BC82", "label": "Atrial flutter" },
-  { "code": "BD10", "label": "Heart failure, unspecified" },
-  { "code": "BD11", "label": "Left ventricular failure" },
-  { "code": "BD12", "label": "Right heart failure" },
-  { "code": "BD14", "label": "Dilated cardiomyopathy" },
-  { "code": "BD30", "label": "Pericarditis" },
-  { "code": "BA50", "label": "Pulmonary arterial hypertension" },
-  { "code": "BA91", "label": "Deep vein thrombosis" },
-  { "code": "CA22", "label": "Pneumonia, unspecified" },
-  { "code": "CA24", "label": "Pulmonary embolism" },
-  { "code": "CA25", "label": "Pleural effusion" },
-  { "code": "CA40", "label": "Chronic obstructive pulmonary disease" },
-  { "code": "CA41", "label": "Acute exacerbation of COPD" },
-  { "code": "CB00", "label": "Asthma, unspecified" },
-  { "code": "CB01", "label": "Severe persistent asthma" },
-  { "code": "CA70", "label": "Pulmonary fibrosis" },
-  { "code": "CA50", "label": "Lung abscess" },
-  { "code": "CA80", "label": "Pleural mesothelioma" },
-  { "code": "CA26", "label": "Chylothorax" },
-  { "code": "CA12", "label": "Bronchiectasis" },
-  { "code": "5A10", "label": "Type 1 diabetes mellitus" },
-  { "code": "5A11", "label": "Type 2 diabetes mellitus" },
-  { "code": "5A13", "label": "Malnutrition-related diabetes mellitus" },
-  { "code": "5A60", "label": "Hypothyroidism, unspecified" },
-  { "code": "5A00", "label": "Hyperthyroidism" },
-  { "code": "5B80", "label": "Obesity" },
-  { "code": "5B57", "label": "Hyponatraemia" },
-  { "code": "5B55", "label": "Hyperkalaemia" },
-  { "code": "5B54", "label": "Hypokalaemia" },
-  { "code": "5B56", "label": "Hypercalcaemia" },
-  { "code": "5C50", "label": "Anaemia due to chronic disease" },
-  { "code": "3A00", "label": "Iron deficiency anaemia" },
-  { "code": "3A01", "label": "Anaemia due to folate deficiency" },
-  { "code": "3A70", "label": "Thrombocytopenia" },
-  { "code": "GB60", "label": "Chronic kidney disease, stage unspecified" },
-  { "code": "GB61", "label": "Chronic kidney disease, stage 3" },
-  { "code": "GB62", "label": "Chronic kidney disease, stage 4" },
-  { "code": "GB63", "label": "Chronic kidney disease, stage 5" },
-  { "code": "GB40", "label": "Acute kidney injury" },
-  { "code": "DA80", "label": "Gastro-oesophageal reflux disease" },
-  { "code": "DA60", "label": "Gastritis" },
-  { "code": "DA90", "label": "Gastric ulcer" },
-  { "code": "DA91", "label": "Duodenal ulcer" },
-  { "code": "DA92", "label": "Peptic ulcer, unspecified" },
-  { "code": "DB92", "label": "Liver cirrhosis" },
-  { "code": "DB94", "label": "Ascites" },
-  { "code": "DC50", "label": "Crohn disease" },
-  { "code": "DC52", "label": "Ulcerative colitis" },
-  { "code": "DC90", "label": "Constipation" },
-  { "code": "DD90", "label": "Nausea and vomiting" },
-  { "code": "DD91", "label": "Nausea" },
-  { "code": "DD92", "label": "Vomiting" },
-  { "code": "8A00", "label": "Dementia due to Alzheimer disease" },
-  { "code": "8A20", "label": "Multiple sclerosis" },
-  { "code": "8A40", "label": "Amyotrophic lateral sclerosis (ALS)" },
-  { "code": "8A60", "label": "Parkinson disease" },
-  { "code": "8B20", "label": "Ischaemic stroke" },
-  { "code": "8B21", "label": "Intracerebral haemorrhage" },
-  { "code": "8B22", "label": "Subarachnoid haemorrhage" },
-  { "code": "8B60", "label": "Epilepsy, unspecified" },
-  { "code": "8A85", "label": "Restless legs syndrome" },
-  { "code": "8A80", "label": "Peripheral neuropathy" },
-  { "code": "MA03", "label": "Chronic neuropathic pain" },
-  { "code": "MG30", "label": "Chronic primary pain" },
-  { "code": "MD10", "label": "Headache, unspecified" },
-  { "code": "MD11", "label": "Migraine" },
-  { "code": "FA90", "label": "Rheumatoid arthritis" },
-  { "code": "FA91", "label": "Rheumatoid arthritis with rheumatoid factor" },
-  { "code": "FB83", "label": "Osteoarthritis, unspecified" },
-  { "code": "FB40", "label": "Osteoporosis" },
-  { "code": "FA20", "label": "Systemic lupus erythematosus" },
-  { "code": "FB84", "label": "Osteoarthritis of knee" },
-  { "code": "FB85", "label": "Osteoarthritis of hip" },
-  { "code": "FC40", "label": "Fracture of femur" },
-  { "code": "2C10", "label": "Malignant neoplasm of bronchus or lung" },
-  { "code": "2C20", "label": "Malignant neoplasm of breast" },
-  { "code": "2C00", "label": "Malignant neoplasm of oesophagus" },
-  { "code": "2C11", "label": "Malignant neoplasm of stomach" },
-  { "code": "2C12", "label": "Malignant neoplasm of colon" },
-  { "code": "2C14", "label": "Malignant neoplasm of rectum" },
-  { "code": "2C25", "label": "Malignant neoplasm of liver" },
-  { "code": "2C10.2", "label": "Malignant neoplasm of pancreas" },
-  { "code": "2C50", "label": "Malignant neoplasm of ovary" },
-  { "code": "2C82", "label": "Malignant neoplasm of prostate" },
-  { "code": "2C81", "label": "Malignant neoplasm of bladder" },
-  { "code": "2C72", "label": "Malignant neoplasm of kidney" },
-  { "code": "2C71", "label": "Malignant neoplasm of thyroid gland" },
-  { "code": "2A00", "label": "Malignant neoplasm of brain" },
-  { "code": "2B52", "label": "Diffuse large B-cell lymphoma" },
-  { "code": "2B33", "label": "Hodgkin lymphoma" },
-  { "code": "2B92", "label": "Multiple myeloma" },
-  { "code": "2B60", "label": "Acute myeloid leukaemia" },
-  { "code": "2B61", "label": "Chronic myeloid leukaemia" },
-  { "code": "2B56", "label": "Chronic lymphocytic leukaemia" },
-  { "code": "2D40", "label": "Secondary malignant neoplasm of lymph nodes" },
-  { "code": "2D50", "label": "Secondary malignant neoplasm of lung" },
-  { "code": "2D60", "label": "Secondary malignant neoplasm of liver" },
-  { "code": "2D70", "label": "Secondary malignant neoplasm of bone" },
-  { "code": "2D71", "label": "Secondary malignant neoplasm of brain" },
-  { "code": "1C1A", "label": "Pulmonary tuberculosis" },
-  { "code": "1C1B", "label": "Extrapulmonary tuberculosis" },
-  { "code": "1A00", "label": "Cholera" },
-  { "code": "1C41", "label": "Human immunodeficiency virus disease" },
-  { "code": "1C43", "label": "HIV disease with Pneumocystis pneumonia" },
-  { "code": "RA01", "label": "COVID-19" },
-  { "code": "1B10", "label": "Septicaemia" },
-  { "code": "1G40", "label": "Urinary tract infection" },
-  { "code": "1G41", "label": "Pyelonephritis" },
-  { "code": "1B92", "label": "Sepsis" },
-  { "code": "5C70", "label": "Protein-energy malnutrition" },
-  { "code": "5C71", "label": "Cachexia" },
-  { "code": "MG43", "label": "Dysphagia" },
-  { "code": "MG44", "label": "Odynophagia" },
-  { "code": "MG22", "label": "Haemoptysis" },
-  { "code": "MG23", "label": "Dyspnoea" },
-  { "code": "MG24", "label": "Orthopnoea" },
-  { "code": "MG62", "label": "Oedema, generalised" },
-  { "code": "MG63", "label": "Peripheral oedema" },
-  { "code": "MG64", "label": "Lymphoedema" },
-  { "code": "MG70", "label": "Fatigue" },
-  { "code": "MG71", "label": "Malaise" },
-  { "code": "QE62", "label": "Terminal illness — prognosis of months or less" },
-  { "code": "6A70", "label": "Depressive episode" },
-  { "code": "6A71", "label": "Recurrent depressive disorder" },
-  { "code": "6B00", "label": "Generalised anxiety disorder" },
-  { "code": "6C40", "label": "Delirium" },
-  { "code": "6D70", "label": "Insomnia disorder" },
-  { "code": "MC50", "label": "Pressure ulcer" },
-  { "code": "MC51", "label": "Diabetic foot ulcer" },
-  { "code": "EA90", "label": "Pressure injury, stage I" },
-  { "code": "EA91", "label": "Pressure injury, stage II" },
-  { "code": "EA92", "label": "Pressure injury, stage III" },
-  { "code": "EA93", "label": "Pressure injury, stage IV" },
-  { "code": "KA00", "label": "Benign prostatic hyperplasia" },
-  { "code": "GC42", "label": "Urinary retention" },
-  { "code": "GC00", "label": "Urinary incontinence" },
-  { "code": "LB90", "label": "Hypothyroidism in pregnancy" },
-  { "code": "5D00", "label": "Gout" },
-  { "code": "5C61", "label": "Vitamin D deficiency" },
-  { "code": "5C62", "label": "Vitamin B12 deficiency" },
-  { "code": "5C63", "label": "Folate deficiency" },
-  { "code": "NB80", "label": "Fracture of vertebra" },
-  { "code": "FA82", "label": "Ankylosing spondylitis" },
-  { "code": "FB20", "label": "Low back pain" },
-  { "code": "FB21", "label": "Lumbar disc herniation" },
-  { "code": "FB22", "label": "Cervical disc disorder" },
-  { "code": "8A70", "label": "Myasthenia gravis" },
-  { "code": "8B00", "label": "Transient ischaemic attack" },
-  { "code": "GA80", "label": "Chronic liver disease" },
-  { "code": "DB95", "label": "Hepatic encephalopathy" },
-  { "code": "DB96", "label": "Hepatorenal syndrome" },
-  { "code": "2F44", "label": "Malignant pleural effusion" },
-  { "code": "2F45", "label": "Malignant pericardial effusion" },
-  { "code": "2F46", "label": "Malignant ascites" },
-  { "code": "2F4A", "label": "Spinal cord compression due to neoplasm" }
+  {
+    "code": "BA00",
+    "label": "Essential hypertension"
+  },
+  {
+    "code": "BA01",
+    "label": "Hypertensive heart disease"
+  },
+  {
+    "code": "BA04",
+    "label": "Hypertensive chronic kidney disease"
+  },
+  {
+    "code": "BA21",
+    "label": "Orthostatic hypotension"
+  },
+  {
+    "code": "BA40",
+    "label": "Angina pectoris"
+  },
+  {
+    "code": "BA41",
+    "label": "Acute myocardial infarction"
+  },
+  {
+    "code": "BA42",
+    "label": "Subsequent myocardial infarction"
+  },
+  {
+    "code": "BA80",
+    "label": "Atherosclerosis"
+  },
+  {
+    "code": "BA83",
+    "label": "Peripheral arterial disease"
+  },
+  {
+    "code": "BC81",
+    "label": "Atrial fibrillation"
+  },
+  {
+    "code": "BC82",
+    "label": "Atrial flutter"
+  },
+  {
+    "code": "BD10",
+    "label": "Heart failure, unspecified"
+  },
+  {
+    "code": "BD11",
+    "label": "Left ventricular failure"
+  },
+  {
+    "code": "BD12",
+    "label": "Right heart failure"
+  },
+  {
+    "code": "BD14",
+    "label": "Dilated cardiomyopathy"
+  },
+  {
+    "code": "BD30",
+    "label": "Pericarditis"
+  },
+  {
+    "code": "BA50",
+    "label": "Pulmonary arterial hypertension"
+  },
+  {
+    "code": "BA91",
+    "label": "Deep vein thrombosis"
+  },
+  {
+    "code": "CA22",
+    "label": "Pneumonia, unspecified"
+  },
+  {
+    "code": "CA24",
+    "label": "Pulmonary embolism"
+  },
+  {
+    "code": "CA25",
+    "label": "Pleural effusion"
+  },
+  {
+    "code": "CA40",
+    "label": "Chronic obstructive pulmonary disease"
+  },
+  {
+    "code": "CA41",
+    "label": "Acute exacerbation of COPD"
+  },
+  {
+    "code": "CB00",
+    "label": "Asthma, unspecified"
+  },
+  {
+    "code": "CB01",
+    "label": "Severe persistent asthma"
+  },
+  {
+    "code": "CA70",
+    "label": "Pulmonary fibrosis"
+  },
+  {
+    "code": "CA50",
+    "label": "Lung abscess"
+  },
+  {
+    "code": "CA80",
+    "label": "Pleural mesothelioma"
+  },
+  {
+    "code": "CA26",
+    "label": "Chylothorax"
+  },
+  {
+    "code": "CA12",
+    "label": "Bronchiectasis"
+  },
+  {
+    "code": "5A10",
+    "label": "Type 1 diabetes mellitus"
+  },
+  {
+    "code": "5A11",
+    "label": "Type 2 diabetes mellitus"
+  },
+  {
+    "code": "5A13",
+    "label": "Malnutrition-related diabetes mellitus"
+  },
+  {
+    "code": "5A60",
+    "label": "Hypothyroidism, unspecified"
+  },
+  {
+    "code": "5A00",
+    "label": "Hyperthyroidism"
+  },
+  {
+    "code": "5B80",
+    "label": "Obesity"
+  },
+  {
+    "code": "5B57",
+    "label": "Hyponatraemia"
+  },
+  {
+    "code": "5B55",
+    "label": "Hyperkalaemia"
+  },
+  {
+    "code": "5B54",
+    "label": "Hypokalaemia"
+  },
+  {
+    "code": "5B56",
+    "label": "Hypercalcaemia"
+  },
+  {
+    "code": "5C50",
+    "label": "Anaemia due to chronic disease"
+  },
+  {
+    "code": "3A00",
+    "label": "Iron deficiency anaemia"
+  },
+  {
+    "code": "3A01",
+    "label": "Anaemia due to folate deficiency"
+  },
+  {
+    "code": "3A70",
+    "label": "Thrombocytopenia"
+  },
+  {
+    "code": "GB60",
+    "label": "Chronic kidney disease, stage unspecified"
+  },
+  {
+    "code": "GB61",
+    "label": "Chronic kidney disease, stage 3"
+  },
+  {
+    "code": "GB62",
+    "label": "Chronic kidney disease, stage 4"
+  },
+  {
+    "code": "GB63",
+    "label": "Chronic kidney disease, stage 5"
+  },
+  {
+    "code": "GB40",
+    "label": "Acute kidney injury"
+  },
+  {
+    "code": "DA80",
+    "label": "Gastro-oesophageal reflux disease"
+  },
+  {
+    "code": "DA60",
+    "label": "Gastritis"
+  },
+  {
+    "code": "DA90",
+    "label": "Gastric ulcer"
+  },
+  {
+    "code": "DA91",
+    "label": "Duodenal ulcer"
+  },
+  {
+    "code": "DA92",
+    "label": "Peptic ulcer, unspecified"
+  },
+  {
+    "code": "DB92",
+    "label": "Liver cirrhosis"
+  },
+  {
+    "code": "DB94",
+    "label": "Ascites"
+  },
+  {
+    "code": "DC50",
+    "label": "Crohn disease"
+  },
+  {
+    "code": "DC52",
+    "label": "Ulcerative colitis"
+  },
+  {
+    "code": "DC90",
+    "label": "Constipation"
+  },
+  {
+    "code": "DD90",
+    "label": "Nausea and vomiting"
+  },
+  {
+    "code": "DD91",
+    "label": "Nausea"
+  },
+  {
+    "code": "DD92",
+    "label": "Vomiting"
+  },
+  {
+    "code": "8A00",
+    "label": "Dementia due to Alzheimer disease"
+  },
+  {
+    "code": "8A20",
+    "label": "Multiple sclerosis"
+  },
+  {
+    "code": "8A40",
+    "label": "Amyotrophic lateral sclerosis (ALS)"
+  },
+  {
+    "code": "8A60",
+    "label": "Parkinson disease"
+  },
+  {
+    "code": "8B20",
+    "label": "Ischaemic stroke"
+  },
+  {
+    "code": "8B21",
+    "label": "Intracerebral haemorrhage"
+  },
+  {
+    "code": "8B22",
+    "label": "Subarachnoid haemorrhage"
+  },
+  {
+    "code": "8B60",
+    "label": "Epilepsy, unspecified"
+  },
+  {
+    "code": "8A85",
+    "label": "Restless legs syndrome"
+  },
+  {
+    "code": "8A80",
+    "label": "Peripheral neuropathy"
+  },
+  {
+    "code": "MA03",
+    "label": "Chronic neuropathic pain"
+  },
+  {
+    "code": "MG30",
+    "label": "Chronic primary pain"
+  },
+  {
+    "code": "MD10",
+    "label": "Headache, unspecified"
+  },
+  {
+    "code": "MD11",
+    "label": "Migraine"
+  },
+  {
+    "code": "FA90",
+    "label": "Rheumatoid arthritis"
+  },
+  {
+    "code": "FA91",
+    "label": "Rheumatoid arthritis with rheumatoid factor"
+  },
+  {
+    "code": "FB83",
+    "label": "Osteoarthritis, unspecified"
+  },
+  {
+    "code": "FB40",
+    "label": "Osteoporosis"
+  },
+  {
+    "code": "FA20",
+    "label": "Systemic lupus erythematosus"
+  },
+  {
+    "code": "FB84",
+    "label": "Osteoarthritis of knee"
+  },
+  {
+    "code": "FB85",
+    "label": "Osteoarthritis of hip"
+  },
+  {
+    "code": "FC40",
+    "label": "Fracture of femur"
+  },
+  {
+    "code": "2C10",
+    "label": "Malignant neoplasm of bronchus or lung"
+  },
+  {
+    "code": "2C20",
+    "label": "Malignant neoplasm of breast"
+  },
+  {
+    "code": "2C00",
+    "label": "Malignant neoplasm of oesophagus"
+  },
+  {
+    "code": "2C11",
+    "label": "Malignant neoplasm of stomach"
+  },
+  {
+    "code": "2C12",
+    "label": "Malignant neoplasm of colon"
+  },
+  {
+    "code": "2C14",
+    "label": "Malignant neoplasm of rectum"
+  },
+  {
+    "code": "2C25",
+    "label": "Malignant neoplasm of liver"
+  },
+  {
+    "code": "2C10.2",
+    "label": "Malignant neoplasm of pancreas"
+  },
+  {
+    "code": "2C50",
+    "label": "Malignant neoplasm of ovary"
+  },
+  {
+    "code": "2C82",
+    "label": "Malignant neoplasm of prostate"
+  },
+  {
+    "code": "2C81",
+    "label": "Malignant neoplasm of bladder"
+  },
+  {
+    "code": "2C72",
+    "label": "Malignant neoplasm of kidney"
+  },
+  {
+    "code": "2C71",
+    "label": "Malignant neoplasm of thyroid gland"
+  },
+  {
+    "code": "2A00",
+    "label": "Malignant neoplasm of brain"
+  },
+  {
+    "code": "2B52",
+    "label": "Diffuse large B-cell lymphoma"
+  },
+  {
+    "code": "2B33",
+    "label": "Hodgkin lymphoma"
+  },
+  {
+    "code": "2B92",
+    "label": "Multiple myeloma"
+  },
+  {
+    "code": "2B60",
+    "label": "Acute myeloid leukaemia"
+  },
+  {
+    "code": "2B61",
+    "label": "Chronic myeloid leukaemia"
+  },
+  {
+    "code": "2B56",
+    "label": "Chronic lymphocytic leukaemia"
+  },
+  {
+    "code": "2D40",
+    "label": "Secondary malignant neoplasm of lymph nodes"
+  },
+  {
+    "code": "2D50",
+    "label": "Secondary malignant neoplasm of lung"
+  },
+  {
+    "code": "2D60",
+    "label": "Secondary malignant neoplasm of liver"
+  },
+  {
+    "code": "2D70",
+    "label": "Secondary malignant neoplasm of bone"
+  },
+  {
+    "code": "2D71",
+    "label": "Secondary malignant neoplasm of brain"
+  },
+  {
+    "code": "1C1A",
+    "label": "Pulmonary tuberculosis"
+  },
+  {
+    "code": "1C1B",
+    "label": "Extrapulmonary tuberculosis"
+  },
+  {
+    "code": "1A00",
+    "label": "Cholera"
+  },
+  {
+    "code": "1C41",
+    "label": "Human immunodeficiency virus disease"
+  },
+  {
+    "code": "1C43",
+    "label": "HIV disease with Pneumocystis pneumonia"
+  },
+  {
+    "code": "RA01",
+    "label": "COVID-19"
+  },
+  {
+    "code": "1B10",
+    "label": "Septicaemia"
+  },
+  {
+    "code": "1G40",
+    "label": "Urinary tract infection"
+  },
+  {
+    "code": "1G41",
+    "label": "Pyelonephritis"
+  },
+  {
+    "code": "1B92",
+    "label": "Sepsis"
+  },
+  {
+    "code": "5C70",
+    "label": "Protein-energy malnutrition"
+  },
+  {
+    "code": "5C71",
+    "label": "Cachexia"
+  },
+  {
+    "code": "MG43",
+    "label": "Dysphagia"
+  },
+  {
+    "code": "MG44",
+    "label": "Odynophagia"
+  },
+  {
+    "code": "MG22",
+    "label": "Haemoptysis"
+  },
+  {
+    "code": "MG23",
+    "label": "Dyspnoea"
+  },
+  {
+    "code": "MG24",
+    "label": "Orthopnoea"
+  },
+  {
+    "code": "MG62",
+    "label": "Oedema, generalised"
+  },
+  {
+    "code": "MG63",
+    "label": "Peripheral oedema"
+  },
+  {
+    "code": "MG64",
+    "label": "Lymphoedema"
+  },
+  {
+    "code": "MG70",
+    "label": "Fatigue"
+  },
+  {
+    "code": "MG71",
+    "label": "Malaise"
+  },
+  {
+    "code": "QE62",
+    "label": "Terminal illness — prognosis of months or less"
+  },
+  {
+    "code": "6A70",
+    "label": "Depressive episode"
+  },
+  {
+    "code": "6A71",
+    "label": "Recurrent depressive disorder"
+  },
+  {
+    "code": "6B00",
+    "label": "Generalised anxiety disorder"
+  },
+  {
+    "code": "6C40",
+    "label": "Delirium"
+  },
+  {
+    "code": "6D70",
+    "label": "Insomnia disorder"
+  },
+  {
+    "code": "MC50",
+    "label": "Pressure ulcer"
+  },
+  {
+    "code": "MC51",
+    "label": "Diabetic foot ulcer"
+  },
+  {
+    "code": "EA90",
+    "label": "Pressure injury, stage I"
+  },
+  {
+    "code": "EA91",
+    "label": "Pressure injury, stage II"
+  },
+  {
+    "code": "EA92",
+    "label": "Pressure injury, stage III"
+  },
+  {
+    "code": "EA93",
+    "label": "Pressure injury, stage IV"
+  },
+  {
+    "code": "KA00",
+    "label": "Benign prostatic hyperplasia"
+  },
+  {
+    "code": "GC42",
+    "label": "Urinary retention"
+  },
+  {
+    "code": "GC00",
+    "label": "Urinary incontinence"
+  },
+  {
+    "code": "LB90",
+    "label": "Hypothyroidism in pregnancy"
+  },
+  {
+    "code": "5D00",
+    "label": "Gout"
+  },
+  {
+    "code": "5C61",
+    "label": "Vitamin D deficiency"
+  },
+  {
+    "code": "5C62",
+    "label": "Vitamin B12 deficiency"
+  },
+  {
+    "code": "5C63",
+    "label": "Folate deficiency"
+  },
+  {
+    "code": "NB80",
+    "label": "Fracture of vertebra"
+  },
+  {
+    "code": "FA82",
+    "label": "Ankylosing spondylitis"
+  },
+  {
+    "code": "FB20",
+    "label": "Low back pain"
+  },
+  {
+    "code": "FB21",
+    "label": "Lumbar disc herniation"
+  },
+  {
+    "code": "FB22",
+    "label": "Cervical disc disorder"
+  },
+  {
+    "code": "8A70",
+    "label": "Myasthenia gravis"
+  },
+  {
+    "code": "8B00",
+    "label": "Transient ischaemic attack"
+  },
+  {
+    "code": "GA80",
+    "label": "Chronic liver disease"
+  },
+  {
+    "code": "DB95",
+    "label": "Hepatic encephalopathy"
+  },
+  {
+    "code": "DB96",
+    "label": "Hepatorenal syndrome"
+  },
+  {
+    "code": "2F44",
+    "label": "Malignant pleural effusion"
+  },
+  {
+    "code": "2F45",
+    "label": "Malignant pericardial effusion"
+  },
+  {
+    "code": "2F46",
+    "label": "Malignant ascites"
+  },
+  {
+    "code": "2F4A",
+    "label": "Spinal cord compression due to neoplasm"
+  },
+  {
+    "code": "BB00",
+    "label": "Nonrheumatic aortic valve stenosis"
+  },
+  {
+    "code": "BB01",
+    "label": "Nonrheumatic aortic valve regurgitation"
+  },
+  {
+    "code": "BB40",
+    "label": "Nonrheumatic mitral valve stenosis"
+  },
+  {
+    "code": "BB41",
+    "label": "Nonrheumatic mitral valve regurgitation"
+  },
+  {
+    "code": "BB80",
+    "label": "Nonrheumatic tricuspid valve regurgitation"
+  },
+  {
+    "code": "BC40",
+    "label": "Ventricular tachycardia"
+  },
+  {
+    "code": "BC43",
+    "label": "Ventricular fibrillation"
+  },
+  {
+    "code": "BC61",
+    "label": "Complete atrioventricular block (Third-degree AV block)"
+  },
+  {
+    "code": "BC70",
+    "label": "Sick sinus syndrome"
+  },
+  {
+    "code": "BA60",
+    "label": "Aortic aneurysm"
+  },
+  {
+    "code": "BA61",
+    "label": "Aortic dissection"
+  },
+  {
+    "code": "BA92",
+    "label": "Varicose veins of lower extremities"
+  },
+  {
+    "code": "CA00",
+    "label": "Acute upper respiratory infection"
+  },
+  {
+    "code": "CA06",
+    "label": "Acute sinusitis"
+  },
+  {
+    "code": "CA07",
+    "label": "Acute pharyngitis"
+  },
+  {
+    "code": "CA08",
+    "label": "Acute tonsillitis"
+  },
+  {
+    "code": "CA10",
+    "label": "Acute bronchitis"
+  },
+  {
+    "code": "CA60",
+    "label": "Respiratory failure, type 1 — hypoxaemic"
+  },
+  {
+    "code": "CA61",
+    "label": "Respiratory failure, type 2 — hypercapnic"
+  },
+  {
+    "code": "DA20",
+    "label": "Oesophageal varices"
+  },
+  {
+    "code": "DA30",
+    "label": "Hiatus hernia"
+  },
+  {
+    "code": "DA40",
+    "label": "Oesophagitis"
+  },
+  {
+    "code": "DB10",
+    "label": "Acute viral hepatitis A"
+  },
+  {
+    "code": "DB11",
+    "label": "Acute viral hepatitis B"
+  },
+  {
+    "code": "DB12",
+    "label": "Acute viral hepatitis C"
+  },
+  {
+    "code": "DB40",
+    "label": "Chronic hepatitis B"
+  },
+  {
+    "code": "DB41",
+    "label": "Chronic hepatitis C"
+  },
+  {
+    "code": "DC20",
+    "label": "Intestinal obstruction"
+  },
+  {
+    "code": "DC70",
+    "label": "Gastrointestinal haemorrhage"
+  },
+  {
+    "code": "DD00",
+    "label": "Acute pancreatitis"
+  },
+  {
+    "code": "DD01",
+    "label": "Chronic pancreatitis"
+  },
+  {
+    "code": "DD10",
+    "label": "Acute cholecystitis"
+  },
+  {
+    "code": "DD11",
+    "label": "Cholelithiasis (Gallstones)"
+  },
+  {
+    "code": "DD12",
+    "label": "Cholangitis"
+  },
+  {
+    "code": "EA00",
+    "label": "Atopic eczema (Atopic dermatitis)"
+  },
+  {
+    "code": "EA10",
+    "label": "Psoriasis vulgaris"
+  },
+  {
+    "code": "EA20",
+    "label": "Urticaria"
+  },
+  {
+    "code": "EA30",
+    "label": "Drug-induced skin reaction"
+  },
+  {
+    "code": "EA40",
+    "label": "Herpes zoster (Shingles)"
+  },
+  {
+    "code": "EA41",
+    "label": "Post-herpetic neuralgia"
+  },
+  {
+    "code": "EA50",
+    "label": "Cellulitis"
+  },
+  {
+    "code": "EA60",
+    "label": "Cutaneous abscess"
+  },
+  {
+    "code": "FA00",
+    "label": "Systemic sclerosis (Scleroderma)"
+  },
+  {
+    "code": "FA11",
+    "label": "Polymyalgia rheumatica"
+  },
+  {
+    "code": "FA12",
+    "label": "Giant cell arteritis (Temporal arteritis)"
+  },
+  {
+    "code": "FA13",
+    "label": "Granulomatosis with polyangiitis (Wegener)"
+  },
+  {
+    "code": "FA80",
+    "label": "Psoriatic arthritis"
+  },
+  {
+    "code": "FA81",
+    "label": "Reactive arthritis"
+  },
+  {
+    "code": "FB10",
+    "label": "Fibromyalgia"
+  },
+  {
+    "code": "FB30",
+    "label": "Adhesive capsulitis of shoulder (Frozen shoulder)"
+  },
+  {
+    "code": "FB60",
+    "label": "Plantar fasciitis"
+  },
+  {
+    "code": "NB30",
+    "label": "Spinal canal stenosis"
+  },
+  {
+    "code": "GA00",
+    "label": "Renal calculus (Kidney stone)"
+  },
+  {
+    "code": "GA01",
+    "label": "Ureteric calculus"
+  },
+  {
+    "code": "GB20",
+    "label": "Nephrotic syndrome"
+  },
+  {
+    "code": "GB21",
+    "label": "Nephritic syndrome"
+  },
+  {
+    "code": "GB30",
+    "label": "Chronic glomerulonephritis"
+  },
+  {
+    "code": "GA10",
+    "label": "Polycystic ovary syndrome (PCOS)"
+  },
+  {
+    "code": "GA30",
+    "label": "Endometriosis"
+  },
+  {
+    "code": "GA40",
+    "label": "Uterine leiomyoma (Fibroids)"
+  },
+  {
+    "code": "GB10",
+    "label": "Heavy menstrual bleeding (Menorrhagia)"
+  },
+  {
+    "code": "GC80",
+    "label": "Erectile dysfunction"
+  },
+  {
+    "code": "3A10",
+    "label": "Vitamin B12 deficiency anaemia"
+  },
+  {
+    "code": "3A30",
+    "label": "Sickle cell disease"
+  },
+  {
+    "code": "3A40",
+    "label": "Thalassaemia"
+  },
+  {
+    "code": "3A80",
+    "label": "Aplastic anaemia"
+  },
+  {
+    "code": "3B10",
+    "label": "Immune thrombocytopenic purpura (ITP)"
+  },
+  {
+    "code": "3B20",
+    "label": "Disseminated intravascular coagulation (DIC)"
+  },
+  {
+    "code": "3B64",
+    "label": "Haemophilia"
+  },
+  {
+    "code": "5A40",
+    "label": "Hyperlipidaemia"
+  },
+  {
+    "code": "5A41",
+    "label": "Hypertriglyceridaemia"
+  },
+  {
+    "code": "5B00",
+    "label": "Cushing syndrome"
+  },
+  {
+    "code": "5B10",
+    "label": "Primary adrenocortical insufficiency (Addison disease)"
+  },
+  {
+    "code": "5B30",
+    "label": "Hyperparathyroidism"
+  },
+  {
+    "code": "5B31",
+    "label": "Hypoparathyroidism"
+  },
+  {
+    "code": "5C00",
+    "label": "Malabsorption syndrome"
+  },
+  {
+    "code": "5D10",
+    "label": "Hyperuricaemia"
+  },
+  {
+    "code": "6A20",
+    "label": "Bipolar type I disorder"
+  },
+  {
+    "code": "6A21",
+    "label": "Bipolar type II disorder"
+  },
+  {
+    "code": "6B40",
+    "label": "Post-traumatic stress disorder (PTSD)"
+  },
+  {
+    "code": "6B41",
+    "label": "Obsessive-compulsive disorder (OCD)"
+  },
+  {
+    "code": "6C70",
+    "label": "Alcohol use disorder"
+  },
+  {
+    "code": "6C71",
+    "label": "Opioid dependence"
+  },
+  {
+    "code": "6C72",
+    "label": "Cannabis use disorder"
+  },
+  {
+    "code": "6D80",
+    "label": "Dementia with Lewy bodies"
+  },
+  {
+    "code": "6E60",
+    "label": "Adjustment disorder"
+  },
+  {
+    "code": "8A01",
+    "label": "Vascular dementia"
+  },
+  {
+    "code": "8A02",
+    "label": "Frontotemporal dementia"
+  },
+  {
+    "code": "8A30",
+    "label": "Huntington disease"
+  },
+  {
+    "code": "8A50",
+    "label": "Cerebral palsy"
+  },
+  {
+    "code": "8B80",
+    "label": "Bacterial meningitis"
+  },
+  {
+    "code": "8B81",
+    "label": "Viral encephalitis"
+  },
+  {
+    "code": "8D20",
+    "label": "Diabetic peripheral neuropathy"
+  },
+  {
+    "code": "8D60",
+    "label": "Carpal tunnel syndrome"
+  },
+  {
+    "code": "9A00",
+    "label": "Glaucoma"
+  },
+  {
+    "code": "9A71",
+    "label": "Diabetic retinopathy"
+  },
+  {
+    "code": "9B10",
+    "label": "Age-related cataract"
+  },
+  {
+    "code": "9B40",
+    "label": "Age-related macular degeneration"
+  },
+  {
+    "code": "AA00",
+    "label": "Conductive hearing loss"
+  },
+  {
+    "code": "AA10",
+    "label": "Sensorineural hearing loss"
+  },
+  {
+    "code": "AA50",
+    "label": "Tinnitus"
+  },
+  {
+    "code": "AB30",
+    "label": "Ménière disease"
+  },
+  {
+    "code": "AB31",
+    "label": "Benign paroxysmal positional vertigo (BPPV)"
+  },
+  {
+    "code": "1A30",
+    "label": "Malaria"
+  },
+  {
+    "code": "1A40",
+    "label": "Typhoid fever"
+  },
+  {
+    "code": "1B60",
+    "label": "Septic arthritis"
+  },
+  {
+    "code": "1B70",
+    "label": "Osteomyelitis"
+  },
+  {
+    "code": "1D02",
+    "label": "Dengue fever"
+  },
+  {
+    "code": "1E30",
+    "label": "Influenza"
+  },
+  {
+    "code": "1E50",
+    "label": "Chickenpox (Varicella)"
+  },
+  {
+    "code": "1E51",
+    "label": "Herpes simplex"
+  },
+  {
+    "code": "1F23",
+    "label": "Candidiasis"
+  },
+  {
+    "code": "1G80",
+    "label": "Wound infection"
+  },
+  {
+    "code": "MB21",
+    "label": "Jaundice"
+  },
+  {
+    "code": "MB22",
+    "label": "Pruritus (Generalised itching)"
+  },
+  {
+    "code": "MB23",
+    "label": "Significant unintentional weight loss"
+  },
+  {
+    "code": "MB40",
+    "label": "Syncope (Fainting)"
+  },
+  {
+    "code": "MB41",
+    "label": "Dizziness"
+  },
+  {
+    "code": "MG10",
+    "label": "Haematuria (Blood in urine)"
+  },
+  {
+    "code": "MG11",
+    "label": "Proteinuria"
+  },
+  {
+    "code": "MG50",
+    "label": "Haematemesis (Vomiting blood)"
+  },
+  {
+    "code": "MG51",
+    "label": "Rectal haemorrhage"
+  },
+  {
+    "code": "MG52",
+    "label": "Melaena (Tarry black stool)"
+  },
+  {
+    "code": "MG80",
+    "label": "Anorexia (Loss of appetite)"
+  },
+  {
+    "code": "MG81",
+    "label": "Hypersomnia"
+  },
+  {
+    "code": "QE60",
+    "label": "Terminal phase of illness"
+  },
+  {
+    "code": "QF28",
+    "label": "Need for palliative care"
+  }
 ]
