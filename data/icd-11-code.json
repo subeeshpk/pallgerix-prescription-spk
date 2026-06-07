@@ -661,23 +661,23 @@
   },
   {
     "code": "BB00",
-    "label": "Nonrheumatic aortic valve stenosis"
+    "label": "Aortic stenosis (nonrheumatic)"
   },
   {
     "code": "BB01",
-    "label": "Nonrheumatic aortic valve regurgitation"
+    "label": "Aortic regurgitation (nonrheumatic)"
   },
   {
     "code": "BB40",
-    "label": "Nonrheumatic mitral valve stenosis"
+    "label": "Mitral stenosis (nonrheumatic)"
   },
   {
     "code": "BB41",
-    "label": "Nonrheumatic mitral valve regurgitation"
+    "label": "Mitral regurgitation (nonrheumatic)"
   },
   {
     "code": "BB80",
-    "label": "Nonrheumatic tricuspid valve regurgitation"
+    "label": "Tricuspid regurgitation (nonrheumatic)"
   },
   {
     "code": "BC40",
