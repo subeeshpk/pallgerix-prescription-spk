@@ -16,12 +16,13 @@ REFERENCE WEB APP
 ══════════════════════════════════════════════════════════════════
 The existing web app lives at: https://github.com/subeeshpk/pallgerix-prescription-spk
 Key files to understand before starting:
-  - js/app.js            → full app logic (1645 lines, vanilla JS)
-  - data/doctor.json     → doctor/clinic schema
-  - data/medicines.json  → medicine template schema
-  - data/careplans.json  → care plan strings array
-  - data/tests.json      → diagnostic test strings array
+  - js/app.js                → full app logic (vanilla JS)
+  - data/doctor.json         → doctor/clinic schema
+  - data/medicines.json      → medicine template schema
+  - data/careplans.json      → care plan strings array
+  - data/tests.json          → diagnostic test strings array
   - data/vitals-standards.json → vitals reference ranges
+  - data/icd-11-code.json    → ICD-11 diagnosis code library ({ code, label } objects)
 
 Port all existing features from this web app into the mobile app.
 
@@ -252,8 +253,14 @@ Section 3 — Patient Vitals
   • Toggle: "Include vitals in prescription"
 
 Section 4 — Diagnosis
-  • Add multiple diagnosis strings (TextInput + Add button)
-  • Editable list with delete per item
+  • ICD-11 search box: type a code (e.g. BA00) or keyword (e.g. Hypertension)
+    to search the bundled icd-11-code.json library (165+ entries).
+    Search matches both code and label fields (partial, case-insensitive).
+    Tapping a result immediately adds "CODE: Label" to the diagnosis list
+    (e.g. "BA00: Essential hypertension") and clears the search input.
+  • Manual free-text entry: a separate TextInput + Add button for custom
+    diagnoses not in the ICD-11 library (existing web app behaviour).
+  • Editable list with inline edit and delete per item.
 
 Section 5 — Medicines
   • Search from medicine templates (autocomplete dropdown)
@@ -402,5 +409,7 @@ CONSTRAINTS
   • Target: Android API 26+ and iOS 14+.
   • EAS Build (not bare workflow) for app store distribution.
   • All bundled seed data (medicines.json, careplans.json, tests.json,
-    vitals-standards.json) must be included as static assets in the app
-    bundle (assets/data/) and read on first launch to seed SQLite.
+    vitals-standards.json, icd-11-code.json) must be included as static
+    assets in the app bundle (assets/data/) and read on first launch to
+    seed SQLite. icd-11-code.json is queried in-memory (no SQLite table
+    needed) — load it once at startup and keep it in app state.

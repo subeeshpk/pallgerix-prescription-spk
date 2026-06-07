@@ -24,7 +24,8 @@ A single-page, dependency-free web application for doctors to create, preview, a
 - **Include in Rx toggle** — off by default; when switched on, coloured classification chips and computed BMI appear in the live preview and generated PDF; when off, badges remain visible in the form panel for doctor reference only
 
 ### Prescribing Tools
-- Diagnosis list with add, inline edit, and remove
+- **Diagnosis ICD-11 search** — type any code (e.g. `BA00`) or keyword (e.g. `hypertension`) to search a bundled 165-entry ICD-11 library; selecting a result instantly adds `CODE: Label` to the diagnosis list
+- Diagnosis list with add, inline edit, and remove — free-text custom entry is still available alongside the ICD-11 search
 - Test selection from a predefined tile list plus free-text custom entry
 - Medicine entry — Name, Strength, Dose, Frequency / Duration, Instructions / Notes — with add, edit, and remove
 - Medicine template search — type to search a pre-loaded medicine library and auto-fill the form fields
@@ -54,7 +55,8 @@ pallgerix-prescription/
 │   ├── medicines.json             ← Medicine template library
 │   ├── tests.json                 ← Predefined test names
 │   ├── careplans.json             ← Predefined care plan options
-│   └── vitals-standards.json      ← Clinical classification thresholds
+│   ├── vitals-standards.json      ← Clinical classification thresholds
+│   └── icd-11-code.json           ← ICD-11 diagnosis code library (165 entries)
 ├── assets/
 │   ├── pallgerix_darkbg.svg       ← App header logo
 │   ├── pallgerix_whitebg.svg      ← Favicon / light-background variant
@@ -133,7 +135,23 @@ A JSON array of care plan strings:
 ["Complete bed rest for 3 days", "Drink 8–10 glasses of water daily", ...]
 ```
 
-### 6. Vitals Classification Thresholds — `data/vitals-standards.json`
+### 6. ICD-11 Diagnosis Library — `data/icd-11-code.json`
+
+An array of `{ "code", "label" }` objects following the WHO ICD-11 format. The bundled file ships with 165 entries covering cardiovascular, respiratory, metabolic, neurological, oncology, infectious disease, palliative-specific, and symptom codes.
+
+```json
+[
+  { "code": "BA00", "label": "Essential hypertension" },
+  { "code": "2C10", "label": "Malignant neoplasm of bronchus or lung" },
+  { "code": "QE62", "label": "Terminal illness — prognosis of months or less" }
+]
+```
+
+To expand the library, append additional entries in the same format. The full WHO ICD-11 browser is available at [icd.who.int](https://icd.who.int).
+
+Search matches against both `code` and `label` fields (partial, case-insensitive). Selecting a result adds it to the diagnosis list as `CODE: Label` (e.g. `BA00: Essential hypertension`). Free-text custom diagnosis entry remains available alongside the ICD-11 search.
+
+### 7. Vitals Classification Thresholds — `data/vitals-standards.json`
 
 Controls the colour-coded assessment badges and chips. Each vital has a `standard` label and an array of `categories` (or `ranges`) with `label`, numeric bounds, `severity`, and `color` (hex).
 

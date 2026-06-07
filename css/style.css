@@ -498,6 +498,27 @@ textarea {
   min-width: 1.2rem;
 }
 
+/* ---- Diagnosis ICD-11 Search ---- */
+.diag-search-section {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.diag-result-code {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+  border: 1px solid rgba(26, 111, 168, 0.25);
+  border-radius: 3px;
+  padding: 0.05rem 0.35rem;
+  margin-right: 0.4rem;
+  letter-spacing: 0.03em;
+  vertical-align: middle;
+}
+
 /* ---- Medicine Template Search ---- */
 .med-search-section {
   margin-bottom: 0.75rem;

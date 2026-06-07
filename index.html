@@ -219,8 +219,22 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
       <!-- DIAGNOSIS -->
       <fieldset class="form-section">
         <legend class="section-title">Diagnosis</legend>
+
+        <!-- ICD-11 search -->
+        <div class="diag-search-section">
+          <label class="med-search-label" for="diag-search">Search ICD-11 diagnosis library</label>
+          <div class="med-search-input-wrap">
+            <input type="text" id="diag-search" class="med-search-input"
+              placeholder="Type code or name… e.g. Hypertension or BA00"
+              autocomplete="off" spellcheck="false" />
+            <button type="button" id="diag-search-clear" class="med-search-clear" aria-label="Clear search" style="display:none">✕</button>
+          </div>
+          <div id="diag-search-results" class="med-search-results" role="listbox" aria-label="Diagnosis search results"></div>
+        </div>
+
+        <!-- Manual / custom entry -->
         <div class="add-row">
-          <input type="text" id="diagnosis-input" placeholder="Enter diagnosis..."
+          <input type="text" id="diagnosis-input" placeholder="Or type a custom diagnosis..."
             onkeydown="if(event.key==='Enter'){event.preventDefault();addDiagnosis();}" />
           <button class="btn btn-secondary" id="diagnosis-cancel-btn" onclick="cancelDiagnosisEdit()" style="display:none;">Cancel</button>
           <button class="btn btn-add" id="diagnosis-add-btn" onclick="addDiagnosis()">+ Add</button>

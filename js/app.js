@@ -44,6 +44,7 @@ const state = {
   tests: [],               // Loaded from data/tests.json
   carePlans: [],           // Loaded from data/careplans.json
   medicineTemplates: [],   // Loaded from data/medicines.json
+  icdCodes: [],            // Loaded from data/icd-11-code.json
 
   patient: {
     name: '',
@@ -227,7 +228,8 @@ async function loadData() {
     toJSON('data/tests.json'),
     toJSON('data/careplans.json'),
     toJSON('data/medicines.json'),
-    toJSON('data/vitals-standards.json')
+    toJSON('data/vitals-standards.json'),
+    toJSON('data/icd-11-code.json')
   ]);
 
   if (results[0].status === 'fulfilled') {
@@ -244,6 +246,7 @@ async function loadData() {
   state.carePlans         = results[2].status === 'fulfilled' ? results[2].value : [];
   state.medicineTemplates = results[3].status === 'fulfilled' ? results[3].value : [];
   state.vitalsStandards   = results[4].status === 'fulfilled' ? results[4].value : null;
+  state.icdCodes          = results[5].status === 'fulfilled' ? results[5].value : [];
   if (!state.vitalsStandards) console.warn('Failed to load vitals-standards.json:', results[4].reason);
 }
 
@@ -447,6 +450,97 @@ function renderMedicineSearchResults(query) {
       if (clearBtn) clearBtn.style.display = 'none';
       results.innerHTML = '';
       results.style.display = 'none';
+    });
+
+    results.appendChild(btn);
+  });
+
+  results.style.display = 'block';
+}
+
+/**
+ * Initialise the ICD-11 diagnosis search box.
+ * Selecting a result immediately adds it to the diagnosis list.
+ */
+function initDiagnosisSearch() {
+  const input    = document.getElementById('diag-search');
+  const clearBtn = document.getElementById('diag-search-clear');
+  const results  = document.getElementById('diag-search-results');
+  if (!input || !results) return;
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    clearBtn.style.display = q ? '' : 'none';
+    renderDiagnosisSearchResults(q);
+  });
+
+  clearBtn.addEventListener('click', () => {
+    input.value = '';
+    clearBtn.style.display = 'none';
+    results.innerHTML = '';
+    results.style.display = 'none';
+    input.focus();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!input.contains(e.target) && !results.contains(e.target) && e.target !== clearBtn) {
+      results.style.display = 'none';
+    }
+  });
+
+  input.addEventListener('focus', () => {
+    const q = input.value.trim();
+    if (q) renderDiagnosisSearchResults(q);
+  });
+}
+
+/**
+ * Filter state.icdCodes by query and render result items.
+ * Matches against both code and label (case-insensitive, partial).
+ * Selecting a result adds "CODE: label" directly to the diagnosis list.
+ */
+function renderDiagnosisSearchResults(query) {
+  const results = document.getElementById('diag-search-results');
+  if (!results) return;
+
+  if (!query) {
+    results.innerHTML = '';
+    results.style.display = 'none';
+    return;
+  }
+
+  const q = query.toLowerCase();
+  const matches = state.icdCodes.filter(entry =>
+    entry.code.toLowerCase().includes(q) ||
+    entry.label.toLowerCase().includes(q)
+  ).slice(0, 50);
+
+  results.innerHTML = '';
+
+  if (!matches.length) {
+    results.innerHTML = '<div class="med-search-no-results">No matching diagnoses found</div>';
+    results.style.display = 'block';
+    return;
+  }
+
+  matches.forEach(entry => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'med-search-result-item';
+    btn.setAttribute('role', 'option');
+    btn.innerHTML = `<span class="diag-result-code">${escapeHTML(entry.code)}</span> ${escapeHTML(entry.label)}`;
+
+    btn.addEventListener('click', () => {
+      state.diagnosisList.push(`${entry.code}: ${entry.label}`);
+      renderDiagnosisList();
+
+      const input    = document.getElementById('diag-search');
+      const clearBtn = document.getElementById('diag-search-clear');
+      if (input)    input.value = '';
+      if (clearBtn) clearBtn.style.display = 'none';
+      results.innerHTML = '';
+      results.style.display = 'none';
+      input?.focus();
     });
 
     results.appendChild(btn);
@@ -1608,6 +1702,7 @@ async function init() {
   renderTestTiles();
   renderCareplanTiles();
   initMedicineSearch();
+  initDiagnosisSearch();
 
   // Restore patient form fields from state
   restorePatientForm();
