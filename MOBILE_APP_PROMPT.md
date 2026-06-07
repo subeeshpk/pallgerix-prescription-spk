@@ -254,7 +254,7 @@ Section 3 — Patient Vitals
 
 Section 4 — Diagnosis
   • ICD-11 search box: type a code (e.g. BA00) or keyword (e.g. Hypertension)
-    to search the bundled icd-11-code.json library (165+ entries).
+    to search the bundled icd-11-code.json library (292+ entries).
     Search matches both code and label fields (partial, case-insensitive).
     Tapping a result immediately adds "CODE: Label" to the diagnosis list
     (e.g. "BA00: Essential hypertension") and clears the search input.

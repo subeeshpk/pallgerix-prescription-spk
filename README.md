@@ -56,7 +56,7 @@ pallgerix-prescription/
 │   ├── tests.json                 ← Predefined test names
 │   ├── careplans.json             ← Predefined care plan options
 │   ├── vitals-standards.json      ← Clinical classification thresholds
-│   └── icd-11-code.json           ← ICD-11 diagnosis code library (165 entries)
+│   └── icd-11-code.json           ← ICD-11 diagnosis code library (292 entries)
 ├── assets/
 │   ├── pallgerix_darkbg.svg       ← App header logo
 │   ├── pallgerix_whitebg.svg      ← Favicon / light-background variant
@@ -137,7 +137,7 @@ A JSON array of care plan strings:
 
 ### 6. ICD-11 Diagnosis Library — `data/icd-11-code.json`
 
-An array of `{ "code", "label" }` objects following the WHO ICD-11 format. The bundled file ships with 165 entries covering cardiovascular, respiratory, metabolic, neurological, oncology, infectious disease, palliative-specific, and symptom codes.
+An array of `{ "code", "label" }` objects following the WHO ICD-11 format. The bundled file ships with 292 entries covering cardiovascular (including valvular, arrhythmias, aortic), respiratory, GI (including hepatitis, pancreatitis), skin, musculoskeletal, renal, gynaecology, haematology, metabolic, psychiatry, neurology, ophthalmology, ENT, infectious disease, palliative-specific, and symptom codes.
 
 ```json
 [
