@@ -242,8 +242,16 @@ Section 1 — Doctor Selector
 
 Section 2 — Prescription Number
   • Auto-generated on form load and on every patient name change.
-  • Format: PALLGERIX_PRES_<FIRSTNAME>_DDMMYYYY_HHMM (24h, uppercase,
-    alphanumeric only; falls back to "PATIENT" if name is empty).
+  • Format: PALLGERIX_PRES_<FIRSTNAME>_DDMMYYYY_HHMM (24h, uppercase).
+  • Name sanitisation rules (applied in this order):
+      1. Take only the first whitespace-delimited token of the patient name.
+      2. Strip all non-alphanumeric characters (including accented/special
+         chars such as é, ñ, ') — result is [A-Z0-9] only.
+         Example: "José" → "JOS", "O'Brien" → "OBRIEN".
+      3. Digits in the name are preserved (e.g. "R2D2" → "R2D2").
+      4. Uppercase the result.
+      5. If the result is empty (blank name or all-special-char input),
+         fall back to the literal token "PATIENT".
   • Displayed prominently in the prescription header row alongside
     the date/time (number on the left, date/time on the right).
   • The PDF share filename uses the same string so every file is

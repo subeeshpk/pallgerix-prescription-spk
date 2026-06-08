@@ -33,6 +33,8 @@ A single-page, dependency-free web application for doctors to create, preview, a
 
 ### Workflow
 - **Auto-generated prescription number** — format `PALLGERIX_PRES_<FIRSTNAME>_DDMMYYYY_HHMM`, shown in the live preview and printed PDF (left side of the date/time row); updates in real time as you type the patient name
+  - First name token only (everything before the first space); uppercased; non-alphanumeric characters (including accents) stripped; digits preserved; falls back to `PATIENT` when no name is entered
+  - Time component uses 24-hour clock (e.g. `1035` for 10:35 AM)
 - **PDF filename** uses the same prescription number (e.g. `PALLGERIX_PRES_JOHN_08062026_1035.pdf`) so every saved file is uniquely identifiable
 - Live prescription preview that updates as you type (180 ms debounce)
 - Multi-doctor selector — choose the active doctor; the prescription header updates instantly
