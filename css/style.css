@@ -867,11 +867,25 @@ textarea {
   font-size: 0.78rem;
 }
 
+.rx-pres-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.6rem;
+}
+
+.rx-pres-number {
+  font-size: 0.7rem;
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+}
+
 .rx-datetime {
   font-size: 0.78rem;
   color: var(--color-text-muted);
   text-align: right;
-  margin-bottom: 0.6rem;
 }
 
 .rx-patient-box {
@@ -1656,11 +1670,25 @@ textarea {
     margin-top: 1pt;
   }
 
+  .print-pres-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6pt;
+  }
+
+  .print-pres-number {
+    font-size: 7.5pt;
+    font-family: monospace;
+    font-weight: 700;
+    color: #555;
+    letter-spacing: 0.03em;
+  }
+
   .print-datetime {
     font-size: 8.5pt;
     color: #666;
     text-align: right;
-    margin-bottom: 6pt;
   }
 
   .print-patient-box {

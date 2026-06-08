@@ -717,7 +717,11 @@ function updatePreview() {
   const dynEl = document.getElementById('rx-dynamic');
   if (!dynEl) return;
 
-  let html = `<div class="rx-datetime">Date &amp; Time: ${formatDateTime()}</div>`;
+  let html = `
+    <div class="rx-pres-row">
+      <div class="rx-pres-number">Rx No: ${escapeHTML(buildPrescriptionNumber())}</div>
+      <div class="rx-datetime">Date &amp; Time: ${formatDateTime()}</div>
+    </div>`;
 
   /* Patient box — grouped by Personal Info / Vitals / Contact */
   const ptPersonal = [
@@ -1231,7 +1235,10 @@ function buildPrintHTML() {
         ${doc?.contact ? `<div class="print-doctor-sub">${escapeHTML(doc.contact)}</div>` : ''}
       </div>
     </div>
-    <div class="print-datetime">Date &amp; Time: ${formatDateTime()}</div>`;
+    <div class="print-pres-row">
+      <div class="print-pres-number">Rx No: ${buildPrescriptionNumber()}</div>
+      <div class="print-datetime">Date &amp; Time: ${formatDateTime()}</div>
+    </div>`;
 
   /* Patient box — grouped by Personal Info / Vitals / Contact */
   const printPersonal = [
@@ -1431,24 +1438,26 @@ function executePrint() {
    ============================================================ */
 
 /**
- * Build the structured PDF filename: PallGerix_<FirstName>_<DDMMYYYY>
- * Rules:
- *  - Use the first word/token of the patient name (everything before first space)
- *  - Strip all characters that are not letters or digits
- *  - Preserve original casing
- *  - Empty or whitespace-only name → fall back to "Patient"
+ * Build the prescription number: PALLGERIX_PRES_<FIRSTNAME>_DDMMYYYY_HHMM
+ * Used as the unique identifier on the prescription and as the PDF filename.
  */
-function buildPdfTitle() {
+function buildPrescriptionNumber() {
   const rawName  = (state.patient.name || '').trim();
-  const firstToken = rawName.split(/\s+/)[0] || '';
-  const safeName = firstToken.replace(/[^a-zA-Z0-9]/g, '') || 'Patient';
+  const firstName = (rawName.split(/\s+/)[0] || '').replace(/[^a-zA-Z0-9]/g, '').toUpperCase() || 'PATIENT';
 
-  const now   = new Date();
-  const dd    = String(now.getDate()).padStart(2, '0');
-  const mm    = String(now.getMonth() + 1).padStart(2, '0');
-  const yyyy  = now.getFullYear();
+  const now  = new Date();
+  const dd   = String(now.getDate()).padStart(2, '0');
+  const mm   = String(now.getMonth() + 1).padStart(2, '0');
+  const yyyy = now.getFullYear();
+  const hh   = String(now.getHours()).padStart(2, '0');
+  const min  = String(now.getMinutes()).padStart(2, '0');
 
-  return `PallGerix_${safeName}_${dd}${mm}${yyyy}`;
+  return `PALLGERIX_PRES_${firstName}_${dd}${mm}${yyyy}_${hh}${min}`;
+}
+
+/** Returns the prescription number for use as the PDF filename. */
+function buildPdfTitle() {
+  return buildPrescriptionNumber();
 }
 
 /**
