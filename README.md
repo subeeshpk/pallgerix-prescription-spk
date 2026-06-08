@@ -32,6 +32,8 @@ A single-page, dependency-free web application for doctors to create, preview, a
 - Care plan tile list (predefined + custom free-text)
 
 ### Workflow
+- **Auto-generated prescription number** — format `PALLGERIX_PRES_<FIRSTNAME>_DDMMYYYY_HHMM`, shown in the live preview and printed PDF (left side of the date/time row); updates in real time as you type the patient name
+- **PDF filename** uses the same prescription number (e.g. `PALLGERIX_PRES_JOHN_08062026_1035.pdf`) so every saved file is uniquely identifiable
 - Live prescription preview that updates as you type (180 ms debounce)
 - Multi-doctor selector — choose the active doctor; the prescription header updates instantly
 - Draft auto-saved to `localStorage` — survives page refresh and browser restarts
