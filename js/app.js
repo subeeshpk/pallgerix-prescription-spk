@@ -290,8 +290,6 @@ async function loadData() {
   if (results[0].status === 'fulfilled') {
     const raw = results[0].value;
     state.doctors = Array.isArray(raw) ? raw : [raw];
-    const clinicName = state.doctors[0]?.clinicName || 'HealthFirst Clinic';
-    document.title = `Prescription — ${clinicName}`;
   } else {
     console.error('Failed to load doctor.json:', results[0].reason);
     state.doctors = [];
@@ -737,6 +735,7 @@ function updatePreview() {
   if (state.rxNumber === null) {
     state.rxNumber = buildPrescriptionNumber();
     saveToStorage();
+    updateDocTitle();
   }
 
   const doc = state.doctor;
@@ -949,7 +948,7 @@ function handlePatientInput(event) {
   const { name, value } = event.target;
   if (name in state.patient) {
     state.patient[name] = value;
-    if (name === 'name') state.rxNumber = null; // regenerate Rx number with new first name
+    if (name === 'name') { state.rxNumber = null; updateDocTitle(); } // regenerate Rx number with new first name
     saveToStorage();
     debouncedUpdatePreview();
     renderVitalsAssessment();
