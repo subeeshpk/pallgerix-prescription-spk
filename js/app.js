@@ -946,6 +946,7 @@ function handlePatientInput(event) {
   const { name, value } = event.target;
   if (name in state.patient) {
     state.patient[name] = value;
+    if (name === 'name') state.rxNumber = null; // regenerate Rx number with new first name
     saveToStorage();
     debouncedUpdatePreview();
     renderVitalsAssessment();
