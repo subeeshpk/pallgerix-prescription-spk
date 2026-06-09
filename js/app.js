@@ -58,6 +58,7 @@ const state = {
     spo2: '',
     bp: '',
     temperature: '',
+    grbs: '',
     mobile: '',
     patientEmail: '',
     address: '',
@@ -187,7 +188,7 @@ function confirmReset() {
   state.selectedDoctorIndex  = -1;
   state.doctor               = null;
   state.rxNumber             = null;
-  state.patient              = { name:'', age:'', sex:'', dob:'', height:'', weight:'', pulseRate:'', respiratoryRate:'', spo2:'', bp:'', temperature:'', mobile:'', patientEmail:'', address:'', notes:'', uhid:'', followUpDate:'', referredTo:'' };
+  state.patient              = { name:'', age:'', sex:'', dob:'', height:'', weight:'', pulseRate:'', respiratoryRate:'', spo2:'', bp:'', temperature:'', grbs:'', mobile:'', patientEmail:'', address:'', notes:'', uhid:'', followUpDate:'', referredTo:'' };
   state.diagnosisList        = [];
   state.editingDiagnosisIndex = -1;
   state.selectedTests        = [];
@@ -240,6 +241,7 @@ function restorePatientForm() {
   setVal('pt-spo2',     p.spo2);
   setVal('pt-bp',       p.bp);
   setVal('pt-temp',     p.temperature);
+  setVal('pt-grbs',     p.grbs);
   setVal('pt-mobile',     p.mobile);
   setVal('pt-email',      p.patientEmail);
   setVal('pt-address',    p.address);
@@ -821,6 +823,7 @@ function updatePreview() {
     { label: 'SPO2',             value: p.spo2,            chip: rxChip('spo2') },
     { label: 'Blood Pressure',   value: p.bp,              chip: rxChip('bp') },
     { label: 'Temperature',      value: p.temperature,     chip: rxChip('temp') },
+    { label: 'GRBS',             value: p.grbs,            chip: rxChip('grbs') },
   ].filter(f => f.value);
 
   const ptContact = [
@@ -1403,7 +1406,7 @@ function restoreFromHistory(index) {
   state.doctor = (idx >= 0 && idx < state.doctors.length) ? state.doctors[idx] : null;
   state.rxNumber = entry.rxNumber || null;
 
-  const blankPatient = { name:'', age:'', sex:'', dob:'', height:'', weight:'', pulseRate:'', respiratoryRate:'', spo2:'', bp:'', temperature:'', mobile:'', patientEmail:'', address:'', notes:'', uhid:'', followUpDate:'', referredTo:'' };
+  const blankPatient = { name:'', age:'', sex:'', dob:'', height:'', weight:'', pulseRate:'', respiratoryRate:'', spo2:'', bp:'', temperature:'', grbs:'', mobile:'', patientEmail:'', address:'', notes:'', uhid:'', followUpDate:'', referredTo:'' };
   Object.assign(state.patient, blankPatient, entry.patient || {});
 
   if (entry.diagnosisList)  state.diagnosisList  = entry.diagnosisList;
@@ -1501,6 +1504,7 @@ function buildPrintHTML() {
     { label: 'SPO2',             value: p.spo2,            chip: pxChip('spo2') },
     { label: 'Blood Pressure',   value: p.bp,              chip: pxChip('bp') },
     { label: 'Temperature',      value: p.temperature,     chip: pxChip('temp') },
+    { label: 'GRBS',             value: p.grbs,            chip: pxChip('grbs') },
   ].filter(f => f.value);
 
   const printContact = [
@@ -1899,6 +1903,15 @@ function computeVitalsAssessment() {
     if (cat) results.push({ key: 'temp', name: 'Temperature', displayValue: `${temp}°F`, category: cat });
   }
 
+  // GRBS (Random Blood Sugar — mg/dL)
+  if (vs.grbs) {
+    const grbs = parseNumeric(p.grbs);
+    if (grbs !== null) {
+      const cat = classifyByRanges(grbs, vs.grbs.ranges);
+      if (cat) results.push({ key: 'grbs', name: 'GRBS', displayValue: `${grbs} mg/dL`, category: cat });
+    }
+  }
+
   return results;
 }
 
@@ -1926,6 +1939,7 @@ function renderVitalsAssessment() {
   setHint('hint-rr',    pv.respiratoryRate, v => parseNumeric(v) !== null);
   setHint('hint-spo2',  pv.spo2,           v => parseNumeric(v) !== null);
   setHint('hint-temp',  pv.temperature,    v => parseNumeric(v) !== null);
+  setHint('hint-grbs',  pv.grbs,          v => parseNumeric(v) !== null);
   const bpHintEl = document.getElementById('hint-bp');
   if (bpHintEl) {
     bpHintEl.textContent = ((pv.bp || '').trim() && !parseBPValue((pv.bp || '').trim())) ? '⚠ Use format: 120/80' : '';

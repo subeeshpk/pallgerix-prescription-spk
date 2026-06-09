@@ -56,5 +56,15 @@
       { "label": "Fever",             "min": 100.4, "max": 103.9, "severity": "DANGER",   "color": "#EF4444" },
       { "label": "High Fever",        "min": 104.0, "max": 999,   "severity": "CRITICAL", "color": "#7F1D1D" }
     ]
+  },
+  "grbs": {
+    "standard": "ADA / WHO — Random Plasma Glucose",
+    "unit": "mg/dL",
+    "ranges": [
+      { "label": "Hypoglycaemia",      "min": 0,   "max": 69,   "severity": "CRITICAL", "color": "#7F1D1D" },
+      { "label": "Normal",             "min": 70,  "max": 139,  "severity": "NORMAL",   "color": "#22C55E" },
+      { "label": "Pre-diabetic Risk",  "min": 140, "max": 199,  "severity": "WARNING",  "color": "#F59E0B" },
+      { "label": "High — Diabetic",    "min": 200, "max": 9999, "severity": "DANGER",   "color": "#EF4444" }
+    ]
   }
 }
