@@ -845,8 +845,8 @@ function updatePreview() {
   if (ptPersonal.length || ptVitals.length || ptContact.length) {
     html += `<div class="rx-patient-box">
       ${renderPtGroup('Personal Info', ptPersonal)}
-      ${renderPtGroup('Vitals', ptVitals)}
       ${renderPtGroup('Contact', ptContact)}
+      ${renderPtGroup('Vitals', ptVitals)}
     </div>`;
   }
 
@@ -908,6 +908,14 @@ function updatePreview() {
     </div>`;
   }
 
+  /* Patient notes */
+  if (p.notes) {
+    html += `<div class="rx-section">
+      <div class="rx-section-heading">Medical Notes</div>
+      <div class="rx-notes">${escapeHTML(p.notes)}</div>
+    </div>`;
+  }
+
   /* Follow-up / Referred-to */
   if (p.followUpDate || p.referredTo) {
     html += `<div class="rx-followup-section">`;
@@ -924,14 +932,6 @@ function updatePreview() {
       </div>`;
     }
     html += `</div>`;
-  }
-
-  /* Patient notes */
-  if (p.notes) {
-    html += `<div class="rx-section">
-      <div class="rx-section-heading">Medical Notes</div>
-      <div class="rx-notes">${escapeHTML(p.notes)}</div>
-    </div>`;
   }
 
   dynEl.innerHTML = html;
@@ -1524,8 +1524,8 @@ function buildPrintHTML() {
 
   html += `<div class="print-patient-box">
     ${renderPrintGroup('Personal Info', printPersonal)}
-    ${renderPrintGroup('Vitals', printVitals)}
     ${renderPrintGroup('Contact', printContact)}
+    ${renderPrintGroup('Vitals', printVitals)}
   </div>`;
 
   /* Diagnosis */
@@ -1589,6 +1589,14 @@ function buildPrintHTML() {
     </div>`;
   }
 
+  /* Notes */
+  if (p.notes) {
+    html += `<div class="print-section">
+      <div class="print-section-heading">Medical Notes</div>
+      <div class="print-notes">${escapeHTML(p.notes)}</div>
+    </div>`;
+  }
+
   /* Follow-up / Referred-to */
   if (p.followUpDate || p.referredTo) {
     html += `<div class="print-followup-section">`;
@@ -1605,14 +1613,6 @@ function buildPrintHTML() {
       </div>`;
     }
     html += `</div>`;
-  }
-
-  /* Notes */
-  if (p.notes) {
-    html += `<div class="print-section">
-      <div class="print-section-heading">Medical Notes</div>
-      <div class="print-notes">${escapeHTML(p.notes)}</div>
-    </div>`;
   }
 
   /* Footer */

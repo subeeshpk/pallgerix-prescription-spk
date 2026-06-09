@@ -172,6 +172,36 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
           </div>
         </div>
 
+        <!-- ── Contact ── -->
+        <div class="pt-subsection">
+          <div class="pt-sub-label">Contact</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pt-mobile">Mobile Number</label>
+              <input type="tel" id="pt-mobile" name="mobile" placeholder="e.g. +91 98765 43210"
+                oninput="handlePatientInput(event)" />
+            </div>
+            <div class="form-group">
+              <label for="pt-email">Patient Email</label>
+              <input type="email" id="pt-email" name="patientEmail" placeholder="patient@email.com"
+                oninput="handlePatientInput(event)" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pt-address">Address</label>
+            <input type="text" id="pt-address" name="address" placeholder="Street, City, PIN"
+              oninput="handlePatientInput(event)" />
+          </div>
+
+          <div class="form-group">
+            <label for="pt-notes">Medical Notes</label>
+            <textarea id="pt-notes" name="notes" rows="3" placeholder="Allergies, history, etc."
+              oninput="handlePatientInput(event)"></textarea>
+          </div>
+        </div>
+
         <!-- ── Vitals ── -->
         <div class="pt-subsection">
           <div class="pt-sub-label">Vitals</div>
@@ -230,53 +260,6 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
           <div id="vitals-assessment-grid" class="vitals-assessment-grid"></div>
         </div>
 
-        <!-- ── Contact ── -->
-        <div class="pt-subsection">
-          <div class="pt-sub-label">Contact</div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="pt-mobile">Mobile Number</label>
-              <input type="tel" id="pt-mobile" name="mobile" placeholder="e.g. +91 98765 43210"
-                oninput="handlePatientInput(event)" />
-            </div>
-            <div class="form-group">
-              <label for="pt-email">Patient Email</label>
-              <input type="email" id="pt-email" name="patientEmail" placeholder="patient@email.com"
-                oninput="handlePatientInput(event)" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="pt-address">Address</label>
-            <input type="text" id="pt-address" name="address" placeholder="Street, City, PIN"
-              oninput="handlePatientInput(event)" />
-          </div>
-
-          <div class="form-group">
-            <label for="pt-notes">Medical Notes</label>
-            <textarea id="pt-notes" name="notes" rows="3" placeholder="Allergies, history, etc."
-              oninput="handlePatientInput(event)"></textarea>
-          </div>
-        </div>
-
-        <!-- ── Prescription Details ── -->
-        <div class="pt-subsection">
-          <div class="pt-sub-label">Prescription Details</div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="pt-followup">Follow-up Date</label>
-              <input type="date" id="pt-followup" name="followUpDate"
-                oninput="handlePatientInput(event)" />
-            </div>
-            <div class="form-group">
-              <label for="pt-referredto">Referred To</label>
-              <input type="text" id="pt-referredto" name="referredTo"
-                placeholder="e.g. Cardiologist / Apollo Hospital"
-                oninput="handlePatientInput(event)" />
-            </div>
-          </div>
-        </div>
       </fieldset>
 
       <!-- DIAGNOSIS -->
@@ -384,6 +367,24 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
           <input type="text" id="custom-careplan-input" placeholder="Custom care plan..."
             onkeydown="if(event.key==='Enter'){event.preventDefault();addCustomCareplan();}" />
           <button class="btn btn-add" onclick="addCustomCareplan()">+ Add</button>
+        </div>
+      </fieldset>
+
+      <!-- PRESCRIPTION DETAILS -->
+      <fieldset class="form-section">
+        <legend class="section-title">Prescription Details</legend>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pt-followup">Follow-up Date</label>
+            <input type="date" id="pt-followup" name="followUpDate"
+              oninput="handlePatientInput(event)" />
+          </div>
+          <div class="form-group">
+            <label for="pt-referredto">Referred To</label>
+            <input type="text" id="pt-referredto" name="referredTo"
+              placeholder="e.g. Cardiologist / Apollo Hospital"
+              oninput="handlePatientInput(event)" />
+          </div>
         </div>
       </fieldset>
 
