@@ -23,11 +23,44 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
     <h2 id="modal-title">Generate Prescription</h2>
     <p>Review the prescription preview before printing. Your browser will open the print dialog. Choose <strong>Save as PDF</strong> to save a digital copy.</p>
     <div class="modal-tip">
-      <strong>Tip:</strong> In the print dialog, select <em>Save as PDF</em> as the destination to download a PDF file instead of printing on paper.
+      <strong>Tip:</strong> Paper size is pre-set to A4. In the print dialog, select <em>Save as PDF</em> and set Margins to <em>None</em> or <em>Minimum</em> for a clean output.
     </div>
     <div class="modal-actions">
       <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary" onclick="executePrint()">Print / Save as PDF</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====================================================
+     PRESCRIPTION HISTORY MODAL
+     ==================================================== -->
+<div id="history-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="history-modal-title">
+  <div class="modal history-modal">
+    <div class="history-modal-header">
+      <h2 id="history-modal-title">Prescription History</h2>
+      <button class="btn-icon-close" onclick="closeHistoryModal()" aria-label="Close history">&times;</button>
+    </div>
+    <div class="history-modal-body">
+      <div id="history-list"></div>
+    </div>
+    <div class="history-modal-footer">
+      <button class="btn btn-danger" onclick="clearHistory()">Clear History</button>
+      <button class="btn btn-secondary" onclick="closeHistoryModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====================================================
+     RESET CONFIRMATION MODAL
+     ==================================================== -->
+<div id="reset-modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title">
+  <div class="modal">
+    <h2 id="reset-modal-title">Reset Form</h2>
+    <p>This will clear all patient data, medicines, diagnoses, and other inputs. This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeResetModal()">Cancel</button>
+      <button class="btn btn-danger" onclick="confirmReset()">Reset Form</button>
     </div>
   </div>
 </div>
@@ -41,10 +74,11 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
   <header class="top-bar">
     <div class="top-bar-brand">
       <img src="assets/pallgerix_darkbg.svg" alt="Clinic Logo" class="top-bar-logo" />
-      <span class="top-bar-title">PallGerix Prescription by Dr. Aneesh V G</span>
+      <span class="top-bar-title" id="top-bar-title">PallGerix Prescription by Dr. Aneesh V G</span>
     </div>
     <div class="top-bar-actions">
       <button class="btn btn-outline" onclick="resetForm()" title="Clear all form inputs">Reset Form</button>
+      <button class="btn btn-outline" onclick="showHistoryModal()" title="View prescription history">History</button>
       <button class="btn btn-primary" onclick="showConfirmModal()">&#x2399; Download PDF</button>
     </div>
   </header>
@@ -89,6 +123,12 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
           <div class="form-group">
             <label for="pt-name">Full Name <span class="required">*</span></label>
             <input type="text" id="pt-name" name="name" placeholder="Patient full name"
+              oninput="handlePatientInput(event)" autocomplete="off" />
+          </div>
+
+          <div class="form-group">
+            <label for="pt-uhid">Patient ID / UHID</label>
+            <input type="text" id="pt-uhid" name="uhid" placeholder="e.g. PALLG-2026-001"
               oninput="handlePatientInput(event)" autocomplete="off" />
           </div>
 
@@ -141,11 +181,13 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
               <label for="pt-pulse">Pulse Rate</label>
               <input type="text" id="pt-pulse" name="pulseRate" placeholder="e.g. 72 bpm"
                 oninput="handlePatientInput(event)" />
+              <span class="vitals-input-hint" id="hint-pulse"></span>
             </div>
             <div class="form-group">
               <label for="pt-rr">Respiratory Rate</label>
               <input type="text" id="pt-rr" name="respiratoryRate" placeholder="e.g. 16 /min"
                 oninput="handlePatientInput(event)" />
+              <span class="vitals-input-hint" id="hint-rr"></span>
             </div>
           </div>
 
@@ -154,11 +196,13 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
               <label for="pt-spo2">SPO2</label>
               <input type="text" id="pt-spo2" name="spo2" placeholder="e.g. 98%"
                 oninput="handlePatientInput(event)" />
+              <span class="vitals-input-hint" id="hint-spo2"></span>
             </div>
             <div class="form-group">
               <label for="pt-bp">Blood Pressure</label>
               <input type="text" id="pt-bp" name="bp" placeholder="e.g. 120/80 mmHg"
                 oninput="handlePatientInput(event)" />
+              <span class="vitals-input-hint" id="hint-bp"></span>
             </div>
           </div>
 
@@ -167,6 +211,7 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
               <label for="pt-temp">Temperature</label>
               <input type="text" id="pt-temp" name="temperature" placeholder="e.g. 98.6°F"
                 oninput="handlePatientInput(event)" />
+              <span class="vitals-input-hint" id="hint-temp"></span>
             </div>
             <div class="form-group pt-group-spacer"></div>
           </div>
@@ -212,6 +257,24 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
             <label for="pt-notes">Medical Notes</label>
             <textarea id="pt-notes" name="notes" rows="3" placeholder="Allergies, history, etc."
               oninput="handlePatientInput(event)"></textarea>
+          </div>
+        </div>
+
+        <!-- ── Prescription Details ── -->
+        <div class="pt-subsection">
+          <div class="pt-sub-label">Prescription Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pt-followup">Follow-up Date</label>
+              <input type="date" id="pt-followup" name="followUpDate"
+                oninput="handlePatientInput(event)" />
+            </div>
+            <div class="form-group">
+              <label for="pt-referredto">Referred To</label>
+              <input type="text" id="pt-referredto" name="referredTo"
+                placeholder="e.g. Cardiologist / Apollo Hospital"
+                oninput="handlePatientInput(event)" />
+            </div>
           </div>
         </div>
       </fieldset>
@@ -270,6 +333,10 @@ Unauthorized copying, distribution, or use of this file or any portion of it is 
           </div>
           <div id="med-search-results" class="med-search-results" role="listbox" aria-label="Medicine search results"></div>
         </div>
+
+        <button type="button" class="med-form-toggle-btn" id="med-form-toggle" onclick="toggleMedicineForm()">
+          <span id="med-form-toggle-icon">&#9660;</span> Add New Medicine
+        </button>
 
         <div class="medicine-form" id="medicine-form">
           <div class="form-row">

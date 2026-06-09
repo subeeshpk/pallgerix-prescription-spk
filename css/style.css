@@ -1983,4 +1983,210 @@ textarea {
     word-break: break-word;
   }
 
+  /* ---- Follow-up / Referred-to in print ---- */
+  .print-followup-section {
+    background: #e8f3fb;
+    border-left: 2.5pt solid #1a6fa8;
+    padding: 4pt 8pt;
+    border-radius: 0 2pt 2pt 0;
+    margin-bottom: 8pt;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print-followup-row {
+    display: flex;
+    gap: 6pt;
+    margin-bottom: 2pt;
+  }
+  .print-followup-row:last-child { margin-bottom: 0; }
+  .print-followup-label {
+    font-size: 8pt;
+    font-weight: bold;
+    color: #145a8a;
+    min-width: 80pt;
+    flex-shrink: 0;
+  }
+  .print-followup-value {
+    font-size: 9pt;
+    color: #1a1a1a;
+  }
+
+}
+
+/* ============================================================
+   SCREEN-ONLY ADDITIONS — validation, hints, new UI
+   ============================================================ */
+
+/* ---- Inline validation ---- */
+input.field-invalid,
+textarea.field-invalid {
+  border-color: var(--color-danger) !important;
+  box-shadow: 0 0 0 2px rgba(192,57,43,0.15);
+}
+.tile-group.field-invalid {
+  outline: 2px solid var(--color-danger);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+}
+
+/* ---- Vitals parse-error hint ---- */
+.vitals-input-hint {
+  font-size: 0.72rem;
+  color: var(--color-danger);
+  margin-top: 2px;
+  display: block;
+  min-height: 1em;
+}
+
+/* ---- Medicine form toggle button ---- */
+.med-form-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  border: 1px solid #b8d8ef;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  transition: background var(--transition);
+  text-align: left;
+}
+.med-form-toggle-btn:hover { background: #d0e8f8; }
+.medicine-form.collapsed   { display: none; }
+
+/* ---- Follow-up / Referred-to in preview ---- */
+.rx-followup-section {
+  background: var(--color-primary-light);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.45rem 0.7rem;
+  margin-bottom: 0.75rem;
+}
+.rx-followup-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  margin-bottom: 0.15rem;
+}
+.rx-followup-row:last-child { margin-bottom: 0; }
+.rx-followup-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+.rx-followup-value {
+  font-size: 0.82rem;
+  color: var(--color-text);
+}
+
+/* ---- Danger button ---- */
+.btn-danger {
+  background: var(--color-danger);
+  color: #fff;
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.btn-danger:hover {
+  background: #a93226;
+  border-color: #a93226;
+}
+
+/* ---- History modal ---- */
+.history-modal {
+  max-width: 680px;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.history-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
+}
+.history-modal-header h2 { margin-bottom: 0; }
+.history-modal-body {
+  overflow-y: auto;
+  flex: 1;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+}
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+  gap: 0.75rem;
+}
+.history-item:last-child { border-bottom: none; }
+.history-item-info { flex: 1; min-width: 0; }
+.history-item-rx {
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.history-item-patient {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+.history-item-meta {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+}
+.history-item-actions { flex-shrink: 0; }
+.history-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+.history-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 0.88rem;
+}
+
+/* ---- Close icon button (used in history modal header) ---- */
+.btn-icon-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+}
+.btn-icon-close:hover {
+  color: var(--color-text);
+  background: var(--color-bg);
 }

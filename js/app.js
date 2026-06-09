@@ -61,7 +61,10 @@ const state = {
     mobile: '',
     patientEmail: '',
     address: '',
-    notes: ''
+    notes: '',
+    uhid: '',
+    followUpDate: '',
+    referredTo: ''
   },
 
   diagnosisList: [],        // Array of strings
@@ -75,10 +78,13 @@ const state = {
   customCarePlans: [],            // Extra care plans typed by user
   vitalsAssessmentInPrescription: false, // Whether chips appear in preview & PDF
 
-  vitalsStandards: null           // Loaded from data/vitals-standards.json
+  vitalsStandards: null,          // Loaded from data/vitals-standards.json
+  rxNumber: null                  // Locked on first content render; null = not yet locked
 };
 
-const STORAGE_KEY = 'rx_draft_v2';
+const STORAGE_KEY  = 'rx_draft_v2';
+const HISTORY_KEY  = 'rx_history_v1';
+const HISTORY_LIMIT = 50;
 
 /* ============================================================
    2. STORAGE — persist draft to localStorage
@@ -96,7 +102,8 @@ function saveToStorage() {
       medicineList: state.medicineList.map(m => ({ ...m })),
       selectedCarePlans: [...state.selectedCarePlans],
       customCarePlans: [...state.customCarePlans],
-      vitalsAssessmentInPrescription: state.vitalsAssessmentInPrescription
+      vitalsAssessmentInPrescription: state.vitalsAssessmentInPrescription,
+      rxNumber: state.rxNumber
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot));
   } catch (e) {
@@ -124,6 +131,7 @@ function loadFromStorage() {
     if (saved.selectedCarePlans) state.selectedCarePlans = saved.selectedCarePlans;
     if (saved.customCarePlans)   state.customCarePlans   = saved.customCarePlans;
     if (saved.vitalsAssessmentInPrescription !== undefined) state.vitalsAssessmentInPrescription = saved.vitalsAssessmentInPrescription;
+    if (saved.rxNumber !== undefined) state.rxNumber = saved.rxNumber;
     return true;
   } catch (e) {
     console.warn('Could not load from localStorage:', e);
@@ -131,37 +139,79 @@ function loadFromStorage() {
   }
 }
 
-/** Clear all state and localStorage, then refresh UI */
+/** Save current prescription snapshot to the history array in localStorage */
+function saveToHistory() {
+  try {
+    const entry = {
+      savedAt: new Date().toISOString(),
+      rxNumber: state.rxNumber || buildPrescriptionNumber(),
+      selectedDoctorIndex: state.selectedDoctorIndex,
+      doctorName: state.doctor?.name || '',
+      clinicName: state.doctor?.clinicName || '',
+      patient: { ...state.patient },
+      diagnosisList: [...state.diagnosisList],
+      selectedTests: [...state.selectedTests],
+      customTests: [...state.customTests],
+      medicineList: state.medicineList.map(m => ({ ...m })),
+      selectedCarePlans: [...state.selectedCarePlans],
+      customCarePlans: [...state.customCarePlans],
+      vitalsAssessmentInPrescription: state.vitalsAssessmentInPrescription
+    };
+    const raw = localStorage.getItem(HISTORY_KEY);
+    const history = raw ? JSON.parse(raw) : [];
+    history.unshift(entry);
+    if (history.length > HISTORY_LIMIT) history.length = HISTORY_LIMIT;
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+  } catch (e) {
+    console.warn('Could not save to history:', e);
+  }
+}
+
+/** Show the reset confirmation modal */
 function resetForm() {
-  if (!confirm('Clear all form data? This cannot be undone.')) return;
+  showResetModal();
+}
+
+function showResetModal() {
+  document.getElementById('reset-modal-overlay')?.classList.remove('hidden');
+}
+
+function closeResetModal() {
+  document.getElementById('reset-modal-overlay')?.classList.add('hidden');
+}
+
+/** Execute the actual form reset after user confirms */
+function confirmReset() {
+  closeResetModal();
 
   state.selectedDoctorIndex  = -1;
   state.doctor               = null;
-  state.patient              = { name:'', age:'', sex:'', dob:'', height:'', weight:'', pulseRate:'', respiratoryRate:'', spo2:'', bp:'', temperature:'', mobile:'', patientEmail:'', address:'', notes:'' };
+  state.rxNumber             = null;
+  state.patient              = { name:'', age:'', sex:'', dob:'', height:'', weight:'', pulseRate:'', respiratoryRate:'', spo2:'', bp:'', temperature:'', mobile:'', patientEmail:'', address:'', notes:'', uhid:'', followUpDate:'', referredTo:'' };
   state.diagnosisList        = [];
   state.editingDiagnosisIndex = -1;
   state.selectedTests        = [];
-  state.customTests     = [];
-  state.medicineList    = [];
+  state.customTests          = [];
+  state.medicineList         = [];
   state.editingMedicineIndex = -1;
-  state.selectedCarePlans   = [];
-  state.customCarePlans     = [];
+  state.selectedCarePlans    = [];
+  state.customCarePlans      = [];
   state.vitalsAssessmentInPrescription = false;
 
   localStorage.removeItem(STORAGE_KEY);
 
-  // Reset doctor selector UI
   const doctorSelect = document.getElementById('doctor-select');
   if (doctorSelect) doctorSelect.value = '-1';
   renderDoctorCard();
+  updateTopBar();
 
-  // Restore form fields
   restorePatientForm();
   renderTestTiles();
   renderCareplanTiles();
   renderDiagnosisList();
   renderMedicineList();
   clearMedicineForm();
+  toggleMedicineForm(true);
   updatePreview();
   document.getElementById('validation-msg').classList.add('hidden');
 }
@@ -190,10 +240,13 @@ function restorePatientForm() {
   setVal('pt-spo2',     p.spo2);
   setVal('pt-bp',       p.bp);
   setVal('pt-temp',     p.temperature);
-  setVal('pt-mobile',   p.mobile);
-  setVal('pt-email',    p.patientEmail);
-  setVal('pt-address',  p.address);
-  setVal('pt-notes',    p.notes);
+  setVal('pt-mobile',     p.mobile);
+  setVal('pt-email',      p.patientEmail);
+  setVal('pt-address',    p.address);
+  setVal('pt-notes',      p.notes);
+  setVal('pt-uhid',       p.uhid);
+  setVal('pt-followup',   p.followUpDate);
+  setVal('pt-referredto', p.referredTo);
 
   // Sex tiles
   document.querySelectorAll('#sex-tiles .tile').forEach(btn => {
@@ -290,12 +343,23 @@ function renderDoctorCard() {
   card.classList.remove('hidden');
 }
 
+/** Update the top bar title to reflect the currently selected doctor */
+function updateTopBar() {
+  const el = document.getElementById('top-bar-title');
+  if (!el) return;
+  el.textContent = state.doctor
+    ? `${state.doctor.clinicName} — ${state.doctor.name}`
+    : 'PallGerix Prescription';
+}
+
 /** Handle doctor dropdown change */
 function handleDoctorSelect(value) {
   const idx = parseInt(value, 10);
   state.selectedDoctorIndex = idx;
   state.doctor = (idx >= 0 && idx < state.doctors.length) ? state.doctors[idx] : null;
+  state.rxNumber = null;
   renderDoctorCard();
+  updateTopBar();
   saveToStorage();
   updatePreview();
 }
@@ -571,7 +635,8 @@ function fillMedicineFromTemplate(tpl) {
   if (saveBtn)   saveBtn.textContent = '+ Add Medicine';
   if (cancelBtn) cancelBtn.style.display = 'none';
 
-  // Scroll form into view and focus name field for quick correction
+  // Expand, scroll, and focus for quick editing
+  toggleMedicineForm(true);
   document.getElementById('medicine-form')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   document.getElementById('med-name')?.focus();
 }
@@ -666,6 +731,12 @@ function updatePreview() {
     return;
   }
 
+  // Lock Rx number on first actual content render
+  if (state.rxNumber === null) {
+    state.rxNumber = buildPrescriptionNumber();
+    saveToStorage();
+  }
+
   const doc = state.doctor;
   const p   = state.patient;
 
@@ -676,7 +747,7 @@ function updatePreview() {
     container.innerHTML = `
       <div class="rx-header">
         <div class="rx-clinic-block">
-          <img src="assets/logo.png"
+          <img src="${escapeHTML(doc?.logoFile || 'assets/logo.png')}"
                onerror="this.style.display='none';"
                alt="Clinic Logo" class="rx-logo" />
           <div>
@@ -719,13 +790,14 @@ function updatePreview() {
 
   let html = `
     <div class="rx-pres-row">
-      <div class="rx-pres-number">Rx No: ${escapeHTML(buildPrescriptionNumber())}</div>
+      <div class="rx-pres-number">Rx No: ${escapeHTML(state.rxNumber)}</div>
       <div class="rx-datetime">Date &amp; Time: ${formatDateTime()}</div>
     </div>`;
 
   /* Patient box — grouped by Personal Info / Vitals / Contact */
   const ptPersonal = [
     { label: 'Patient',  value: p.name },
+    { label: 'UHID',     value: p.uhid },
     { label: 'Age',      value: p.age ? `${p.age} yrs` : '' },
     { label: 'Sex',      value: p.sex },
     { label: 'DOB',      value: formatDateDisplay(p.dob) },
@@ -836,6 +908,24 @@ function updatePreview() {
     </div>`;
   }
 
+  /* Follow-up / Referred-to */
+  if (p.followUpDate || p.referredTo) {
+    html += `<div class="rx-followup-section">`;
+    if (p.followUpDate) {
+      html += `<div class="rx-followup-row">
+        <span class="rx-followup-label">Follow-up Date:</span>
+        <span class="rx-followup-value">${escapeHTML(formatDateDisplay(p.followUpDate))}</span>
+      </div>`;
+    }
+    if (p.referredTo) {
+      html += `<div class="rx-followup-row">
+        <span class="rx-followup-label">Referred To:</span>
+        <span class="rx-followup-value">${escapeHTML(p.referredTo)}</span>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
   /* Patient notes */
   if (p.notes) {
     html += `<div class="rx-section">
@@ -931,6 +1021,7 @@ function selectSex(btn) {
     b.classList.toggle('selected', isThis);
     b.setAttribute('aria-pressed', isThis ? 'true' : 'false');
   });
+  document.getElementById('sex-tiles')?.classList.remove('field-invalid');
   state.patient.sex = btn.dataset.value;
   saveToStorage();
   updatePreview();
@@ -1102,22 +1193,31 @@ function saveMedicine() {
   const med = readMedicineForm();
 
   if (!med.name) {
-    alert('Please enter a medicine name.');
-    document.getElementById('med-name')?.focus();
+    const nameInput = document.getElementById('med-name');
+    if (nameInput) {
+      nameInput.classList.add('field-invalid');
+      nameInput.focus();
+      nameInput.addEventListener('input', () => nameInput.classList.remove('field-invalid'), { once: true });
+    }
     return;
   }
 
-  if (state.editingMedicineIndex >= 0) {
-    // Update existing
+  const isEditing = state.editingMedicineIndex >= 0;
+
+  if (isEditing) {
     state.medicineList[state.editingMedicineIndex] = med;
   } else {
-    // Add new
     state.medicineList.push(med);
   }
 
   clearMedicineForm();
   renderMedicineList();
-  document.getElementById('med-name')?.focus();
+
+  if (!isEditing) {
+    toggleMedicineForm(false); // auto-collapse after adding a new medicine
+  } else {
+    document.getElementById('med-name')?.focus();
+  }
 }
 
 /**
@@ -1145,7 +1245,8 @@ function editMedicine(index) {
   if (saveBtn)   saveBtn.textContent = '✔ Update Medicine';
   if (cancelBtn) cancelBtn.style.display = '';
 
-  // Scroll medicine form into view
+  // Expand and scroll medicine form into view
+  toggleMedicineForm(true);
   document.getElementById('medicine-form')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   document.getElementById('med-name')?.focus();
 }
@@ -1153,6 +1254,16 @@ function editMedicine(index) {
 /** Cancel editing a medicine entry */
 function cancelMedicineEdit() {
   clearMedicineForm();
+}
+
+/** Toggle the medicine entry form open or closed. Pass true/false to force a state. */
+function toggleMedicineForm(forceOpen) {
+  const form = document.getElementById('medicine-form');
+  const icon = document.getElementById('med-form-toggle-icon');
+  if (!form) return;
+  const shouldOpen = forceOpen !== undefined ? forceOpen : form.classList.contains('collapsed');
+  form.classList.toggle('collapsed', !shouldOpen);
+  if (icon) icon.textContent = shouldOpen ? '▴' : '▾';
 }
 
 /** Remove a medicine entry by index */
@@ -1175,9 +1286,29 @@ function validateForm() {
   const errors = [];
 
   if (state.selectedDoctorIndex < 0) errors.push('Please select a doctor.');
-  if (!state.patient.name.trim()) errors.push('Patient name is required.');
-  if (!state.patient.age && !state.patient.dob) errors.push('Patient age or date of birth is required.');
-  if (!state.patient.sex) errors.push('Patient sex must be selected.');
+
+  const nameValid = !!state.patient.name.trim();
+  const ageValid  = !!(state.patient.age || state.patient.dob);
+  const sexValid  = !!state.patient.sex;
+
+  if (!nameValid) errors.push('Patient name is required.');
+  if (!ageValid)  errors.push('Patient age or date of birth is required.');
+  if (!sexValid)  errors.push('Patient sex must be selected.');
+
+  // Highlight invalid required fields
+  const nameInput = document.getElementById('pt-name');
+  const ageInput  = document.getElementById('pt-age');
+  const sexGroup  = document.getElementById('sex-tiles');
+
+  if (nameInput) {
+    nameInput.classList.toggle('field-invalid', !nameValid);
+    if (!nameValid) nameInput.addEventListener('input', () => nameInput.classList.remove('field-invalid'), { once: true });
+  }
+  if (ageInput) {
+    ageInput.classList.toggle('field-invalid', !ageValid);
+    if (!ageValid) ageInput.addEventListener('input', () => ageInput.classList.remove('field-invalid'), { once: true });
+  }
+  if (sexGroup) sexGroup.classList.toggle('field-invalid', !sexValid);
 
   if (errors.length) {
     msgEl.textContent = errors.join(' ');
@@ -1203,6 +1334,108 @@ function closeModal() {
   document.getElementById('modal-overlay')?.classList.add('hidden');
 }
 
+/** Show the prescription history modal */
+function showHistoryModal() {
+  renderHistoryList();
+  document.getElementById('history-modal-overlay')?.classList.remove('hidden');
+}
+
+/** Close the prescription history modal */
+function closeHistoryModal() {
+  document.getElementById('history-modal-overlay')?.classList.add('hidden');
+}
+
+/** Render entries in the history list */
+function renderHistoryList() {
+  const list = document.getElementById('history-list');
+  if (!list) return;
+
+  let history = [];
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    history = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    history = [];
+  }
+
+  if (!history.length) {
+    list.innerHTML = '<div class="history-empty">No prescription history yet. History is saved each time you print.</div>';
+    return;
+  }
+
+  list.innerHTML = '';
+  history.forEach((entry, index) => {
+    const savedDate = new Date(entry.savedAt);
+    const dateStr = savedDate.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    const timeStr = savedDate.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    const item = document.createElement('div');
+    item.className = 'history-item';
+    item.innerHTML = `
+      <div class="history-item-info">
+        <div class="history-item-rx">${escapeHTML(entry.rxNumber || '—')}</div>
+        <div class="history-item-patient">${escapeHTML(entry.patient?.name || 'Unknown Patient')}</div>
+        <div class="history-item-meta">${escapeHTML(entry.doctorName)} &middot; ${escapeHTML(dateStr)} ${escapeHTML(timeStr)}</div>
+      </div>
+      <div class="history-item-actions">
+        <button class="btn btn-secondary" onclick="restoreFromHistory(${index})">Restore</button>
+      </div>`;
+    list.appendChild(item);
+  });
+}
+
+/** Restore a saved prescription from history into the active form */
+function restoreFromHistory(index) {
+  let history = [];
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    history = raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return;
+  }
+
+  const entry = history[index];
+  if (!entry) return;
+
+  const idx = entry.selectedDoctorIndex ?? -1;
+  state.selectedDoctorIndex = idx;
+  state.doctor = (idx >= 0 && idx < state.doctors.length) ? state.doctors[idx] : null;
+  state.rxNumber = entry.rxNumber || null;
+
+  const blankPatient = { name:'', age:'', sex:'', dob:'', height:'', weight:'', pulseRate:'', respiratoryRate:'', spo2:'', bp:'', temperature:'', mobile:'', patientEmail:'', address:'', notes:'', uhid:'', followUpDate:'', referredTo:'' };
+  Object.assign(state.patient, blankPatient, entry.patient || {});
+
+  if (entry.diagnosisList)  state.diagnosisList  = entry.diagnosisList;
+  if (entry.selectedTests)  state.selectedTests  = entry.selectedTests;
+  if (entry.customTests)    state.customTests    = entry.customTests;
+  if (entry.medicineList)   state.medicineList   = entry.medicineList;
+  if (entry.selectedCarePlans) state.selectedCarePlans = entry.selectedCarePlans;
+  if (entry.customCarePlans)   state.customCarePlans   = entry.customCarePlans;
+  if (entry.vitalsAssessmentInPrescription !== undefined) state.vitalsAssessmentInPrescription = entry.vitalsAssessmentInPrescription;
+
+  saveToStorage();
+
+  const doctorSelect = document.getElementById('doctor-select');
+  if (doctorSelect) doctorSelect.value = String(state.selectedDoctorIndex);
+  renderDoctorCard();
+  updateTopBar();
+  restorePatientForm();
+  renderTestTiles();
+  renderCareplanTiles();
+  renderDiagnosisList();
+  renderMedicineList();
+  toggleMedicineForm(state.medicineList.length === 0);
+  updatePreview();
+  closeHistoryModal();
+}
+
+/** Clear all prescription history */
+function clearHistory() {
+  if (!confirm('Clear all prescription history? This cannot be undone.')) return;
+  localStorage.removeItem(HISTORY_KEY);
+  renderHistoryList();
+}
+
 /**
  * Build the full print-ready prescription HTML string.
  * This is injected into #print-area which is shown during @media print.
@@ -1218,7 +1451,7 @@ function buildPrintHTML() {
   html += `
     <div class="print-rx-header">
       <div class="print-clinic-block">
-        <img src="assets/logo.png"
+        <img src="${escapeHTML(doc?.logoFile || 'assets/logo.png')}"
              onerror="this.style.display='none';"
              alt="Clinic Logo" class="print-logo" />
         <div>
@@ -1236,13 +1469,14 @@ function buildPrintHTML() {
       </div>
     </div>
     <div class="print-pres-row">
-      <div class="print-pres-number">Rx No: ${buildPrescriptionNumber()}</div>
+      <div class="print-pres-number">Rx No: ${escapeHTML(state.rxNumber || buildPrescriptionNumber())}</div>
       <div class="print-datetime">Date &amp; Time: ${formatDateTime()}</div>
     </div>`;
 
   /* Patient box — grouped by Personal Info / Vitals / Contact */
   const printPersonal = [
     { label: 'Patient Name',  value: p.name },
+    { label: 'UHID',          value: p.uhid },
     { label: 'Age',           value: p.age ? `${p.age} yrs` : '' },
     { label: 'Sex',           value: p.sex },
     { label: 'Date of Birth', value: formatDateDisplay(p.dob) },
@@ -1354,6 +1588,24 @@ function buildPrintHTML() {
     </div>`;
   }
 
+  /* Follow-up / Referred-to */
+  if (p.followUpDate || p.referredTo) {
+    html += `<div class="print-followup-section">`;
+    if (p.followUpDate) {
+      html += `<div class="print-followup-row">
+        <span class="print-followup-label">Follow-up Date:</span>
+        <span class="print-followup-value">${escapeHTML(formatDateDisplay(p.followUpDate))}</span>
+      </div>`;
+    }
+    if (p.referredTo) {
+      html += `<div class="print-followup-row">
+        <span class="print-followup-label">Referred To:</span>
+        <span class="print-followup-value">${escapeHTML(p.referredTo)}</span>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
   /* Notes */
   if (p.notes) {
     html += `<div class="print-section">
@@ -1393,6 +1645,7 @@ function buildPrintHTML() {
  */
 function executePrint() {
   closeModal();
+  saveToHistory();
 
   const printArea = document.getElementById('print-area');
   if (printArea) {
@@ -1451,13 +1704,14 @@ function buildPrescriptionNumber() {
   const yyyy = now.getFullYear();
   const hh   = String(now.getHours()).padStart(2, '0');
   const min  = String(now.getMinutes()).padStart(2, '0');
+  const sec  = String(now.getSeconds()).padStart(2, '0');
 
-  return `PALLGERIX_PRES_${firstName}_${dd}${mm}${yyyy}_${hh}${min}`;
+  return `PALLGERIX_PRES_${firstName}_${dd}${mm}${yyyy}_${hh}${min}${sec}`;
 }
 
 /** Returns the prescription number for use as the PDF filename. */
 function buildPdfTitle() {
-  return buildPrescriptionNumber();
+  return state.rxNumber || buildPrescriptionNumber();
 }
 
 /**
@@ -1660,6 +1914,22 @@ function renderVitalsAssessment() {
   const grid  = document.getElementById('vitals-assessment-grid');
   if (!panel || !grid) return;
 
+  // Update parse-error hints — run before early return so hints always reflect current input
+  const pv = state.patient;
+  const setHint = (id, value, isValidFn) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = ((value || '').trim() && !isValidFn((value || '').trim())) ? '⚠ Enter a numeric value' : '';
+  };
+  setHint('hint-pulse', pv.pulseRate,       v => parseNumeric(v) !== null);
+  setHint('hint-rr',    pv.respiratoryRate, v => parseNumeric(v) !== null);
+  setHint('hint-spo2',  pv.spo2,           v => parseNumeric(v) !== null);
+  setHint('hint-temp',  pv.temperature,    v => parseNumeric(v) !== null);
+  const bpHintEl = document.getElementById('hint-bp');
+  if (bpHintEl) {
+    bpHintEl.textContent = ((pv.bp || '').trim() && !parseBPValue((pv.bp || '').trim())) ? '⚠ Use format: 120/80' : '';
+  }
+
   const assessments = computeVitalsAssessment();
 
   if (!assessments.length) {
@@ -1723,17 +1993,35 @@ async function init() {
   // Render preview (will show empty state if nothing saved)
   updatePreview();
 
+  // Update top bar title to reflect selected doctor
+  updateTopBar();
+
   // Set document title to structured PDF filename (for Android Chrome "Save as PDF")
   updateDocTitle();
 
-  // Close modal on overlay click
+  // Set initial medicine form collapse state based on restored medicines
+  if (state.medicineList.length > 0) {
+    toggleMedicineForm(false);
+  }
+
+  // Close modals on overlay click
   document.getElementById('modal-overlay')?.addEventListener('click', function(e) {
     if (e.target === this) closeModal();
   });
+  document.getElementById('history-modal-overlay')?.addEventListener('click', function(e) {
+    if (e.target === this) closeHistoryModal();
+  });
+  document.getElementById('reset-modal-overlay')?.addEventListener('click', function(e) {
+    if (e.target === this) closeResetModal();
+  });
 
-  // Close modal on Escape key
+  // Close modals on Escape key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Escape') {
+      closeModal();
+      closeHistoryModal();
+      closeResetModal();
+    }
   });
 
   // Set initial tab state (activates form panel on mobile; no-op on desktop)
