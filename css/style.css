@@ -789,6 +789,7 @@ textarea {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 1.5rem;
+  overflow-x: hidden;
   overflow-y: auto;
   max-height: calc(100vh - 120px);
   font-family: var(--font-sans);
@@ -810,12 +811,13 @@ textarea {
 .rx-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.75rem;
-  border-bottom: 2px solid var(--color-primary);
-  padding-bottom: 0.75rem;
-  margin-bottom: 0.75rem;
-  min-width: 0; /* allow flex container to shrink */
+  align-items: center;
+  gap: 1rem;
+  background: var(--color-primary);
+  color: #fff;
+  margin: -1.5rem -1.5rem 0;
+  padding: 16px 22px 14px;
+  min-width: 0;
 }
 
 .rx-clinic-block,
@@ -827,64 +829,79 @@ textarea {
 
 .rx-clinic-block {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.6rem;
+  flex: 1;
+}
+
+.rx-clinic-block > div {
+  flex: 1;
+  min-width: 0;
 }
 
 .rx-logo {
-  height: 52px;
-  width: auto;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
   flex-shrink: 0;
+  border-radius: 6px;
+  background: #fff;
+  padding: 4px;
 }
 
 .rx-clinic-name {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-primary);
-  letter-spacing: 0.02em;
+  color: #fff;
+  letter-spacing: 0.01em;
 }
 
 .rx-clinic-address,
 .rx-clinic-contact {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.88);
   margin-top: 0.1rem;
 }
 
 .rx-doctor-info {
   text-align: right;
   font-size: 0.82rem;
+  flex-shrink: 0;
+  max-width: 45%;
 }
 
 .rx-doctor-name {
   font-weight: 700;
-  color: var(--color-section-title);
+  color: #fff;
 }
 
 .rx-doctor-qual,
 .rx-doctor-reg {
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.85);
   font-size: 0.78rem;
 }
 
 .rx-pres-row {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.6rem;
+  align-items: center;
+  background: var(--color-primary-dark);
+  color: #fff;
+  margin: 0 -1.5rem 0.75rem;
+  padding: 6px 22px;
 }
 
 .rx-pres-number {
   font-size: 0.7rem;
   font-family: monospace;
   font-weight: 700;
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.9);
   letter-spacing: 0.03em;
 }
 
 .rx-datetime {
-  font-size: 0.78rem;
-  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.9);
   text-align: right;
 }
 
@@ -1611,17 +1628,20 @@ textarea {
   .print-rx-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 2pt solid #1a6fa8;
-    padding-bottom: 8pt;
-    margin-bottom: 8pt;
+    align-items: center;
+    gap: 12pt;
+    background: #1a6fa8;
+    color: #fff;
+    padding: 12pt 16pt 10pt;
     page-break-inside: avoid;
     break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .print-clinic-block {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 8pt;
     min-width: 0;
     overflow-wrap: break-word;
@@ -1629,30 +1649,41 @@ textarea {
   }
 
   .print-clinic-block > div {
+    flex: 1;
     min-width: 0;
   }
 
+  .print-clinic-block {
+    flex: 1;
+  }
+
   .print-logo {
-    height: 48pt;
-    width: auto;
+    width: 50pt;
+    height: 50pt;
+    object-fit: contain;
     flex-shrink: 0;
+    border-radius: 4pt;
+    background: #fff;
+    padding: 3pt;
   }
 
   .print-clinic-name {
     font-size: 14pt;
     font-weight: bold;
-    color: #1a3a5c;
+    color: #fff;
   }
 
   .print-clinic-sub {
     font-size: 9pt;
-    color: #555;
+    color: rgba(255,255,255,0.88);
     margin-top: 2pt;
   }
 
   .print-doctor-info {
     text-align: right;
     font-size: 9.5pt;
+    flex-shrink: 0;
+    max-width: 45%;
     min-width: 0;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -1661,33 +1692,38 @@ textarea {
   .print-doctor-name {
     font-weight: bold;
     font-size: 11pt;
-    color: #1a3a5c;
+    color: #fff;
   }
 
   .print-doctor-sub {
     font-size: 8.5pt;
-    color: #555;
+    color: rgba(255,255,255,0.85);
     margin-top: 1pt;
   }
 
   .print-pres-row {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 6pt;
+    align-items: center;
+    background: #145a8a;
+    color: #fff;
+    padding: 5pt 16pt;
+    margin-bottom: 8pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   .print-pres-number {
     font-size: 7.5pt;
     font-family: monospace;
     font-weight: 700;
-    color: #555;
+    color: rgba(255,255,255,0.9);
     letter-spacing: 0.03em;
   }
 
   .print-datetime {
     font-size: 8.5pt;
-    color: #666;
+    color: rgba(255,255,255,0.9);
     text-align: right;
   }
 
