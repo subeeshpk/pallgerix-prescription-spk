@@ -16,13 +16,13 @@ REFERENCE WEB APP
 ══════════════════════════════════════════════════════════════════
 The existing web app lives at: https://github.com/subeeshpk/pallgerix-prescription-spk
 Key files to understand before starting:
-  - js/app.js                → full app logic (vanilla JS)
-  - data/doctor.json         → doctor/clinic schema
-  - data/medicines.json      → medicine template schema
-  - data/careplans.json      → care plan strings array
-  - data/tests.json          → diagnostic test strings array
-  - data/vitals-standards.json → vitals reference ranges
-  - data/icd-11-code.json    → ICD-11 diagnosis code library ({ code, label } objects)
+  - js/pg-rx-app.js                → full app logic (vanilla JS)
+  - data/pg-rx-doctor.json         → doctor/clinic schema
+  - data/pg-rx-medicines.json      → medicine template schema
+  - data/pg-rx-careplans.json      → care plan strings array
+  - data/pg-rx-tests.json          → diagnostic test strings array
+  - data/pg-rx-vitals-standards.json → vitals reference ranges
+  - data/pg-rx-icd-11-code.json    → ICD-11 diagnosis code library ({ code, label } objects)
 
 Port all existing features from this web app into the mobile app.
 
@@ -135,8 +135,8 @@ Use expo-sqlite. Create these tables on first launch:
   )
 
 On first launch, seed medicines, care_plans, and tests tables from the
-bundled JSON files (data/medicines.json, data/careplans.json, data/tests.json)
-marking is_custom = 0. Seed one default clinic and doctor from data/doctor.json.
+bundled JSON files (data/pg-rx-medicines.json, data/pg-rx-careplans.json, data/pg-rx-tests.json)
+marking is_custom = 0. Seed one default clinic and doctor from data/pg-rx-doctor.json.
 
 ══════════════════════════════════════════════════════════════════
 NAVIGATION STRUCTURE (expo-router file-based)
@@ -265,12 +265,12 @@ Section 4 — Patient Vitals
   • Pulse Rate (bpm), Respiratory Rate (/min), SpO2 (%), BP (mmHg),
     Temperature (°F)
   • Auto-colour each value Normal/Borderline/Abnormal based on
-    vitals-standards.json ranges (green/amber/red badge chips)
+    pg-rx-vitals-standards.json ranges (green/amber/red badge chips)
   • Toggle: "Include vitals in prescription"
 
 Section 5 — Diagnosis
   • ICD-11 search box: type a code (e.g. BA00) or keyword (e.g. Hypertension)
-    to search the bundled icd-11-code.json library (292+ entries).
+    to search the bundled pg-rx-icd-11-code.json library (292+ entries).
     Search matches both code and label fields (partial, case-insensitive).
     Tapping a result immediately adds "CODE: Label" to the diagnosis list
     (e.g. "BA00: Essential hypertension") and clears the search input.
@@ -429,8 +429,8 @@ CONSTRAINTS
   • No in-app purchases or subscription logic.
   • Target: Android API 26+ and iOS 14+.
   • EAS Build (not bare workflow) for app store distribution.
-  • All bundled seed data (medicines.json, careplans.json, tests.json,
-    vitals-standards.json, icd-11-code.json) must be included as static
+  • All bundled seed data (pg-rx-medicines.json, pg-rx-careplans.json, pg-rx-tests.json,
+    pg-rx-vitals-standards.json, pg-rx-icd-11-code.json) must be included as static
     assets in the app bundle (assets/data/) and read on first launch to
-    seed SQLite. icd-11-code.json is queried in-memory (no SQLite table
+    seed SQLite. pg-rx-icd-11-code.json is queried in-memory (no SQLite table
     needed) — load it once at startup and keep it in app state.
