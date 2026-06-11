@@ -38,13 +38,13 @@ const debouncedUpdatePreview = debounce(updatePreview, 180);
 
 /** Single mutable state object for the entire app */
 const state = {
-  doctors: [],             // Loaded from data/doctor.json (array)
+  doctors: [],             // Loaded from data/pg-rx-doctor.json (array)
   selectedDoctorIndex: -1, // -1 = no doctor selected
   doctor: null,            // Resolved from selectedDoctorIndex; null = none
-  tests: [],               // Loaded from data/tests.json
-  carePlans: [],           // Loaded from data/careplans.json
-  medicineTemplates: [],   // Loaded from data/medicines.json
-  icdCodes: [],            // Loaded from data/icd-11-code.json
+  tests: [],               // Loaded from data/pg-rx-tests.json
+  carePlans: [],           // Loaded from data/pg-rx-careplans.json
+  medicineTemplates: [],   // Loaded from data/pg-rx-medicines.json
+  icdCodes: [],            // Loaded from data/pg-rx-icd-11-code.json
 
   patient: {
     name: '',
@@ -79,7 +79,7 @@ const state = {
   customCarePlans: [],            // Extra care plans typed by user
   vitalsAssessmentInPrescription: false, // Whether chips appear in preview & PDF
 
-  vitalsStandards: null,          // Loaded from data/vitals-standards.json
+  vitalsStandards: null,          // Loaded from data/pg-rx-vitals-standards.json
   rxNumber: null                  // Locked on first content render; null = not yet locked
 };
 
@@ -279,19 +279,19 @@ async function loadData() {
   };
 
   const results = await Promise.allSettled([
-    toJSON('data/doctor.json'),
-    toJSON('data/tests.json'),
-    toJSON('data/careplans.json'),
-    toJSON('data/medicines.json'),
-    toJSON('data/vitals-standards.json'),
-    toJSON('data/icd-11-code.json')
+    toJSON('data/pg-rx-doctor.json'),
+    toJSON('data/pg-rx-tests.json'),
+    toJSON('data/pg-rx-careplans.json'),
+    toJSON('data/pg-rx-medicines.json'),
+    toJSON('data/pg-rx-vitals-standards.json'),
+    toJSON('data/pg-rx-icd-11-code.json')
   ]);
 
   if (results[0].status === 'fulfilled') {
     const raw = results[0].value;
     state.doctors = Array.isArray(raw) ? raw : [raw];
   } else {
-    console.error('Failed to load doctor.json:', results[0].reason);
+    console.error('Failed to load pg-rx-doctor.json:', results[0].reason);
     state.doctors = [];
   }
 
@@ -300,7 +300,7 @@ async function loadData() {
   state.medicineTemplates = results[3].status === 'fulfilled' ? results[3].value : [];
   state.vitalsStandards   = results[4].status === 'fulfilled' ? results[4].value : null;
   state.icdCodes          = results[5].status === 'fulfilled' ? results[5].value : [];
-  if (!state.vitalsStandards) console.warn('Failed to load vitals-standards.json:', results[4].reason);
+  if (!state.vitalsStandards) console.warn('Failed to load pg-rx-vitals-standards.json:', results[4].reason);
 }
 
 /* ============================================================
@@ -1825,7 +1825,7 @@ function computeBMI(heightStr, weightStr) {
   return Math.round((w / (hm * hm)) * 10) / 10;
 }
 
-/** Classify a value against a min/max ranges array from vitals-standards.json */
+/** Classify a value against a min/max ranges array from pg-rx-vitals-standards.json */
 function classifyByRanges(value, ranges) {
   for (const r of ranges) {
     if (value >= r.min && value <= r.max) return r;
