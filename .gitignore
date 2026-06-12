@@ -84,3 +84,5 @@ git-exclude
 
 assets/tmp/
 assets/cache/
+
+test-results/
