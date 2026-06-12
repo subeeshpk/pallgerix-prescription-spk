@@ -1598,14 +1598,24 @@ textarea {
     margin: 15mm 18mm 20mm 18mm;
   }
 
+  /* Force mobile browsers to render at A4 width, not the narrow screen viewport.
+     Without this, iPhone/Android print at ~390px instead of ~794px, causing the
+     header to stretch and text to wrap incorrectly. The browser scales the 210mm
+     content to fit the page — matching desktop output on all platforms. */
+  html {
+    width: 210mm;
+  }
+
   body {
+    width: 210mm;
+    min-width: 210mm;
     background: #fff;
     color: #000;
     font-size: 11pt;
     font-family: Arial, 'Helvetica Neue', sans-serif;
     line-height: 1.45;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
   }
 
   /* Remove screen-only decorations */
@@ -1670,6 +1680,7 @@ textarea {
   .print-clinic-name {
     font-size: 14pt;
     font-weight: bold;
+    white-space: nowrap;
     color: #fff;
   }
 
@@ -1877,7 +1888,7 @@ textarea {
   .print-med-table td {
     font-size: 9pt;
     overflow-wrap: break-word;
-    word-break: break-word;
+    word-break: normal;
   }
 
   .print-med-table tr:nth-child(even) td {
